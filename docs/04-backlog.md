@@ -10,7 +10,7 @@
 
 | Epic ID | Epic Name                   | Status         | Features     | Priority    | Target Release     |
 | ------- | --------------------------- | -------------- | ------------ | ----------- | ------------------ |
-| EP-01   | Website Foundation          | 🟡 In Progress | 2/3 complete | Must-Have   | Phase 1 (Jan 2026) |
+| EP-01   | Website Foundation          | 🟡 In Progress | 3/4 complete | Must-Have   | Phase 1 (Jan 2026) |
 | EP-02   | Integrations & Monetization | 🔵 Not Started | 0/2 started  | Should-Have | Phase 2/3          |
 | EP-03   | Content Expansion           | 🔵 Not Started | 0/3 started  | Should-Have | Phase 2            |
 
@@ -97,8 +97,26 @@
 **Acceptance Criteria**:
 
 - [x] Files renamed to `01-vision`, `02-mvp`, etc.
-- [ ] Backlog, Changelog, and Technical Decisions created
-- [ ] Project Status updated to SOP format
+- [x] Backlog, Changelog, and Technical Decisions created
+- [x] Project Status updated to SOP format
+
+---
+
+### Feature EP-01-F-04: Sitemap Creation
+
+**Feature Statement**: As a product owner, I want a validated sitemap so that development aligns with business goals.
+
+**Priority**: High  
+**Complexity**: Simple  
+**Status**: 🟢 Complete (Awaiting Sign-off)  
+**Assigned To**: Antigravity  
+**Completed**: 2026-02-10
+
+**Acceptance Criteria**:
+
+- [x] Sitemap produced (`docs/sitemap.md`)
+- [x] Pages to keep/remove confirmed
+- [x] Removal log for content reuse documented
 
 ---
 
