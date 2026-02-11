@@ -7,6 +7,18 @@ Versioning: Semantic Versioning (https://semver.org/)
 
 ---
 
+## [1.0.0] - 2026-02-10
+
+### Added
+
+- `.cursorrules` and `.agent/rules.md` project-specific senior engineer instructions.
+- `.agent/context.md` for project background and migration continuity.
+- `docs/sitemap.md` official sitemap and content removal log.
+- `docs/user-stories/epic-foundation.md` for ticket-level tracking (CREATE-SITEMAP).
+- `EP-01-F-04: Sitemap Creation` feature in the backlog.
+
+---
+
 ## [0.2.0] - 2026-01-12
 
 ### Added
