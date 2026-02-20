@@ -1,4 +1,5 @@
-import { CollectionConfig } from 'payload'
+import type { CollectionConfig } from 'payload'
+import { publicAccess, isAuthenticated, isAdminAccess } from '../access'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
@@ -7,10 +8,10 @@ export const Posts: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'updatedAt'],
   },
   access: {
-    read: () => true,
-    create: ({ req: { user } }) => !!user,
-    update: ({ req: { user } }) => !!user,
-    delete: ({ req: { user } }) => !!user?.roles?.includes('admin'),
+    read: publicAccess,
+    create: isAuthenticated,
+    update: isAuthenticated,
+    delete: isAdminAccess,
   },
   fields: [
     {
