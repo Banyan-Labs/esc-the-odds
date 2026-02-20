@@ -4,44 +4,36 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="py-12 bg-black border-t border-white/10 text-sm text-gray-500">
-      <div className="container px-4 md:px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="flex flex-col items-center md:items-start gap-2">
-          <span className="text-lg font-bold text-white tracking-tight">
-            ETO
+    <footer className="py-20 bg-black border-t border-white/5 text-xs">
+      <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center gap-12">
+        <div className="flex flex-col items-center md:items-start gap-4">
+          <span className="text-3xl font-heading text-white tracking-tighter">
+            ESCAPE THE <span className="text-gold">ODDS.</span>
           </span>
-          <p>
-            © {new Date().getFullYear()} Escape the Odds. All rights reserved.
+          <p className="text-cream/30 font-sans tracking-widest uppercase">
+            © {new Date().getFullYear()} ALL RIGHTS RESERVED.
           </p>
         </div>
 
-        <div className="flex items-center gap-8">
-          <Link
-            href="https://upcurve.life/YOUR_CAMPAIGN_ID"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary font-bold hover:text-primary/80 transition-colors"
-          >
-            Donate
-          </Link>
-          <Link
-            href="/privacy"
-            className="hover:text-foreground transition-colors"
-          >
-            Privacy Policy
-          </Link>
-          <Link
-            href="/terms"
-            className="hover:text-foreground transition-colors"
-          >
-            Terms of Service
-          </Link>
-          <Link
-            href="/social"
-            className="hover:text-foreground transition-colors"
-          >
-            Socials
-          </Link>
+        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+          {[
+            { name: "PARTNER", href: "/partner" },
+            { name: "SUPPORT", href: "/partner#support", color: "text-gold" },
+            { name: "BLOG", href: "/blog" },
+            { name: "PRIVACY", href: "/privacy" },
+            { name: "TERMS", href: "/terms" },
+            { name: "SOCIALS", href: "/social" },
+          ].map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`font-heading tracking-[0.2em] transition-colors hover:text-white ${
+                link.color || "text-cream/50"
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
       </div>
     </footer>
