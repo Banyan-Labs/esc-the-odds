@@ -14,11 +14,11 @@ const pillars = [
   },
   {
     icon: BookOpen,
-    title: "MASTERY",
+    title: "DEVELOPMENT",
     subtitle: "THE CURRICULUM",
     description:
       "The 'Bounce Forward Plan'—a 15-session evidence-based framework for reentry excellence.",
-    path: "/courses",
+    path: "/programs",
   },
   {
     icon: Truck,
