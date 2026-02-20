@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand Identity Colors from ETO-Brand-Kit.pdf */
+  --charcoal: #323131;
+  --black: #000000;
+  --gold: #dfb05a;
+  --cream: #f1ece6;
+
+  /* Theme Mapping */
+  --background: var(--black);
+  --foreground: var(--cream);
+
+  --primary: var(--gold);
+  --primary-foreground: var(--black);
+
+  --secondary: var(--charcoal);
+  --secondary-foreground: var(--cream);
+
+  --accent: var(--gold);
+  --accent-foreground: var(--black);
+
+  --card: var(--charcoal);
+  --card-foreground: var(--cream);
+
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  /* Brand Colors Extracted */
+  --color-charcoal: var(--charcoal);
+  --color-gold: var(--gold);
+  --color-cream: var(--cream);
+  --color-black: var(--black);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-anton), ui-sans-serif, system-ui, sans-serif;
+  --font-montserrat: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
