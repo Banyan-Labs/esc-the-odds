@@ -28,8 +28,8 @@ export function ContactSection() {
           </div>
 
           <p className="text-xl text-cream/70 font-sans font-light leading-relaxed max-w-2xl mx-auto">
-            Whether you're looking for mentorship, partnership, or just have a
-            question, we're here to help you move forward.
+            Whether you're looking for partnership, program information, or have
+            a question, we're here to help you bounce forward.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">

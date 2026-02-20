@@ -2,7 +2,26 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Menu } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
+
+const navLinks = [
+  { name: "HOME", href: "/" },
+  { name: "THE FILM EXPERIENCE", href: "/film" },
+  {
+    name: "PROGRAMS",
+    href: "/programs",
+    children: [
+      { name: "LIVE COHORT", href: "/programs/live-cohort" },
+      { name: "SELF-PACED (COMING SOON)", href: "#" },
+    ],
+  },
+  { name: "FINANCIAL EMPOWERMENT", href: "/financial-empowerment" },
+  { name: "FOR ORGANIZATIONS", href: "/organizations" },
+  { name: "ABOUT", href: "/about" },
+  { name: "TESTIMONIALS", href: "/testimonials" },
+  { name: "BLOG", href: "/blog" },
+  { name: "CONTACT", href: "/contact" },
+];
 
 export function Navbar() {
   return (
@@ -19,23 +38,43 @@ export function Navbar() {
           />
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
-          {[
-            { name: "THE FILM", href: "/documentary" },
-            { name: "CURRICULUM", href: "/courses" },
-            { name: "PARTNER WITH US", href: "/partner" },
-            { name: "BLOG", href: "/blog" },
-            { name: "ABOUT", href: "/about" },
-            { name: "CONTACT", href: "/contact" },
-          ].map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-[10px] font-heading tracking-[0.2em] text-cream/70 hover:text-gold transition-colors"
-            >
-              {item.name}
-            </Link>
-          ))}
+        <div className="hidden lg:flex items-center gap-6">
+          {navLinks.map((item) =>
+            item.children ? (
+              <div key={item.name} className="relative group">
+                <Link
+                  href={item.href}
+                  className="text-[9px] font-heading tracking-[0.15em] text-cream/70 hover:text-gold transition-colors flex items-center gap-1"
+                >
+                  {item.name}
+                  <ChevronDown className="w-2.5 h-2.5 group-hover:rotate-180 transition-transform duration-200" />
+                </Link>
+
+                {/* Dropdown */}
+                <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="bg-black/95 border border-white/10 backdrop-blur-md min-w-[180px]">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.name}
+                        href={child.href}
+                        className="block px-5 py-3 text-[9px] font-heading tracking-[0.15em] text-cream/70 hover:text-gold hover:bg-white/5 transition-colors"
+                      >
+                        {child.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-[9px] font-heading tracking-[0.15em] text-cream/70 hover:text-gold transition-colors"
+              >
+                {item.name}
+              </Link>
+            ),
+          )}
           <Link
             href="/documentary#booking"
             className="px-6 py-3 text-xs font-heading tracking-widest text-black bg-gold hover:bg-white transition-all duration-300"
@@ -44,7 +83,7 @@ export function Navbar() {
           </Link>
         </div>
 
-        <button className="md:hidden p-2 text-cream hover:text-gold transition-colors">
+        <button className="lg:hidden p-2 text-cream hover:text-gold transition-colors">
           <Menu className="w-6 h-6" />
         </button>
       </div>
