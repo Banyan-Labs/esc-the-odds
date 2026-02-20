@@ -30,7 +30,7 @@ const features = [
 
 export function MissionSection() {
   return (
-    <section className="py-24 bg-gray-50/50 relative overflow-hidden">
+    <section className="py-24 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,15 +40,18 @@ export function MissionSection() {
           className="text-center max-w-3xl mx-auto mb-20"
         >
           <div className="inline-block px-3 py-1 mb-6 text-sm font-semibold tracking-wider text-primary uppercase bg-primary/10 rounded-full">
-            Our Mission
+            OUR MISSION
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-secondary tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">
             Rewrite the <span className="text-primary">Narrative</span>
           </h2>
-          <p className="text-xl text-gray-600 leading-relaxed">
+          <p className="text-xl text-gray-300 leading-relaxed mb-4">
             Escape the Odds is more than a platform; it's a movement. We believe
             that with the right knowledge and community, anyone can overcome
             systemic barriers.
+          </p>
+          <p className="text-lg text-primary font-bold italic">
+            "Change your mindset, change your life"
           </p>
         </motion.div>
 
@@ -60,21 +63,21 @@ export function MissionSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="group relative p-8 rounded-3xl bg-secondary border border-white/5 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
             >
               <div
                 className={cn(
                   "w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110",
-                  feature.color
+                  feature.color,
                 )}
               >
                 <feature.icon className="w-7 h-7" />
               </div>
 
-              <h3 className="text-2xl font-bold text-secondary mb-4 group-hover:text-primary transition-colors">
+              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed text-lg">
+              <p className="text-gray-400 leading-relaxed text-lg">
                 {feature.description}
               </p>
             </motion.div>
