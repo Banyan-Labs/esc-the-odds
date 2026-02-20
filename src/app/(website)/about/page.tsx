@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { MissionSection } from "@/components/MissionSection";
 import { FounderSection } from "@/components/FounderSection";
+import { MediaPress } from "@/components/sections/MediaPress";
 import { motion } from "framer-motion";
 import { Target, Users, BarChart, ShieldCheck } from "lucide-react";
 import Image from "next/image";
@@ -12,7 +13,7 @@ const stats = [
   { label: "Lives Impacted", value: "1,000+", icon: Users },
   { label: "Facilities Partnered", value: "15+", icon: Target },
   { label: "Course Graduates", value: "450+", icon: BarChart },
-  { label: "Community Support", value: "24/7", icon: ShieldCheck },
+  { label: "Programs Delivered", value: "20+", icon: ShieldCheck },
 ];
 
 export default function AboutPage() {
@@ -44,13 +45,13 @@ export default function AboutPage() {
                 THE MISSION
               </span>
               <h1 className="text-5xl md:text-8xl font-heading text-white leading-[0.9] tracking-tighter">
-                ARCHITECTING <br />
-                <span className="text-gold">NEW NARRATIVES.</span>
+                ARCHITECTING THE <br />
+                <span className="text-gold">BOUNCE FORWARD.</span>
               </h1>
             </div>
             <p className="text-xl md:text-2xl text-cream/70 font-sans font-light max-w-2xl mx-auto leading-relaxed italic">
-              "We don't just teach skills; we blueprint the transition for those
-              the world has written off."
+              &ldquo;We don&rsquo;t just teach skills; we blueprint the
+              transition from incarceration to independence.&rdquo;
             </p>
           </motion.div>
         </div>
@@ -90,6 +91,8 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <MissionSection />
+
       {/* The Story Section */}
       <section className="py-32 bg-black overflow-hidden relative">
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold/5 blur-[120px] rounded-full pointer-events-none" />
@@ -107,17 +110,17 @@ export default function AboutPage() {
                   THE ORIGIN
                 </span>
                 <h2 className="text-4xl md:text-6xl font-heading text-white leading-tight">
-                  BREAKING THE <br />
-                  <span className="text-gold">SYSTEMIC CYCLE.</span>
+                  BUILDING THE <br />
+                  <span className="text-gold">BLUEPRINT.</span>
                 </h2>
               </div>
 
               <div className="space-y-6 text-xl text-cream/70 font-sans font-light leading-relaxed">
                 <p>
                   Escape The Odds was forged from the raw reality of the reentry
-                  experience. We recognized that most programs offered a
-                  "bandage" when what was needed was a complete **Economic
-                  Blueprint.**
+                  experience. We recognized that most programs offered
+                  surface-level support when what was needed was a complete{" "}
+                  <strong>Economic Blueprint.</strong>
                 </p>
                 <p>
                   By distilling complex industries like Trucking and Real Estate
@@ -131,22 +134,24 @@ export default function AboutPage() {
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-gold rounded-full" />
                     <h4 className="font-heading tracking-widest text-xs text-white uppercase">
-                      DIGITAL LITERACY
+                      WORKFORCE DEVELOPMENT
                     </h4>
                   </div>
                   <p className="text-sm text-cream/50 pl-5">
-                    Mastering the tools of the modern digital economy.
+                    Accelerated pathways into high-demand industries through
+                    structured training.
                   </p>
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-gold rounded-full" />
                     <h4 className="font-heading tracking-widest text-xs text-white uppercase">
-                      FINANCIAL WEALTH
+                      FINANCIAL EMPOWERMENT
                     </h4>
                   </div>
                   <p className="text-sm text-cream/50 pl-5">
-                    Intergenerational wealth building as a form of resistance.
+                    Building generational stability through structured financial
+                    education and wealth-building strategies.
                   </p>
                 </div>
               </div>
@@ -175,6 +180,7 @@ export default function AboutPage() {
       </section>
 
       <FounderSection />
+      <MediaPress />
 
       <Footer />
     </main>
