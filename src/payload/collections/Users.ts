@@ -1,4 +1,5 @@
-import { CollectionConfig } from 'payload'
+import type { CollectionConfig } from 'payload'
+import { isAdmin, isAdminAccess, adminFieldAccess } from '../access'
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -6,6 +7,37 @@ export const Users: CollectionConfig = {
   admin: {
     useAsTitle: 'email',
     defaultColumns: ['email', 'roles'],
+    hidden: ({ user }) => !isAdmin(user),
+  },
+  access: {
+    read: ({ req: { user } }) => {
+      if (!user) return false
+      if (isAdmin(user)) return true
+      return { id: { equals: user.id } }
+    },
+    create: isAdminAccess,
+    update: ({ req: { user } }) => {
+      if (!user) return false
+      if (isAdmin(user)) return true
+      return { id: { equals: user.id } }
+    },
+    delete: isAdminAccess,
+  },
+  hooks: {
+    beforeChange: [
+      async ({ data, operation, req }) => {
+        if (operation === 'create') {
+          const { totalDocs } = await req.payload.count({
+            collection: 'users',
+            overrideAccess: true,
+          })
+          if (totalDocs === 0) {
+            data.roles = ['admin']
+          }
+        }
+        return data
+      },
+    ],
   },
   fields: [
     {
@@ -25,18 +57,9 @@ export const Users: CollectionConfig = {
         },
       ],
       access: {
-        read: ({ req: { user } }) => {
-          if (!user) return false
-          return user.roles?.includes('admin')
-        },
-        create: ({ req: { user } }) => {
-          if (!user) return false
-          return user.roles?.includes('admin')
-        },
-        update: ({ req: { user } }) => {
-          if (!user) return false
-          return user.roles?.includes('admin')
-        },
+        read: adminFieldAccess,
+        create: adminFieldAccess,
+        update: adminFieldAccess,
       },
     },
   ],

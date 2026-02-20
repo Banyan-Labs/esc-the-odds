@@ -28,4 +28,10 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || '',
     },
   }),
+  onInit: async (payload) => {
+    if (process.env.SEED_DB === 'true') {
+      const { seed } = await import('./src/payload/seed')
+      await seed(payload)
+    }
+  },
 })
