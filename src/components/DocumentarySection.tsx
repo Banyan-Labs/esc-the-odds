@@ -9,15 +9,8 @@ export function DocumentarySection() {
   return (
     <section className="relative h-[80vh] flex items-center justify-center overflow-hidden bg-black">
       {/* Background Image / Placeholder for Trailer */}
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-60"
-        style={{
-          backgroundImage: "url('/placeholder-doc-bg.jpg')",
-          backgroundPosition: "center",
-        }}
-      >
-        {/* If we had a real video, it would go here as an auto-playing muted regular loop */}
-        <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-[#0f2b46] opacity-60">
+        <div className="absolute inset-0 bg-black/80" />
       </div>
 
       <div className="container relative z-10 px-4 md:px-6 text-center">
@@ -34,7 +27,7 @@ export function DocumentarySection() {
           <h2 className="text-4xl md:text-7xl font-bold text-white mb-8 tracking-tighter">
             Escape the Odds
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-500 font-serif italic">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-gray-200 to-gray-500 font-serif italic">
               The Documentary
             </span>
           </h2>
