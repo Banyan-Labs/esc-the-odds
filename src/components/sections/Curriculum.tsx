@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 
 const coursePoints = [
@@ -9,7 +10,8 @@ const coursePoints = [
   "The 'Bounce Forward Plan' Workbook",
   "Mastering Personal Reentry Plans",
   "Structured Facilitation Guides",
-  "Vocational & Entrepreneurial Mastery",
+  "Vocational & Entrepreneurial Development",
+  "Financial Empowerment & Legacy Planning",
   "Mindset Architecture & Habit Loops",
 ];
 
@@ -92,9 +94,12 @@ export function Curriculum() {
             </ul>
 
             <div className="pt-6">
-              <button className="px-10 py-5 bg-gold text-black font-heading text-xl hover:bg-white transition-all duration-300 shadow-xl shadow-gold/10">
-                GET THE CURRICULUM
-              </button>
+              <Link
+                href="/contact"
+                className="inline-block px-10 py-5 bg-gold text-black font-heading text-xl hover:bg-white transition-all duration-300 shadow-xl shadow-gold/10"
+              >
+                INQUIRE ABOUT THE CURRICULUM
+              </Link>
             </div>
           </motion.div>
         </div>

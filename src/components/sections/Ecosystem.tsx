@@ -31,9 +31,9 @@ const pillars = [
   {
     icon: Landmark,
     title: "EMPOWERMENT",
-    subtitle: "FINANCIAL LITERACY",
+    subtitle: "FINANCIAL EMPOWERMENT",
     description:
-      "Building generational stability through structured financial education and legacy planning.",
+      "Building generational stability through structured financial education, wealth-building strategies, and legacy planning.",
     path: "/pathways",
   },
 ];

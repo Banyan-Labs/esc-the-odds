@@ -17,8 +17,8 @@ export function Footer() {
 
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
           {[
-            { name: "PARTNER", href: "/partner" },
-            { name: "SUPPORT", href: "/partner#support", color: "text-gold" },
+            { name: "INSTITUTIONAL PARTNERS", href: "/organizations" },
+            { name: "SUPPORT OUR WORK", href: "/support", color: "text-gold" },
             { name: "BLOG", href: "/blog" },
             { name: "PRIVACY", href: "/privacy" },
             { name: "TERMS", href: "/terms" },

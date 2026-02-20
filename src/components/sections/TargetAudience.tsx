@@ -9,6 +9,7 @@ const audiences = [
     title: "INSTITUTIONS",
     list: [
       "Department of Corrections",
+      "Government Reentry Departments",
       "Correctional Facilities",
       "County Jails",
       "Juvenile Centers",
@@ -22,6 +23,7 @@ const audiences = [
     list: [
       "Second-Chance Employers",
       "Workforce Development Boards",
+      "Workforce Development Programs",
       "HR & Talent Acquisition",
       "Corporate Responsibility",
       "Diversity & Inclusion",
