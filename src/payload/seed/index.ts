@@ -122,6 +122,7 @@ export async function seed(payload: Payload): Promise<void> {
         content: post.content,
         featuredImage: media.id,
         author: adminUser.id,
+        _status: 'published',
       },
     })
   }
