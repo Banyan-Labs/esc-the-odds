@@ -16,14 +16,14 @@ const features = [
     icon: Lightbulb,
     title: "Practical Wisdom",
     description:
-      "No fluff. Just actionable, real-world skills—financial literacy, entrepreneurship, and digital mastery—for the modern economy.",
+      "No fluff. Just actionable, real-world skills — financial empowerment, entrepreneurship, and workforce development — for the modern economy.",
     color: "bg-orange-50 text-orange-600",
   },
   {
     icon: Users,
     title: "Community of Doers",
     description:
-      "Join a powerful network of individuals who are not just dreaming of change, but actively building it. Access mentorship and peer support.",
+      "Join a powerful network of individuals who are not just dreaming of change, but actively building it. Access peer support and accountability.",
     color: "bg-purple-50 text-purple-600",
   },
 ];
@@ -46,9 +46,9 @@ export function MissionSection() {
             Rewrite the <span className="text-primary">Narrative</span>
           </h2>
           <p className="text-xl text-gray-300 leading-relaxed mb-4">
-            Escape the Odds is more than a platform; it's a movement. We believe
-            that with the right knowledge and community, anyone can overcome
-            systemic barriers.
+            Escape the Odds is more than a platform; it&apos;s a movement. We
+            believe that with the right knowledge and community, anyone can
+            bounce forward.
           </p>
           <p className="text-lg text-primary font-bold italic">
             "Change your mindset, change your life"

@@ -67,8 +67,8 @@ export function FounderSection() {
             <div className="space-y-4 border-l border-gold/50 pl-8 relative">
               <Quote className="w-8 h-8 text-gold/20 absolute -left-4 -top-4 opacity-50" />
               <p className="text-cream font-sans italic text-lg leading-relaxed">
-                "We provide the education and opportunity that was missing for
-                so many of us. The debt ends here."
+                &ldquo;We provide the education and opportunity that was missing
+                for so many of us. The blueprint starts here.&rdquo;
               </p>
             </div>
           </motion.div>
