@@ -76,7 +76,7 @@ export function Navbar() {
             ),
           )}
           <Link
-            href="/documentary#booking"
+            href="/film#booking"
             className="px-6 py-3 text-xs font-heading tracking-widest text-black bg-gold hover:bg-white transition-all duration-300"
           >
             BOOK A SCREENING
