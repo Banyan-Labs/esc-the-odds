@@ -72,8 +72,8 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <p className="max-w-3xl mx-auto text-xl md:text-2xl text-cream font-sans font-light leading-relaxed mb-12 opacity-90">
-              Moving beyond the <span className="italic">"lifetime debt"</span>{" "}
-              through the power of lived experience and structured planning.
+              Bounce Forward through the power of lived experience, workforce
+              development, and financial empowerment.
             </p>
           </motion.div>
 

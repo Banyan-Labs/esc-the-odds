@@ -9,15 +9,15 @@ export function TheExperience() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
           <span className="text-gold font-heading tracking-widest text-sm uppercase">
-            THE INTENSIVE
+            THE EXPERIENCE
           </span>
           <h2 className="text-4xl md:text-6xl font-heading text-white">
             THE EXPERIENCE
           </h2>
           <p className="text-lg text-cream opacity-70 font-sans font-light">
-            A structured, immersive 3-Hour Intensive designed to present the
-            film, facilitate guided discussion, and activate reflection and
-            accountability.
+            A structured, facilitated transformation experience designed to
+            present the film, facilitate guided discussion, and activate
+            reflection and accountability.
           </p>
         </div>
 
@@ -35,7 +35,7 @@ export function TheExperience() {
               title: "DISCUSSION",
               subtitle: "The Inquiry",
               description:
-                "A guided session dismantling the 'Get Back' mentality—simply returning—to initiate a true 'Bounce Back' transformation.",
+                "A guided session dismantling the 'Get Back' mentality—simply returning—to initiate a true 'Bounce Forward' transformation.",
             },
             {
               icon: GraduationCap,

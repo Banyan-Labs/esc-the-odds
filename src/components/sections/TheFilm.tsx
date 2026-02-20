@@ -35,9 +35,9 @@ export function TheFilm() {
 
             <p className="text-lg text-cream/70 font-sans leading-relaxed max-w-xl">
               Our mission spotlights vocational training, second-chance hiring,
-              entrepreneurship, and workforce development. We are providing a
-              raw, unfiltered look at the systems designed to keep you down—and
-              the power of lived experience to break them.
+              entrepreneurship, and workforce development. Through the power of
+              lived experience and structured planning, we illuminate the path
+              to bounce forward.
             </p>
 
             <div className="pt-4">
