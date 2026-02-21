@@ -43,7 +43,7 @@ export function ContactSection() {
             </Link>
 
             <a
-              href="mailto:contact@escapetheodds.com"
+              href="mailto:admin@escapetheodds.com"
               className="w-full sm:w-auto flex items-center justify-center px-10 py-5 border-2 border-white text-white text-xl font-heading hover:bg-white hover:text-black transition-all duration-300"
             >
               <Mail className="w-5 h-5 mr-3" />
