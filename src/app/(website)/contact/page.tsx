@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,11 +8,27 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
-import { Mail, MessageSquare, ArrowRight, Phone, MapPin } from "lucide-react";
+import { Mail, MessageSquare, ArrowRight, MapPin } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+
+const subjectOptions = [
+  "GENERAL INQUIRY",
+  "CURRICULUM LICENSING",
+  "FILM SCREENING REQUEST",
+  "PARTNERSHIP INQUIRY",
+  "PRESS & MEDIA",
+  "OTHER",
+];
+
+const institutionalSubjects = ["CURRICULUM LICENSING", "FILM SCREENING REQUEST"];
+
+const selectClasses =
+  "flex h-14 w-full rounded-none border border-white/10 bg-black/50 px-4 py-2 text-sm text-cream focus:ring-1 focus:ring-gold outline-none appearance-none cursor-pointer";
 
 export default function ContactPage() {
+  const [subject, setSubject] = useState("GENERAL INQUIRY");
+  const showInstitutionalFields = institutionalSubjects.includes(subject);
+
   return (
     <main className="min-h-screen bg-black text-cream selection:bg-gold selection:text-black">
       <Navbar />
@@ -45,8 +62,8 @@ export default function ContactPage() {
               </h1>
             </div>
             <p className="text-xl md:text-2xl text-cream/70 font-sans font-light max-w-2xl mx-auto leading-relaxed italic">
-              "Every architectural masterpiece begins with a blueprint. Let's
-              draft yours today."
+              &ldquo;Every architectural masterpiece begins with a blueprint.
+              Let&apos;s draft yours today.&rdquo;
             </p>
           </motion.div>
         </div>
@@ -69,9 +86,9 @@ export default function ContactPage() {
                   WE ARE HERE <br /> TO GUIDE.
                 </h2>
                 <p className="text-xl text-cream/60 font-sans font-light leading-relaxed">
-                  Whether you're an institution seeking the curriculum, a
-                  potential partner, or a member of the press, our delegation is
-                  ready to respond.
+                  Whether you&apos;re an institution seeking the curriculum, a
+                  potential partner, or a member of the press, our team is ready
+                  to respond.
                 </p>
               </div>
 
@@ -82,7 +99,7 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-1">
                     <h4 className="font-heading tracking-widest text-xs text-cream/40 uppercase">
-                      EMAIL ENQUIRIES
+                      EMAIL INQUIRIES
                     </h4>
                     <a
                       href="mailto:admin@escapetheodds.com"
@@ -116,7 +133,7 @@ export default function ContactPage() {
                       HEADQUARTERS
                     </h4>
                     <p className="text-xl font-heading text-white">
-                      CHICAGO, IL • USA
+                      CHICAGO, IL &bull; USA
                     </p>
                   </div>
                 </div>
@@ -165,34 +182,133 @@ export default function ContactPage() {
 
                 <div className="space-y-3">
                   <Label
+                    htmlFor="orgName"
+                    className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                  >
+                    Organization Name (Optional)
+                  </Label>
+                  <Input
+                    id="orgName"
+                    className="bg-black/50 border-white/10 rounded-none h-14 text-cream focus:border-gold transition-colors"
+                    placeholder="YOUR ORGANIZATION"
+                  />
+                </div>
+
+                <div className="space-y-3">
+                  <Label
                     htmlFor="subject"
                     className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
                   >
-                    Subject of Enquiry
+                    Subject of Inquiry
                   </Label>
                   <select
                     id="subject"
-                    className="flex h-14 w-full rounded-none border border-white/10 bg-black/50 px-4 py-2 text-sm text-cream focus:ring-1 focus:ring-gold outline-none appearance-none cursor-pointer"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                    className={selectClasses}
                   >
-                    <option>GENERAL INQUIRY</option>
-                    <option>CURRICULUM LICENSING</option>
-                    <option>FILM SCREENING REQUEST</option>
-                    <option>PRESS & MEDIA</option>
-                    <option>OTHER</option>
+                    {subjectOptions.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
                   </select>
                 </div>
+
+                {/* Conditional Institutional Fields */}
+                {showInstitutionalFields && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-8 p-8 border border-gold/20 bg-gold/5"
+                  >
+                    <p className="text-[10px] font-heading tracking-widest text-gold uppercase">
+                      INSTITUTIONAL DETAILS
+                    </p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="space-y-3">
+                        <Label
+                          htmlFor="audienceSize"
+                          className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                        >
+                          Audience Size
+                        </Label>
+                        <select id="audienceSize" className={selectClasses}>
+                          <option value="">SELECT SIZE</option>
+                          <option>Under 25</option>
+                          <option>25–50</option>
+                          <option>50–100</option>
+                          <option>100–250</option>
+                          <option>250+</option>
+                        </select>
+                      </div>
+                      <div className="space-y-3">
+                        <Label
+                          htmlFor="populationServed"
+                          className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                        >
+                          Population Served
+                        </Label>
+                        <select id="populationServed" className={selectClasses}>
+                          <option value="">SELECT POPULATION</option>
+                          <option>Incarcerated Individuals</option>
+                          <option>Reentry / Post-Release</option>
+                          <option>Workforce Development</option>
+                          <option>Youth / Juvenile</option>
+                          <option>Other</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="space-y-3">
+                        <Label
+                          htmlFor="enrollmentModel"
+                          className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                        >
+                          Enrollment Model
+                        </Label>
+                        <select id="enrollmentModel" className={selectClasses}>
+                          <option value="">SELECT MODEL</option>
+                          <option>Live Cohort (Facilitated)</option>
+                          <option>Self-Paced (When Available)</option>
+                          <option>Not Sure</option>
+                        </select>
+                      </div>
+                      <div className="space-y-3">
+                        <Label
+                          htmlFor="budget"
+                          className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                        >
+                          Budget Range
+                        </Label>
+                        <select id="budget" className={selectClasses}>
+                          <option value="">SELECT RANGE</option>
+                          <option>Under $5,000</option>
+                          <option>$5,000–$10,000</option>
+                          <option>$10,000–$25,000</option>
+                          <option>$25,000+</option>
+                          <option>Discuss on Call</option>
+                        </select>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
 
                 <div className="space-y-3">
                   <Label
                     htmlFor="message"
                     className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
                   >
-                    Enquiry Message
+                    Message
                   </Label>
                   <Textarea
                     id="message"
                     className="bg-black/50 border-white/10 rounded-none min-h-[180px] text-cream focus:border-gold transition-colors"
-                    placeholder="HOW CAN OUR DELEGATION ASSIST YOU?"
+                    placeholder="HOW CAN WE HELP?"
                   />
                 </div>
 
