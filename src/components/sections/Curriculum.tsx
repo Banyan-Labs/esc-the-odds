@@ -68,8 +68,8 @@ export function Curriculum() {
                 THE CURRICULUM
               </span>
               <h2 className="text-4xl md:text-6xl font-heading text-white leading-tight">
-                BOUNCE FORWARD <br />
-                <span className="text-gold">PLAN.</span>
+                BOUNCE FORWARD PLAN <br />
+                <span className="text-gold">- MASTERING YOUR REENTRY</span>
               </h2>
             </div>
 

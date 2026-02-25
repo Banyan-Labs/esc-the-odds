@@ -45,8 +45,8 @@ export default function AboutPage() {
                 THE MISSION
               </span>
               <h1 className="text-5xl md:text-8xl font-heading text-white leading-[0.9] tracking-tighter">
-                ARCHITECTING THE <br />
-                <span className="text-gold">BOUNCE FORWARD.</span>
+                EM<span className="text-gold">POWER</span>ING MEN AND WOMEN TO <br />
+                <span className="text-gold">ESCAPE</span> THE ODDS.
               </h1>
             </div>
             <p className="text-xl md:text-2xl text-cream/70 font-sans font-light max-w-2xl mx-auto leading-relaxed italic">
@@ -81,7 +81,7 @@ export default function AboutPage() {
                   <div className="text-4xl md:text-5xl font-heading text-white mb-1 group-hover:text-gold transition-colors">
                     {stat.value}
                   </div>
-                  <div className="text-[10px] font-heading tracking-[0.2em] text-cream/40 uppercase">
+                  <div className="text-[10px] font-heading tracking-[0.2em] text-cream/60 uppercase">
                     {stat.label}
                   </div>
                 </div>
@@ -137,7 +137,7 @@ export default function AboutPage() {
                       WORKFORCE DEVELOPMENT
                     </h4>
                   </div>
-                  <p className="text-sm text-cream/50 pl-5">
+                  <p className="text-sm text-cream/70 pl-5">
                     Accelerated pathways into high-demand industries through
                     structured training.
                   </p>
@@ -149,7 +149,7 @@ export default function AboutPage() {
                       FINANCIAL EMPOWERMENT
                     </h4>
                   </div>
-                  <p className="text-sm text-cream/50 pl-5">
+                  <p className="text-sm text-cream/70 pl-5">
                     Building generational stability through structured financial
                     education and wealth-building strategies.
                   </p>

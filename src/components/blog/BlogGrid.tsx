@@ -53,7 +53,7 @@ export function BlogGrid({ posts }: { posts: BlogPost[] }) {
   if (posts.length === 0) {
     return (
       <section className="py-32 container mx-auto px-4 md:px-6">
-        <div className="text-center text-cream/50 font-sans text-xl">
+        <div className="text-center text-cream/70 font-sans text-xl">
           No posts published yet. Check back soon.
         </div>
       </section>
@@ -93,7 +93,7 @@ export function BlogGrid({ posts }: { posts: BlogPost[] }) {
               </div>
 
               <div className="p-10 flex flex-col flex-1 space-y-6">
-                <div className="flex items-center gap-6 text-[10px] font-heading tracking-widest text-cream/40 uppercase">
+                <div className="flex items-center gap-6 text-[10px] font-heading tracking-widest text-cream/60 uppercase">
                   <span className="flex items-center gap-2">
                     <User className="w-3.5 h-3.5 text-gold" />{" "}
                     {getAuthorName(post.author)}

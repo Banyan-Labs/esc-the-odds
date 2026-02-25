@@ -98,7 +98,7 @@ export default function ContactPage() {
                     <Mail className="w-6 h-6" />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="font-heading tracking-widest text-xs text-cream/40 uppercase">
+                    <h4 className="font-heading tracking-widest text-xs text-cream/60 uppercase">
                       EMAIL INQUIRIES
                     </h4>
                     <a
@@ -115,7 +115,7 @@ export default function ContactPage() {
                     <MessageSquare className="w-6 h-6" />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="font-heading tracking-widest text-xs text-cream/40 uppercase">
+                    <h4 className="font-heading tracking-widest text-xs text-cream/60 uppercase">
                       FACILITATION SUPPORT
                     </h4>
                     <p className="text-xl font-heading text-white">
@@ -129,7 +129,7 @@ export default function ContactPage() {
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="font-heading tracking-widest text-xs text-cream/40 uppercase">
+                    <h4 className="font-heading tracking-widest text-xs text-cream/60 uppercase">
                       HEADQUARTERS
                     </h4>
                     <p className="text-xl font-heading text-white">
@@ -154,7 +154,7 @@ export default function ContactPage() {
                   <div className="space-y-3">
                     <Label
                       htmlFor="fullName"
-                      className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                      className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                     >
                       Full Name
                     </Label>
@@ -167,7 +167,7 @@ export default function ContactPage() {
                   <div className="space-y-3">
                     <Label
                       htmlFor="email"
-                      className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                      className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                     >
                       Email Address
                     </Label>
@@ -183,7 +183,7 @@ export default function ContactPage() {
                 <div className="space-y-3">
                   <Label
                     htmlFor="orgName"
-                    className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                    className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                   >
                     Organization Name (Optional)
                   </Label>
@@ -197,7 +197,7 @@ export default function ContactPage() {
                 <div className="space-y-3">
                   <Label
                     htmlFor="subject"
-                    className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                    className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                   >
                     Subject of Inquiry
                   </Label>
@@ -232,7 +232,7 @@ export default function ContactPage() {
                       <div className="space-y-3">
                         <Label
                           htmlFor="audienceSize"
-                          className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                          className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                         >
                           Audience Size
                         </Label>
@@ -248,7 +248,7 @@ export default function ContactPage() {
                       <div className="space-y-3">
                         <Label
                           htmlFor="populationServed"
-                          className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                          className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                         >
                           Population Served
                         </Label>
@@ -267,7 +267,7 @@ export default function ContactPage() {
                       <div className="space-y-3">
                         <Label
                           htmlFor="enrollmentModel"
-                          className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                          className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                         >
                           Enrollment Model
                         </Label>
@@ -281,7 +281,7 @@ export default function ContactPage() {
                       <div className="space-y-3">
                         <Label
                           htmlFor="budget"
-                          className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                          className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                         >
                           Budget Range
                         </Label>
@@ -301,7 +301,7 @@ export default function ContactPage() {
                 <div className="space-y-3">
                   <Label
                     htmlFor="message"
-                    className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                    className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                   >
                     Message
                   </Label>

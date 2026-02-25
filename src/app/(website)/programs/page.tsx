@@ -21,7 +21,7 @@ const primaryPrograms = [
     title: "LIVE COHORT PROGRAM",
     subtitle: "5-WEEK FACILITATED TRANSFORMATION",
     description:
-      "A structured, facilitated program that includes the film experience, guided discussion, the Bounce Forward Plan workbook, and accountability. Delivered via Zoom or in-person for institutions and organizations.",
+      "A structured, in-person facilitated program designed for institutions. Includes the film experience, guided discussion, the Bounce Forward Plan workbook, and accountability.",
     icon: Users,
     image: "/assets/Curriculum-Display.png",
     href: "/programs/live-cohort",
@@ -30,7 +30,7 @@ const primaryPrograms = [
       "Film Experience Included",
       "Facilitated Discussion",
       "Bounce Forward Plan",
-      "Institutional Ready",
+      "In-Person Institutional",
     ],
     active: true,
   },
@@ -38,16 +38,16 @@ const primaryPrograms = [
     title: "SELF-PACED DIGITAL PROGRAM",
     subtitle: "COMING SOON",
     description:
-      "Independent learning modules designed for individuals ready to begin their transformation journey on their own schedule. Institutional licensing available.",
+      "A self-paced digital program for individuals with live Zoom sessions for guidance and accountability. Begin your transformation journey on your own schedule.",
     icon: Clock,
     image: "/assets/carousel/COOKCOUNTY-SHERIFF-PIC.png",
     href: "/programs/self-paced",
     cta: "COMING SOON",
     highlights: [
-      "Independent Learning",
-      "Institutional License Option",
+      "For Individuals",
+      "Live Zoom Sessions",
+      "Self-Paced Modules",
       "Curriculum Included",
-      "Scalable",
     ],
     active: false,
   },
@@ -230,7 +230,7 @@ export default function ProgramsPage() {
                     {program.highlights.map((highlight, i) => (
                       <div key={i} className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-gold rounded-full" />
-                        <span className="text-cream/50 text-xs font-sans">
+                        <span className="text-cream/70 text-xs font-sans">
                           {highlight}
                         </span>
                       </div>
@@ -247,7 +247,7 @@ export default function ProgramsPage() {
                         <ArrowUpRight className="w-4 h-4 ml-2 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
                       </Link>
                     ) : (
-                      <span className="inline-flex items-center text-xs font-heading tracking-[0.2em] text-cream/30">
+                      <span className="inline-flex items-center text-xs font-heading tracking-[0.2em] text-cream/70">
                         {program.cta}
                       </span>
                     )}
@@ -336,7 +336,7 @@ export default function ProgramsPage() {
                         <ArrowUpRight className="w-4 h-4 ml-2 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
                       </a>
                     ) : (
-                      <span className="inline-flex items-center text-xs font-heading tracking-[0.2em] text-cream/30">
+                      <span className="inline-flex items-center text-xs font-heading tracking-[0.2em] text-cream/70">
                         COMING SOON
                       </span>
                     )}
