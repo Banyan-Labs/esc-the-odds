@@ -3,19 +3,19 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Clock, BookOpen, Building2, Layers } from "lucide-react";
+import { ArrowUpRight, Clock, BookOpen, Video, Layers } from "lucide-react";
 import Link from "next/link";
 
 const features = [
   {
     icon: Clock,
-    title: "INDEPENDENT LEARNING",
+    title: "SELF-PACED MODULES",
     description: "Work through the program at your own pace, on your own schedule.",
   },
   {
-    icon: Building2,
-    title: "INSTITUTIONAL LICENSE",
-    description: "Available for organizations looking to scale transformation across teams.",
+    icon: Video,
+    title: "LIVE ZOOM SESSIONS",
+    description: "Regular live Zoom meetings for guidance, accountability, and real-time support.",
   },
   {
     icon: BookOpen,
@@ -24,8 +24,8 @@ const features = [
   },
   {
     icon: Layers,
-    title: "SCALABLE",
-    description: "Designed to serve individuals and institutions at any scale.",
+    title: "BUILT FOR INDIVIDUALS",
+    description: "Designed for individuals ready to take ownership of their transformation journey.",
   },
 ];
 
@@ -54,8 +54,9 @@ export default function SelfPacedPage() {
               </h1>
             </div>
             <p className="text-xl md:text-2xl text-cream/70 font-sans font-light max-w-2xl mx-auto leading-relaxed">
-              Independent learning modules designed for individuals ready to
-              begin their transformation journey on their own schedule.
+              A self-paced digital program for individuals with live Zoom
+              sessions for guidance and accountability. Transform on your
+              schedule.
             </p>
           </motion.div>
         </div>
@@ -91,7 +92,7 @@ export default function SelfPacedPage() {
                 <h3 className="text-lg font-heading text-white tracking-tight">
                   {feature.title}
                 </h3>
-                <p className="text-cream/50 font-sans font-light leading-relaxed text-sm">
+                <p className="text-cream/70 font-sans font-light leading-relaxed text-sm">
                   {feature.description}
                 </p>
               </motion.div>

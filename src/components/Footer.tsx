@@ -10,7 +10,7 @@ export function Footer() {
           <span className="text-3xl font-heading text-white tracking-tighter">
             ESCAPE THE <span className="text-gold">ODDS.</span>
           </span>
-          <p className="text-cream/30 font-sans tracking-widest uppercase">
+          <p className="text-cream/50 font-sans tracking-widest uppercase">
             © {new Date().getFullYear()} ALL RIGHTS RESERVED.
           </p>
         </div>
@@ -28,7 +28,7 @@ export function Footer() {
               key={link.name}
               href={link.href}
               className={`font-heading tracking-[0.2em] transition-colors hover:text-white ${
-                link.color || "text-cream/50"
+                link.color || "text-cream/70"
               }`}
             >
               {link.name}

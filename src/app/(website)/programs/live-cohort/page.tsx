@@ -160,9 +160,9 @@ export default function LiveCohortPage() {
                     </h4>
                   </div>
                   <p className="text-cream/70 font-sans font-light leading-relaxed pl-5">
-                    Facilitated via Zoom or in-person over 5 weeks. Each session
-                    builds on the previous, creating a structured arc of
-                    transformation.
+                    Facilitated in-person over 5 weeks within your institution.
+                    Each session builds on the previous, creating a structured
+                    arc of transformation.
                   </p>
                 </div>
 

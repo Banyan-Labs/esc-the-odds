@@ -164,13 +164,13 @@ export default function FilmPage() {
               <div className="grid grid-cols-2 gap-12 pt-8">
                 <div className="space-y-2">
                   <div className="text-5xl font-heading text-gold">94%</div>
-                  <div className="text-[10px] font-heading tracking-[0.2em] text-cream/40 uppercase">
+                  <div className="text-[10px] font-heading tracking-[0.2em] text-cream/60 uppercase">
                     ENGAGEMENT RATE
                   </div>
                 </div>
                 <div className="space-y-2">
                   <div className="text-5xl font-heading text-gold">60+</div>
-                  <div className="text-[10px] font-heading tracking-[0.2em] text-cream/40 uppercase">
+                  <div className="text-[10px] font-heading tracking-[0.2em] text-cream/60 uppercase">
                     HOURS OF FOOTAGE
                   </div>
                 </div>
@@ -369,7 +369,7 @@ export default function FilmPage() {
                   <div className="space-y-3">
                     <Label
                       htmlFor="firstName"
-                      className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                      className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                     >
                       First Name
                     </Label>
@@ -381,7 +381,7 @@ export default function FilmPage() {
                   <div className="space-y-3">
                     <Label
                       htmlFor="lastName"
-                      className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                      className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                     >
                       Last Name
                     </Label>
@@ -394,7 +394,7 @@ export default function FilmPage() {
                 <div className="space-y-3">
                   <Label
                     htmlFor="facility"
-                    className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                    className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                   >
                     Facility Name
                   </Label>
@@ -406,7 +406,7 @@ export default function FilmPage() {
                 <div className="space-y-3">
                   <Label
                     htmlFor="email"
-                    className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                    className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                   >
                     Work Email
                   </Label>
@@ -419,7 +419,7 @@ export default function FilmPage() {
                 <div className="space-y-3">
                   <Label
                     htmlFor="details"
-                    className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                    className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                   >
                     Screening Details
                   </Label>

@@ -5,14 +5,14 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Testimonial placeholder — awaiting client content.",
-    name: "Name",
-    role: "Program Participant",
+    quote: "Information on how to get started was inspirational for me to proceed into business.",
+    name: "CROSSROADS CORRECTIONAL",
+    role: "Participant",
   },
   {
-    quote: "Testimonial placeholder — awaiting client content.",
-    name: "Name",
-    role: "Institutional Partner",
+    quote: "Very satisfied, I hope this class happens again.",
+    name: "CROSSROADS CORRECTIONAL",
+    role: "Participant",
   },
   {
     quote: "Testimonial placeholder — awaiting client content.",
@@ -23,7 +23,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-charcoal border-y border-white/5">
+    <section id="testimonials" className="py-24 bg-charcoal border-y border-white/5">
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">

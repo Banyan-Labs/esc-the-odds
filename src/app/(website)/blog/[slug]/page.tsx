@@ -140,7 +140,7 @@ export default async function BlogPostPage({ params }: Props) {
         </h1>
 
         {/* Meta */}
-        <div className="flex items-center gap-6 text-[10px] font-heading tracking-widest text-cream/40 uppercase mb-16 pb-8 border-b border-white/10">
+        <div className="flex items-center gap-6 text-[10px] font-heading tracking-widest text-cream/60 uppercase mb-16 pb-8 border-b border-white/10">
           <span className="flex items-center gap-2">
             <User className="w-3.5 h-3.5 text-gold" />{" "}
             {author.email.split("@")[0]}
