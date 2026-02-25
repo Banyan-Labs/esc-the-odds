@@ -50,7 +50,7 @@ export function MediaPress() {
               <p className="font-heading text-white text-lg tracking-tight mb-2">
                 {item.publication}
               </p>
-              <p className="text-cream/50 font-sans text-sm leading-relaxed">
+              <p className="text-cream/70 font-sans text-sm leading-relaxed">
                 {item.headline}
               </p>
             </motion.div>

@@ -10,21 +10,21 @@ const features = [
     title: "Define Your Future",
     description:
       "Break free from limiting narratives. We provide the strategic frameworks to help you architect a life of independence and purpose.",
-    color: "bg-blue-50 text-blue-600",
+    color: "bg-gold/10 text-gold",
   },
   {
     icon: Lightbulb,
     title: "Practical Wisdom",
     description:
       "No fluff. Just actionable, real-world skills — financial empowerment, entrepreneurship, and workforce development — for the modern economy.",
-    color: "bg-orange-50 text-orange-600",
+    color: "bg-gold/10 text-gold",
   },
   {
     icon: Users,
     title: "Community of Doers",
     description:
       "Join a powerful network of individuals who are not just dreaming of change, but actively building it. Access peer support and accountability.",
-    color: "bg-purple-50 text-purple-600",
+    color: "bg-gold/10 text-gold",
   },
 ];
 
@@ -45,7 +45,7 @@ export function MissionSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">
             Rewrite the <span className="text-primary">Narrative</span>
           </h2>
-          <p className="text-xl text-gray-300 leading-relaxed mb-4">
+          <p className="text-xl text-cream/70 leading-relaxed mb-4">
             Escape the Odds is more than a platform; it&apos;s a movement. We
             believe that with the right knowledge and community, anyone can
             bounce forward.
@@ -77,7 +77,7 @@ export function MissionSection() {
               <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">
                 {feature.title}
               </h3>
-              <p className="text-gray-400 leading-relaxed text-lg">
+              <p className="text-cream/60 leading-relaxed text-lg">
                 {feature.description}
               </p>
             </motion.div>
