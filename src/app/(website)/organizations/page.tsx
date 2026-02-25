@@ -220,7 +220,7 @@ export default function OrganizationsPage() {
               </p>
 
               <div className="space-y-4">
-                <p className="text-[10px] font-heading tracking-widest text-cream/40 uppercase">
+                <p className="text-[10px] font-heading tracking-widest text-cream/60 uppercase">
                   YOUR SUPPORT FUNDS
                 </p>
                 <ul className="space-y-4">
@@ -331,7 +331,7 @@ export default function OrganizationsPage() {
                   <h4 className="text-gold font-heading tracking-widest text-xs uppercase">
                     EXPANSION ROADMAP
                   </h4>
-                  <p className="text-sm text-cream/40 font-sans italic">
+                  <p className="text-sm text-cream/60 font-sans italic">
                     Scaling to 50+ facilities in 2026. Join the cohort.
                   </p>
                 </div>
@@ -339,7 +339,7 @@ export default function OrganizationsPage() {
                   <h4 className="text-gold font-heading tracking-widest text-xs uppercase">
                     RESOURCE PORTAL
                   </h4>
-                  <p className="text-sm text-cream/40 font-sans italic">
+                  <p className="text-sm text-cream/60 font-sans italic">
                     Exclusive metrics and facilitation data for registered
                     partners.
                   </p>
@@ -361,7 +361,7 @@ export default function OrganizationsPage() {
                   <div className="space-y-3">
                     <Label
                       htmlFor="firstName"
-                      className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                      className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                     >
                       First Name
                     </Label>
@@ -373,7 +373,7 @@ export default function OrganizationsPage() {
                   <div className="space-y-3">
                     <Label
                       htmlFor="lastName"
-                      className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                      className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                     >
                       Last Name
                     </Label>
@@ -386,7 +386,7 @@ export default function OrganizationsPage() {
                 <div className="space-y-3">
                   <Label
                     htmlFor="orgName"
-                    className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                    className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                   >
                     Organization Name (Optional)
                   </Label>
@@ -398,7 +398,7 @@ export default function OrganizationsPage() {
                 <div className="space-y-3">
                   <Label
                     htmlFor="email"
-                    className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                    className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                   >
                     Email
                   </Label>
@@ -411,7 +411,7 @@ export default function OrganizationsPage() {
                 <div className="space-y-3">
                   <Label
                     htmlFor="message"
-                    className="font-heading tracking-widest text-[10px] text-cream/50 uppercase"
+                    className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                   >
                     How Would You Like to Get Involved?
                   </Label>

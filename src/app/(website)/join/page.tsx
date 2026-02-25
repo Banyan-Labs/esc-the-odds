@@ -21,7 +21,7 @@ export default function JoinPage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Start Your Journey
         </h1>
-        <p className="text-xl text-gray-300 max-w-2xl mx-auto px-4">
+        <p className="text-xl text-cream/70 max-w-2xl mx-auto px-4">
           Ready to rewrite your story? Join our community of entrepreneurs and
           creators who are escaping the odds.
         </p>

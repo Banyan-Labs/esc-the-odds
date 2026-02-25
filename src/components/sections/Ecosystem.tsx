@@ -40,7 +40,7 @@ const pillars = [
 
 export function Ecosystem() {
   return (
-    <section className="py-24 bg-black relative">
+    <section id="financial-empowerment" className="py-24 bg-black relative">
       {/* Section Header */}
       <div className="container mx-auto px-4 md:px-6 mb-16">
         <div className="max-w-3xl">

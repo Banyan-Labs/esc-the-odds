@@ -15,10 +15,10 @@ const navLinks = [
       { name: "SELF-PACED (COMING SOON)", href: "#" },
     ],
   },
-  { name: "FINANCIAL EMPOWERMENT", href: "/financial-empowerment" },
+  { name: "FINANCIAL EMPOWERMENT", href: "/#financial-empowerment" },
   { name: "FOR ORGANIZATIONS", href: "/organizations" },
   { name: "ABOUT", href: "/about" },
-  { name: "TESTIMONIALS", href: "/testimonials" },
+  { name: "TESTIMONIALS", href: "/#testimonials" },
   { name: "BLOG", href: "/blog" },
   { name: "CONTACT", href: "/contact" },
 ];
