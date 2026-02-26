@@ -57,11 +57,11 @@ export function FounderSection() {
             </div>
 
             <p className="text-xl text-cream/70 font-sans font-light leading-relaxed">
-              "I didn't build Escape The Odds to tell my story. I built it
-              because I realized that for too long, we've been taught to survive
-              the system rather than master the transition. I've walked the
-              corridors of incarceration, and I've architected the roadmap out.
-              Now, I'm handing you the blueprint."
+              &ldquo;I didn&apos;t build Escape The Odds to tell my story. I built it
+              because I realized that for too long, we&apos;ve been taught to survive
+              the system rather than master the transition. I&apos;ve walked the
+              corridors of incarceration, and I&apos;ve architected the roadmap out.
+              Now, I&apos;m handing you the blueprint.&rdquo;
             </p>
 
             <div className="space-y-4 border-l border-gold/50 pl-8 relative">

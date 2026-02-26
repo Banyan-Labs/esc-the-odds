@@ -37,7 +37,7 @@ export default function JoinPage() {
             <div className="mb-8 p-4 bg-secondary/5 rounded-xl border border-secondary/10">
               <h4 className="font-semibold text-secondary mb-2 flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-green-500" />
-                What you'll get:
+                What you&apos;ll get:
               </h4>
               <ul className="text-sm text-gray-600 grid grid-cols-1 sm:grid-cols-2 gap-2 pl-7">
                 <li>Access to Entrepreneurship 101</li>
