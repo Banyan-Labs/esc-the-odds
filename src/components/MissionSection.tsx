@@ -51,7 +51,7 @@ export function MissionSection() {
             bounce forward.
           </p>
           <p className="text-lg text-primary font-bold italic">
-            "Change your mindset, change your life"
+            &ldquo;Change your mindset, change your life&rdquo;
           </p>
         </motion.div>
 

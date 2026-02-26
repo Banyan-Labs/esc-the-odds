@@ -5,7 +5,6 @@ import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
-  BookOpen,
   Truck,
   Landmark,
   Clock,
