@@ -29,8 +29,8 @@ export function TheFilm() {
             </div>
 
             <p className="text-xl text-cream font-light leading-relaxed max-w-xl opacity-90">
-              "The judge never said that this debt came with interest you would
-              pay for the rest of your life."
+              &ldquo;The judge never said that this debt came with interest you would
+              pay for the rest of your life.&rdquo;
             </p>
 
             <p className="text-lg text-cream/70 font-sans leading-relaxed max-w-xl">

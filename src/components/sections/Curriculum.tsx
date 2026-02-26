@@ -74,8 +74,8 @@ export function Curriculum() {
             </div>
 
             <p className="text-xl text-cream font-light leading-relaxed opacity-90">
-              Mastering your reentry isn't about getting back to where you
-              were—it's about building a foundation to go further than you've
+              Mastering your reentry isn&apos;t about getting back to where you
+              were&mdash;it&apos;s about building a foundation to go further than you&apos;ve
               ever been.
             </p>
 
