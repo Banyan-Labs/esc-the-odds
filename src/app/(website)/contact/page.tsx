@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
-import { Mail, MessageSquare, ArrowRight, MapPin } from "lucide-react";
+import { Mail, MessageSquare, ArrowRight, MapPin, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 
 const subjectOptions = [
@@ -27,7 +27,13 @@ const selectClasses =
 
 export default function ContactPage() {
   const [subject, setSubject] = useState("GENERAL INQUIRY");
+  const [submitted, setSubmitted] = useState(false);
   const showInstitutionalFields = institutionalSubjects.includes(subject);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
 
   return (
     <main className="min-h-screen bg-black text-cream selection:bg-gold selection:text-black">
@@ -146,10 +152,20 @@ export default function ContactPage() {
               animate={{ opacity: 1, scale: 1 }}
               className="lg:col-span-7 bg-charcoal p-12 lg:p-16 border border-white/5 shadow-2xl"
             >
+              {submitted ? (
+                <div className="flex flex-col items-center justify-center py-16 space-y-6 text-center">
+                  <CheckCircle2 className="w-16 h-16 text-gold" />
+                  <h3 className="text-3xl font-heading text-white">MESSAGE RECEIVED</h3>
+                  <p className="text-cream/70 text-lg max-w-md">
+                    Thank you for reaching out. Our team will respond within 48 hours.
+                  </p>
+                </div>
+              ) : (
+              <>
               <h3 className="text-3xl font-heading text-white mb-12 tracking-tight underline decoration-gold/30 underline-offset-8">
                 INQUIRY FORM
               </h3>
-              <form className="space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
                     <Label
@@ -312,11 +328,13 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <Button className="w-full py-10 bg-gold text-black font-heading text-xl rounded-none hover:bg-white transition-all shadow-[0_10px_40px_rgba(223,176,90,0.1)] group">
+                <Button type="submit" className="w-full py-10 bg-gold text-black font-heading text-xl rounded-none hover:bg-white transition-all shadow-[0_10px_40px_rgba(223,176,90,0.1)] group">
                   SEND MESSAGE{" "}
                   <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-2 transition-transform" />
                 </Button>
               </form>
+              </>
+              )}
             </motion.div>
           </div>
         </div>

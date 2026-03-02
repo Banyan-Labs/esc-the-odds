@@ -20,9 +20,7 @@ export function Footer() {
             { name: "INSTITUTIONAL PARTNERS", href: "/organizations" },
             { name: "SUPPORT OUR WORK", href: "/support", color: "text-gold" },
             { name: "BLOG", href: "/blog" },
-            { name: "PRIVACY", href: "/privacy" },
-            { name: "TERMS", href: "/terms" },
-            { name: "SOCIALS", href: "/social" },
+            { name: "CONTACT", href: "/contact" },
           ].map((link) => (
             <Link
               key={link.name}
@@ -34,6 +32,24 @@ export function Footer() {
               {link.name}
             </Link>
           ))}
+
+          <div className="flex items-center gap-6">
+            <span className="font-heading tracking-[0.2em] text-cream/40">|</span>
+            {[
+              { name: "FACEBOOK", href: "/contact" },
+              { name: "LINKEDIN", href: "/contact" },
+              { name: "INSTAGRAM", href: "/contact" },
+              { name: "X", href: "/contact" },
+            ].map((social) => (
+              <Link
+                key={social.name}
+                href={social.href}
+                className="font-heading tracking-[0.2em] text-cream/70 transition-colors hover:text-gold"
+              >
+                {social.name}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

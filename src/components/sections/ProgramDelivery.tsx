@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Users, Monitor, ShieldCheck, Zap } from "lucide-react";
+import Link from "next/link";
 
 export function ProgramDelivery() {
   return (
@@ -64,9 +65,9 @@ export function ProgramDelivery() {
                   peer-to-peer transformation.
                 </p>
                 <div className="pt-4">
-                  <button className="text-gold font-heading text-sm border-b border-gold pb-1 hover:text-white hover:border-white transition-all uppercase tracking-widest">
+                  <Link href="/contact" className="text-gold font-heading text-sm border-b border-gold pb-1 hover:text-white hover:border-white transition-all uppercase tracking-widest">
                     Inquire for Access
-                  </button>
+                  </Link>
                 </div>
               </div>
             </motion.div>
@@ -100,9 +101,9 @@ export function ProgramDelivery() {
                   organizational rollouts.
                 </p>
                 <div className="pt-4">
-                  <button className="text-cream font-heading text-sm border-b border-cream/50 pb-1 hover:text-gold hover:border-gold transition-all uppercase tracking-widest">
+                  <Link href="/contact" className="text-cream font-heading text-sm border-b border-cream/50 pb-1 hover:text-gold hover:border-gold transition-all uppercase tracking-widest">
                     View Licensing
-                  </button>
+                  </Link>
                 </div>
               </div>
             </motion.div>

@@ -56,9 +56,9 @@ export function TheFilm() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex-1 relative aspect-video w-full group cursor-pointer"
+            className="flex-1 relative aspect-video w-full group"
           >
-            <div className="absolute inset-0 bg-charcoal rounded-none overflow-hidden border border-white/10 shadow-2xl">
+            <Link href="/film" className="block absolute inset-0 bg-charcoal rounded-none overflow-hidden border border-white/10 shadow-2xl">
               <Image
                 src="/assets/AaronSpeaking.png"
                 alt="The Film Preview"
@@ -71,7 +71,7 @@ export function TheFilm() {
                   <Play className="w-8 h-8 text-black fill-current ml-1" />
                 </div>
               </div>
-            </div>
+            </Link>
             {/* Decorative Element */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 border-r-2 border-b-2 border-gold -z-10 opacity-30 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
           </motion.div>

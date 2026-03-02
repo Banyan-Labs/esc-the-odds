@@ -22,7 +22,7 @@ const primaryPrograms = [
     description:
       "A structured, in-person facilitated program designed for institutions. Includes the film experience, guided discussion, the Bounce Forward Plan workbook, and accountability.",
     icon: Users,
-    image: "/assets/Curriculum-Display.png",
+    image: "/assets/HeroImage.png",
     href: "/programs/live-cohort",
     cta: "LEARN MORE",
     highlights: [

@@ -59,7 +59,7 @@ export default function LiveCohortPage() {
       <section className="relative pt-40 pb-32 bg-black overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 opacity-20 grayscale">
           <Image
-            src="/assets/Curriculum-Display.png"
+            src="/assets/HeroImage.png"
             alt="Live Cohort Program"
             fill
             className="object-cover"
