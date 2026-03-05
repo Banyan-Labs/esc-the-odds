@@ -54,3 +54,7 @@ next-env.d.ts
 
 # payload
 /src/app/(payload)/admin/importMap.js
+
+# media
+/public/assets/ETO Doc Trailer_FINAL_Cta End Card.mp4
+
