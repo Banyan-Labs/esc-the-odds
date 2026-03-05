@@ -80,8 +80,8 @@ export default function OrganizationsPage() {
       <section className="relative pt-40 pb-32 bg-black overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 opacity-20 grayscale">
           <Image
-            src="/assets/carousel/SPEAKING-A-COMPARISON.png"
-            alt="Strategic Partnership"
+            src="/assets/Image_7.jpeg"
+            alt="Escape The Odds program participants"
             fill
             className="object-cover"
           />
@@ -257,6 +257,64 @@ export default function OrganizationsPage() {
                 </a>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Impact Gallery */}
+      <section className="py-32 bg-black border-b border-white/5">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span className="text-gold font-heading tracking-widest text-sm uppercase">
+              OUR IMPACT
+            </span>
+            <h2 className="text-4xl md:text-6xl font-heading text-white">
+              THE PROGRAM <span className="text-gold">IN ACTION.</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/10">
+            {[
+              {
+                src: "/assets/Image_9.jpeg",
+                alt: "Aaron teaching classroom session",
+                caption: "Classroom Facilitation",
+              },
+              {
+                src: "/assets/Image_14.jpeg",
+                alt: "Cohort graduates holding certificates",
+                caption: "Cohort Graduation",
+              },
+              {
+                src: "/assets/Image_16.jpeg",
+                alt: "Aaron presenting certificate to graduate",
+                caption: "Certificate Presentation",
+              },
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.15 }}
+                className={`relative aspect-video group overflow-hidden ${
+                  i < 2 ? "md:border-r border-white/10" : ""
+                }`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-70" />
+                <div className="absolute bottom-6 left-6">
+                  <span className="text-[10px] font-heading tracking-[0.2em] text-gold uppercase">
+                    {img.caption}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

@@ -8,8 +8,11 @@ import { useState, useEffect } from "react";
 
 const carouselImages = [
   "/assets/carousel/COOKCOUNTY-SHERIFF-PIC.png",
-  "/assets/carousel/PINK-SUIT-PODCAST-SHOOT.png",
-  "/assets/carousel/SPEAKING-A-COMPARISON.png",
+  "/assets/Image_4.jpeg",
+  "/assets/Image_10.jpeg",
+  "/assets/Image_8.jpeg",
+  "/assets/Image_13.jpeg",
+  "/assets/Image_7.jpeg",
 ];
 
 export function Hero() {
@@ -93,7 +96,7 @@ export function Hero() {
             </Link>
 
             <Link
-              href="/film"
+              href="#the-film"
               className="w-full sm:w-auto px-10 py-5 border-2 border-white text-white font-heading text-xl rounded-none hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center group"
             >
               WATCH THE TRAILER

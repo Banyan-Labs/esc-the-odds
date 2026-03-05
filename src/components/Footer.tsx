@@ -36,18 +36,18 @@ export function Footer() {
           <div className="flex items-center gap-6">
             <span className="font-heading tracking-[0.2em] text-cream/40">|</span>
             {[
-              { name: "FACEBOOK", href: "/contact" },
-              { name: "LINKEDIN", href: "/contact" },
-              { name: "INSTAGRAM", href: "/contact" },
-              { name: "X", href: "/contact" },
+              { name: "INSTAGRAM", href: "https://www.instagram.com/escapetheoddsmedia" },
+              { name: "LINKEDIN", href: "https://www.linkedin.com/company/escaping-the-odds-media/" },
             ].map((social) => (
-              <Link
+              <a
                 key={social.name}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="font-heading tracking-[0.2em] text-cream/70 transition-colors hover:text-gold"
               >
                 {social.name}
-              </Link>
+              </a>
             ))}
           </div>
         </div>

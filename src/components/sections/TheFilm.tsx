@@ -1,13 +1,24 @@
 "use client";
 
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Play } from "lucide-react";
+import { Play, ArrowUpRight } from "lucide-react";
 
 export function TheFilm() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+    setTimeout(() => {
+      videoRef.current?.play();
+    }, 0);
+  };
+
   return (
-    <section className="py-24 bg-black overflow-hidden">
+    <section id="the-film" className="py-24 bg-black overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* Left Content */}
@@ -40,17 +51,24 @@ export function TheFilm() {
               to bounce forward.
             </p>
 
-            <div className="pt-4">
+            <div className="pt-4 flex flex-wrap gap-4">
               <Link
                 href="/about"
                 className="inline-block px-8 py-4 bg-transparent border border-gold text-gold font-heading hover:bg-gold hover:text-black transition-all duration-300"
               >
                 LEARN ABOUT THE MISSION
               </Link>
+              <Link
+                href="/film"
+                className="inline-flex items-center px-8 py-4 text-gold font-heading hover:text-white transition-colors group"
+              >
+                EXPLORE THE FILM
+                <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </Link>
             </div>
           </motion.div>
 
-          {/* Right Visual (Image/Video Placeholder) */}
+          {/* Right Visual — Inline Video Player */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -58,20 +76,41 @@ export function TheFilm() {
             transition={{ duration: 0.8 }}
             className="flex-1 relative aspect-video w-full group"
           >
-            <Link href="/film" className="block absolute inset-0 bg-charcoal rounded-none overflow-hidden border border-white/10 shadow-2xl">
-              <Image
-                src="/assets/AaronSpeaking.png"
-                alt="The Film Preview"
-                fill
-                className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
-              />
-              {/* Play Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 bg-gold rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Play className="w-8 h-8 text-black fill-current ml-1" />
-                </div>
-              </div>
-            </Link>
+            <div className="absolute inset-0 bg-charcoal rounded-none overflow-hidden border border-white/10 shadow-2xl">
+              {!isPlaying && (
+                <>
+                  <Image
+                    src="/assets/Image_6.jpeg"
+                    alt="The Film Preview"
+                    fill
+                    className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <button
+                    onClick={handlePlay}
+                    aria-label="Play trailer"
+                    className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                  >
+                    <div className="w-20 h-20 bg-gold rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Play className="w-8 h-8 text-black fill-current ml-1" />
+                    </div>
+                  </button>
+                </>
+              )}
+              <video
+                ref={videoRef}
+                controls={isPlaying}
+                preload="metadata"
+                poster="/assets/Image_6.jpeg"
+                className={`w-full h-full object-cover ${isPlaying ? "block" : "hidden"}`}
+                onEnded={() => setIsPlaying(false)}
+              >
+                <source
+                  src="/assets/ETO Doc Trailer_FINAL_Cta End Card.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
             {/* Decorative Element */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 border-r-2 border-b-2 border-gold -z-10 opacity-30 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
           </motion.div>

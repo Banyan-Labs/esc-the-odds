@@ -21,24 +21,44 @@ import { Textarea } from "@/components/ui/textarea";
 
 const galleryImages = [
   {
-    src: "/assets/carousel/COOKCOUNTY-SHERIFF-PIC.png",
-    alt: "Film screening at Cook County",
-    caption: "Cook County Correctional",
+    src: "/assets/Image_4.jpeg",
+    alt: "Aaron with program participants",
+    caption: "Program Participants",
   },
   {
-    src: "/assets/carousel/SPEAKING-A-COMPARISON.png",
-    alt: "Facilitated discussion after screening",
-    caption: "Facilitated Discussion",
+    src: "/assets/Image_5.jpeg",
+    alt: "Aaron with incarcerated individuals",
+    caption: "Facility Engagement",
   },
   {
-    src: "/assets/carousel/PINK-SUIT-PODCAST-SHOOT.png",
-    alt: "Community screening event",
-    caption: "Community Screening",
+    src: "/assets/Image_1.jpeg",
+    alt: "Aaron teaching in correctional facility classroom",
+    caption: "Classroom Instruction",
   },
   {
-    src: "/assets/AaronSpeaking.png",
-    alt: "Aaron facilitating the film experience",
-    caption: "Institutional Facilitation",
+    src: "/assets/Image_7.jpeg",
+    alt: "Large group photo at Cook County",
+    caption: "Cook County Cohort",
+  },
+  {
+    src: "/assets/Image_8.jpeg",
+    alt: "Aaron facilitating real estate session",
+    caption: "Real Estate Workshop",
+  },
+  {
+    src: "/assets/Image_12.jpeg",
+    alt: "Trucking entrepreneur with his fleet truck",
+    caption: "Trucking Success Story",
+  },
+  {
+    src: "/assets/Image_15.jpeg",
+    alt: "Aaron presenting certificate to graduate",
+    caption: "Graduate Recognition",
+  },
+  {
+    src: "/assets/Image_17.jpeg",
+    alt: "Aaron presenting certificates to graduate",
+    caption: "Cohort Completion",
   },
 ];
 
@@ -82,7 +102,7 @@ export default function FilmPage() {
       <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0 select-none">
           <Image
-            src="/assets/carousel/COOKCOUNTY-SHERIFF-PIC.png"
+            src="/assets/Image_6.jpeg"
             alt="Escape the Odds Documentary"
             fill
             className="object-cover opacity-50 grayscale"
@@ -193,20 +213,16 @@ export default function FilmPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="flex-1 relative group"
+              className="flex-1 relative"
             >
               <div className="relative aspect-video w-full border border-white/10 shadow-2xl overflow-hidden">
                 <Image
-                  src="/assets/carousel/PINK-SUIT-PODCAST-SHOOT.png"
-                  alt="On Set Documentary Production"
+                  src="/assets/Image_6.jpeg"
+                  alt="Escape The Odds Documentary"
                   fill
-                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                  <div className="w-24 h-24 bg-gold/80 rounded-full flex items-center justify-center">
-                    <Play className="w-10 h-10 text-black fill-current ml-1" />
-                  </div>
-                </div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
               </div>
             </motion.div>
           </div>

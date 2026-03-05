@@ -26,7 +26,7 @@ const pillars = [
     subtitle: "TRUCKING PROGRAM",
     description:
       "Accelerated pathways into the industry through our Non-CDL Box Truck mastery program.",
-    path: "/pathways",
+    path: "/programs",
   },
   {
     icon: Landmark,
@@ -34,7 +34,7 @@ const pillars = [
     subtitle: "FINANCIAL EMPOWERMENT",
     description:
       "Building generational stability through structured financial education, wealth-building strategies, and legacy planning.",
-    path: "/pathways",
+    path: "/programs",
   },
 ];
 
