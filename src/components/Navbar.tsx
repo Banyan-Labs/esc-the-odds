@@ -81,7 +81,7 @@ export function Navbar() {
             ),
           )}
           <Link
-            href="/film#booking"
+            href="/contact"
             className="px-6 py-3 text-xs font-heading tracking-widest text-black bg-gold hover:bg-white transition-all duration-300"
           >
             BOOK A SCREENING
@@ -148,7 +148,7 @@ export function Navbar() {
               ),
             )}
             <Link
-              href="/film#booking"
+              href="/contact"
               onClick={() => setMobileOpen(false)}
               className="mt-4 px-6 py-4 text-sm font-heading tracking-widest text-black bg-gold hover:bg-white transition-all duration-300 text-center"
             >

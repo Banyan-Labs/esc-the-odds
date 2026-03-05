@@ -6,9 +6,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { Play, ArrowUpRight } from "lucide-react";
 
-export function TheFilm() {
+interface MediaImage {
+  url?: string;
+  alt?: string;
+}
+
+interface TheFilmData {
+  sectionLabel?: string;
+  headingLine1?: string;
+  headingAccent?: string;
+  quote?: string;
+  body?: string;
+  cta1Label?: string;
+  cta1Link?: string;
+  cta2Label?: string;
+  cta2Link?: string;
+  posterImage?: MediaImage | string | null;
+  videoUrl?: string;
+}
+
+function getImageUrl(img: MediaImage | string | null | undefined, fallback: string): string {
+  if (!img) return fallback;
+  if (typeof img === "string") return img;
+  return img?.url || fallback;
+}
+
+export function TheFilm({ data }: { data?: TheFilmData }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const posterSrc = getImageUrl(data?.posterImage, "/assets/Image_6.jpeg");
+  const videoSrc = data?.videoUrl || "/assets/ETO Doc Trailer_FINAL_Cta End Card.mp4";
 
   const handlePlay = () => {
     setIsPlaying(true);
@@ -31,38 +59,34 @@ export function TheFilm() {
           >
             <div className="space-y-4">
               <span className="text-gold font-heading tracking-widest text-sm uppercase">
-                THE FILM
+                {data?.sectionLabel || "THE FILM"}
               </span>
               <h2 className="text-4xl md:text-6xl font-heading text-white leading-tight">
-                ESCAPING THE ODDS <br />
-                <span className="text-gold">OF RECIDIVISM.</span>
+                {data?.headingLine1 || "ESCAPING THE ODDS"} <br />
+                <span className="text-gold">{data?.headingAccent || "OF RECIDIVISM."}</span>
               </h2>
             </div>
 
             <p className="text-xl text-cream font-light leading-relaxed max-w-xl opacity-90">
-              &ldquo;The judge never said that this debt came with interest you would
-              pay for the rest of your life.&rdquo;
+              &ldquo;{data?.quote || "The judge never said that this debt came with interest you would pay for the rest of your life."}&rdquo;
             </p>
 
             <p className="text-lg text-cream/70 font-sans leading-relaxed max-w-xl">
-              Our mission spotlights vocational training, second-chance hiring,
-              entrepreneurship, and workforce development. Through the power of
-              lived experience and structured planning, we illuminate the path
-              to bounce forward.
+              {data?.body || "Our mission spotlights vocational training, second-chance hiring, entrepreneurship, and workforce development. Through the power of lived experience and structured planning, we illuminate the path to bounce forward."}
             </p>
 
             <div className="pt-4 flex flex-wrap gap-4">
               <Link
-                href="/about"
+                href={data?.cta1Link || "/about"}
                 className="inline-block px-8 py-4 bg-transparent border border-gold text-gold font-heading hover:bg-gold hover:text-black transition-all duration-300"
               >
-                LEARN ABOUT THE MISSION
+                {data?.cta1Label || "LEARN ABOUT THE MISSION"}
               </Link>
               <Link
-                href="/film"
+                href={data?.cta2Link || "/film"}
                 className="inline-flex items-center px-8 py-4 text-gold font-heading hover:text-white transition-colors group"
               >
-                EXPLORE THE FILM
+                {data?.cta2Label || "EXPLORE THE FILM"}
                 <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </Link>
             </div>
@@ -80,7 +104,7 @@ export function TheFilm() {
               {!isPlaying && (
                 <>
                   <Image
-                    src="/assets/Image_6.jpeg"
+                    src={posterSrc}
                     alt="The Film Preview"
                     fill
                     className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
@@ -100,12 +124,12 @@ export function TheFilm() {
                 ref={videoRef}
                 controls={isPlaying}
                 preload="metadata"
-                poster="/assets/Image_6.jpeg"
+                poster={posterSrc}
                 className={`w-full h-full object-cover ${isPlaying ? "block" : "hidden"}`}
                 onEnded={() => setIsPlaying(false)}
               >
                 <source
-                  src="/assets/ETO Doc Trailer_FINAL_Cta End Card.mp4"
+                  src={videoSrc}
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.

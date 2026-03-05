@@ -4,60 +4,59 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
-const mediaMentions = [
-  {
-    publication: "Good Morning America",
-    headline:
-      "Ex-con spends his days empowering the incarcerated",
-    url: "https://www.goodmorningamerica.com/GMA3/video/con-spends-days-empowering-incarcerated-88100579",
-  },
-  {
-    publication: "Chicago Sun-Times",
-    headline:
-      "Making the most of his — and others' second chance",
-    url: "https://chicago.suntimes.com/2022/4/17/23027343/aaron-smith-south-side-second-chances-escaping-the-odds-podcast",
-  },
-  {
-    publication: "ABC 7 Chicago",
-    headline:
-      "Escaping the Odds podcast tells triumphant stories of entrepreneurs after life in prison",
-    url: "https://abc7chicago.com/escaping-the-odds-podcast-aaron-smith-life-in-prison-triumphant-stories/11493238/",
-  },
-  {
-    publication: "Fox 32 Chicago",
-    headline:
-      "Meet the man helping former inmates become entrepreneurs",
-    url: "https://www.wciu.com/videos/wciu-other/meet-the-man-helping-former-inmates-become-entrepreneurs",
-  },
-  {
-    publication: "Crain's Chicago Business",
-    headline:
-      "Ex-offenders in Chicago owning their own companies",
-    url: "https://www.chicagobusiness.com/private-intelligence/ex-offenders-chicago-owning-their-own-companies",
-  },
-  {
-    publication: "AfroTech",
-    headline:
-      "Aaron Smith escaped the odds through podcasting and trucking",
-    url: "https://afrotech.com/aaron-smith-escaped-the-odds-podcasting-trucking",
-  },
+interface MediaImage {
+  url?: string;
+  alt?: string;
+}
+
+interface MediaMention {
+  publication: string;
+  headline: string;
+  url: string;
+}
+
+interface MediaPressData {
+  sectionLabel?: string;
+  headingLine1?: string;
+  headingAccent?: string;
+  body?: string;
+  featuredImage?: MediaImage | string | null;
+  featuredCaption?: string;
+  mentions?: MediaMention[];
+}
+
+function getImageUrl(img: MediaImage | string | null | undefined, fallback: string): string {
+  if (!img) return fallback;
+  if (typeof img === "string") return img;
+  return img?.url || fallback;
+}
+
+const defaultMentions: MediaMention[] = [
+  { publication: "Good Morning America", headline: "Ex-con spends his days empowering the incarcerated", url: "https://www.goodmorningamerica.com/GMA3/video/con-spends-days-empowering-incarcerated-88100579" },
+  { publication: "Chicago Sun-Times", headline: "Making the most of his — and others' second chance", url: "https://chicago.suntimes.com/2022/4/17/23027343/aaron-smith-south-side-second-chances-escaping-the-odds-podcast" },
+  { publication: "ABC 7 Chicago", headline: "Escaping the Odds podcast tells triumphant stories of entrepreneurs after life in prison", url: "https://abc7chicago.com/escaping-the-odds-podcast-aaron-smith-life-in-prison-triumphant-stories/11493238/" },
+  { publication: "Fox 32 Chicago", headline: "Meet the man helping former inmates become entrepreneurs", url: "https://www.wciu.com/videos/wciu-other/meet-the-man-helping-former-inmates-become-entrepreneurs" },
+  { publication: "Crain's Chicago Business", headline: "Ex-offenders in Chicago owning their own companies", url: "https://www.chicagobusiness.com/private-intelligence/ex-offenders-chicago-owning-their-own-companies" },
+  { publication: "AfroTech", headline: "Aaron Smith escaped the odds through podcasting and trucking", url: "https://afrotech.com/aaron-smith-escaped-the-odds-podcasting-trucking" },
 ];
 
-export function MediaPress() {
+export function MediaPress({ data }: { data?: MediaPressData }) {
+  const featuredSrc = getImageUrl(data?.featuredImage, "/assets/Image_3.jpeg");
+  const mentions = data?.mentions && data.mentions.length > 0 ? data.mentions : defaultMentions;
+
   return (
     <section className="py-24 bg-black border-t border-white/5">
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
           <span className="text-gold font-heading tracking-widest text-sm uppercase">
-            IN THE MEDIA
+            {data?.sectionLabel || "IN THE MEDIA"}
           </span>
           <h2 className="text-4xl md:text-6xl font-heading text-white">
-            PRESS & <span className="text-gold">COVERAGE</span>
+            {data?.headingLine1 || "PRESS &"} <span className="text-gold">{data?.headingAccent || "COVERAGE"}</span>
           </h2>
           <p className="text-lg text-cream opacity-70 font-sans font-light">
-            National and local coverage highlighting the impact of the Escape
-            The Odds mission.
+            {data?.body || "National and local coverage highlighting the impact of the Escape The Odds mission."}
           </p>
         </div>
 
@@ -71,20 +70,20 @@ export function MediaPress() {
         >
           <div className="relative aspect-square overflow-hidden border border-white/10 shadow-2xl group">
             <Image
-              src="/assets/Image_3.jpeg"
+              src={featuredSrc}
               alt="Chicago Sun-Times front page featuring Aaron Smith — Second Chance"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
             />
           </div>
           <p className="text-center text-cream/50 text-sm font-sans mt-4 italic">
-            Chicago Sun-Times front page — April 18, 2022
+            {data?.featuredCaption || "Chicago Sun-Times front page — April 18, 2022"}
           </p>
         </motion.div>
 
         {/* Media Mention Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-white/10">
-          {mediaMentions.map((item, index) => (
+          {mentions.map((item, index) => (
             <motion.a
               key={index}
               href={item.url}

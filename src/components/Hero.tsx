@@ -6,7 +6,27 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-const carouselImages = [
+interface MediaImage {
+  url?: string;
+  alt?: string;
+}
+
+interface HeroData {
+  headlineLine1?: string;
+  headlineAccent1?: string;
+  headlineLine2?: string;
+  headlineAccent2?: string;
+  subheadline?: string;
+  cta1Label?: string;
+  cta1Link?: string;
+  cta2Label?: string;
+  cta2Link?: string;
+  tagline?: string;
+  motto?: string;
+  carouselImages?: Array<{ image: MediaImage | string }>;
+}
+
+const defaultCarouselImages = [
   "/assets/carousel/COOKCOUNTY-SHERIFF-PIC.png",
   "/assets/Image_4.jpeg",
   "/assets/Image_10.jpeg",
@@ -15,7 +35,17 @@ const carouselImages = [
   "/assets/Image_7.jpeg",
 ];
 
-export function Hero() {
+function getImageUrl(img: MediaImage | string): string {
+  if (typeof img === "string") return img;
+  return img?.url || "";
+}
+
+export function Hero({ data }: { data?: HeroData }) {
+  const carouselImages =
+    data?.carouselImages && data.carouselImages.length > 0
+      ? data.carouselImages.map((item) => getImageUrl(item.image))
+      : defaultCarouselImages;
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -23,7 +53,7 @@ export function Hero() {
       setCurrentImageIndex((prev) => (prev + 1) % carouselImages.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [carouselImages.length]);
 
   return (
     <section className="relative min-h-[95vh] flex flex-col items-center justify-center overflow-hidden bg-black pt-24 pb-12">
@@ -61,10 +91,10 @@ export function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="text-5xl md:text-8xl lg:text-9xl font-heading text-white leading-[0.9] mb-8 tracking-tighter">
-              REWRITE THE <br />
-              <span className="text-gold">NARRATIVE.</span> <br />
-              MASTER THE <br />
-              <span className="text-gold">TRANSITION.</span>
+              {data?.headlineLine1 || "REWRITE THE"} <br />
+              <span className="text-gold">{data?.headlineAccent1 || "NARRATIVE."}</span> <br />
+              {data?.headlineLine2 || "MASTER THE"} <br />
+              <span className="text-gold">{data?.headlineAccent2 || "TRANSITION."}</span>
             </h1>
           </motion.div>
 
@@ -75,8 +105,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <p className="max-w-3xl mx-auto text-xl md:text-2xl text-cream font-sans font-light leading-relaxed mb-12 opacity-90">
-              Bounce Forward through the power of lived experience, workforce
-              development, and financial empowerment.
+              {data?.subheadline || "Bounce Forward through the power of lived experience, workforce development, and financial empowerment."}
             </p>
           </motion.div>
 
@@ -88,18 +117,18 @@ export function Hero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <Link
-              href="/film#booking"
+              href={data?.cta1Link || "/contact"}
               className="w-full sm:w-auto px-10 py-5 bg-gold text-black font-heading text-xl rounded-none hover:bg-white transition-all duration-300 flex items-center justify-center group"
             >
-              BOOK A SCREENING
+              {data?.cta1Label || "BOOK A SCREENING"}
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
 
             <Link
-              href="#the-film"
+              href={data?.cta2Link || "#the-film"}
               className="w-full sm:w-auto px-10 py-5 border-2 border-white text-white font-heading text-xl rounded-none hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center group"
             >
-              WATCH THE TRAILER
+              {data?.cta2Label || "WATCH THE TRAILER"}
             </Link>
           </motion.div>
 
@@ -111,10 +140,10 @@ export function Hero() {
             className="pt-12 space-y-4"
           >
             <p className="text-sm md:text-base tracking-[0.3em] text-cream uppercase">
-              Empowering Men and Women to Escape the Odds.
+              {data?.tagline || "Empowering Men and Women to Escape the Odds."}
             </p>
             <p className="text-xs tracking-[0.2em] text-gold uppercase opacity-80">
-              CHANGE YOUR MINDSET. CHANGE YOUR LIFE.
+              {data?.motto || "CHANGE YOUR MINDSET. CHANGE YOUR LIFE."}
             </p>
           </motion.div>
         </div>

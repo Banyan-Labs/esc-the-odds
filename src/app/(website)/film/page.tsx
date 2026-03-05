@@ -135,13 +135,13 @@ export default function FilmPage() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-10">
               <Link
-                href="#booking"
+                href="/contact"
                 className="w-full sm:w-auto px-10 py-5 bg-gold text-black font-heading text-xl hover:bg-white transition-all duration-300 flex items-center justify-center gap-3"
               >
                 <Play className="w-5 h-5 fill-current" /> WATCH TRAILER
               </Link>
               <Link
-                href="#booking"
+                href="/contact"
                 className="w-full sm:w-auto px-10 py-5 bg-transparent border-2 border-white text-white font-heading text-xl hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center"
               >
                 BOOK A SCREENING

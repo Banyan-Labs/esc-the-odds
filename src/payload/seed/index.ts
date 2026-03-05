@@ -1,6 +1,7 @@
 import path from 'path'
 import { fileURLToPath } from 'url'
 import type { Payload } from 'payload'
+import { seedHomepage } from './homepage'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -128,4 +129,7 @@ export async function seed(payload: Payload): Promise<void> {
   }
 
   console.log('[seed] Complete — 2 demo posts created.')
+
+  // Seed homepage global content
+  await seedHomepage(payload)
 }

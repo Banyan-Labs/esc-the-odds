@@ -192,7 +192,7 @@ export default function OrganizationsPage() {
 
               <div className="p-10 border-t border-white/10">
                 <Link
-                  href="#inquiry"
+                  href="/contact"
                   className="inline-flex items-center text-xs font-heading tracking-[0.2em] text-gold hover:text-white transition-colors group"
                 >
                   INQUIRE ABOUT PARTNERSHIP

@@ -17,17 +17,15 @@ export function Footer() {
 
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
           {[
-            { name: "INSTITUTIONAL PARTNERS", href: "/organizations" },
-            { name: "SUPPORT OUR WORK", href: "/support", color: "text-gold" },
+            { name: "INSTITUTIONAL PARTNERS", href: "/contact" },
+            { name: "SUPPORT OUR WORK", href: "/contact" },
             { name: "BLOG", href: "/blog" },
             { name: "CONTACT", href: "/contact" },
           ].map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className={`font-heading tracking-[0.2em] transition-colors hover:text-white ${
-                link.color || "text-cream/70"
-              }`}
+              className="font-heading tracking-[0.2em] text-cream/70 transition-colors hover:text-white"
             >
               {link.name}
             </Link>

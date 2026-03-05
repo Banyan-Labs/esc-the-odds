@@ -3,38 +3,42 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 
-const testimonials = [
-  {
-    quote: "Information on how to get started was inspirational for me to proceed into business.",
-    name: "CROSSROADS CORRECTIONAL",
-    role: "Participant",
-  },
-  {
-    quote: "Very satisfied, I hope this class happens again.",
-    name: "CROSSROADS CORRECTIONAL",
-    role: "Participant",
-  },
-  {
-    quote: "Testimonial placeholder — awaiting client content.",
-    name: "Name",
-    role: "Program Graduate",
-  },
+interface TestimonialItem {
+  quote: string;
+  name: string;
+  role: string;
+}
+
+interface TestimonialsData {
+  sectionLabel?: string;
+  headingLine1?: string;
+  headingAccent?: string;
+  body?: string;
+  items?: TestimonialItem[];
+}
+
+const defaultTestimonials: TestimonialItem[] = [
+  { quote: "Information on how to get started was inspirational for me to proceed into business.", name: "CROSSROADS CORRECTIONAL", role: "Participant" },
+  { quote: "Very satisfied, I hope this class happens again.", name: "CROSSROADS CORRECTIONAL", role: "Participant" },
+  { quote: "Testimonial placeholder — awaiting client content.", name: "Name", role: "Program Graduate" },
 ];
 
-export function Testimonials() {
+export function Testimonials({ data }: { data?: TestimonialsData }) {
+  const testimonials = data?.items && data.items.length > 0 ? data.items : defaultTestimonials;
+
   return (
     <section id="testimonials" className="py-24 bg-charcoal border-y border-white/5">
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
           <span className="text-gold font-heading tracking-widest text-sm uppercase">
-            IMPACT STORIES
+            {data?.sectionLabel || "IMPACT STORIES"}
           </span>
           <h2 className="text-4xl md:text-6xl font-heading text-white">
-            VOICES OF <span className="text-gold">TRANSFORMATION</span>
+            {data?.headingLine1 || "VOICES OF"} <span className="text-gold">{data?.headingAccent || "TRANSFORMATION"}</span>
           </h2>
           <p className="text-lg text-cream opacity-70 font-sans font-light">
-            Real stories from those who chose to bounce forward.
+            {data?.body || "Real stories from those who chose to bounce forward."}
           </p>
         </div>
 

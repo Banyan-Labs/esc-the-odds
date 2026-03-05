@@ -4,7 +4,17 @@ import { motion } from "framer-motion";
 import { Mail, MessageSquare, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-export function ContactSection() {
+interface ContactSectionData {
+  sectionLabel?: string;
+  headingLine1?: string;
+  headingAccent?: string;
+  body?: string;
+  ctaLabel?: string;
+  ctaLink?: string;
+  email?: string;
+}
+
+export function ContactSection({ data }: { data?: ContactSectionData }) {
   return (
     <section className="py-32 bg-black relative overflow-hidden border-t border-white/5">
       {/* Cinematic Background Glow */}
@@ -20,30 +30,29 @@ export function ContactSection() {
         >
           <div className="space-y-4">
             <span className="text-gold font-heading tracking-widest text-sm uppercase">
-              NEXT STEPS
+              {data?.sectionLabel || "NEXT STEPS"}
             </span>
             <h2 className="text-5xl md:text-7xl font-heading text-white tracking-tight">
-              READY TO <span className="text-gold">TAKE ACTION?</span>
+              {data?.headingLine1 || "READY TO"} <span className="text-gold">{data?.headingAccent || "TAKE ACTION?"}</span>
             </h2>
           </div>
 
           <p className="text-xl text-cream/70 font-sans font-light leading-relaxed max-w-2xl mx-auto">
-            Whether you&apos;re looking for partnership, program information, or have
-            a question, we&apos;re here to help you bounce forward.
+            {data?.body || "Whether you're looking for partnership, program information, or have a question, we're here to help you bounce forward."}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
             <Link
-              href="/contact"
+              href={data?.ctaLink || "/contact"}
               className="group w-full sm:w-auto flex items-center justify-center px-10 py-5 bg-gold text-black text-xl font-heading hover:bg-white transition-all duration-300"
             >
               <MessageSquare className="w-5 h-5 mr-3" />
-              GET IN TOUCH
+              {data?.ctaLabel || "GET IN TOUCH"}
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </Link>
 
             <a
-              href="mailto:admin@escapetheodds.com"
+              href={`mailto:${data?.email || "admin@escapetheodds.com"}`}
               className="w-full sm:w-auto flex items-center justify-center px-10 py-5 border-2 border-white text-white text-xl font-heading hover:bg-white hover:text-black transition-all duration-300"
             >
               <Mail className="w-5 h-5 mr-3" />
