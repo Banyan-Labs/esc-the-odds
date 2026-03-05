@@ -37,7 +37,7 @@ export function Curriculum() {
 
               <div className="relative w-full h-full shadow-2xl shadow-gold/20">
                 <Image
-                  src="/assets/HeroImage.png" // Placeholder, ideally specific workbook image
+                  src="/assets/Image_1.jpeg"
                   alt="Bounce Forward Plan Curriculum"
                   fill
                   className="object-cover border-4 border-black"
@@ -93,13 +93,21 @@ export function Curriculum() {
               ))}
             </ul>
 
-            <div className="pt-6">
+            <div className="pt-6 flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
                 className="inline-block px-10 py-5 bg-gold text-black font-heading text-xl hover:bg-white transition-all duration-300 shadow-xl shadow-gold/10"
               >
                 INQUIRE ABOUT THE CURRICULUM
               </Link>
+              <a
+                href="https://www.amazon.com/dp/B0GMP7Z9P9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-10 py-5 border-2 border-gold text-gold font-heading text-xl hover:bg-gold hover:text-black transition-all duration-300"
+              >
+                GET THE WORKBOOK
+              </a>
             </div>
           </motion.div>
         </div>

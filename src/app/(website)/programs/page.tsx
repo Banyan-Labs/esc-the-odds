@@ -22,7 +22,7 @@ const primaryPrograms = [
     description:
       "A structured, in-person facilitated program designed for institutions. Includes the film experience, guided discussion, the Bounce Forward Plan workbook, and accountability.",
     icon: Users,
-    image: "/assets/Curriculum-Display.png",
+    image: "/assets/Image_1.jpeg",
     href: "/programs/live-cohort",
     cta: "LEARN MORE",
     highlights: [
@@ -39,7 +39,7 @@ const primaryPrograms = [
     description:
       "A self-paced digital program for individuals with live Zoom sessions for guidance and accountability. Begin your transformation journey on your own schedule.",
     icon: Clock,
-    image: "/assets/carousel/COOKCOUNTY-SHERIFF-PIC.png",
+    image: "/assets/Escape-The-Odds-Mockups-IG-Post45/5.png",
     href: "/programs/self-paced",
     cta: "COMING SOON",
     highlights: [
@@ -59,9 +59,9 @@ const additionalOfferings = [
     description:
       "Master the logistics and business of the trucking industry. A complete blueprint from licensing to fleet management through our Non-CDL Box Truck program.",
     icon: Truck,
-    image: "/assets/carousel/SPEAKING-A-COMPARISON.png",
-    href: "https://link.gohighlevel.com/widget/form/YOUR_COURSE_WIDGET_ID",
-    cta: "ACCESS COURSE",
+    image: "/assets/Escape-The-Odds-Mockups-IG-Post45/13.png",
+    href: "https://a.co/d/09Ajq8UA",
+    cta: "GET THE BOOK",
     external: true,
   },
   {
@@ -70,8 +70,8 @@ const additionalOfferings = [
     description:
       "Building generational wealth through strategic property acquisition and management. Architectural freedom through brick and mortar.",
     icon: Landmark,
-    image: "/assets/carousel/PINK-SUIT-PODCAST-SHOOT.png",
-    href: "https://amazon.com/YOUR_BOOK_LINK",
+    image: "/assets/Escape-The-Odds-Mockups-IG-Post45/8.png",
+    href: "https://a.co/d/0g3BeD8W",
     cta: "GET THE BOOK",
     external: true,
   },
@@ -81,7 +81,7 @@ const additionalOfferings = [
     description:
       "Industrial-grade business training for scalable service enterprises. Building economic independence through proven service models.",
     icon: Sparkles,
-    image: null,
+    image: "",
     href: "#",
     cta: "COMING SOON",
     external: false,
@@ -97,7 +97,7 @@ export default function ProgramsPage() {
       <section className="relative pt-40 pb-32 bg-black overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 opacity-20 grayscale">
           <Image
-            src="/assets/carousel/COOKCOUNTY-SHERIFF-PIC.png"
+            src="/assets/Image_1.jpeg"
             alt="Programs Background"
             fill
             className="object-cover"
@@ -270,7 +270,7 @@ export default function ProgramsPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-white/10">
             {additionalOfferings.map((offering, index) => (
               <motion.div
                 key={index}
@@ -279,10 +279,8 @@ export default function ProgramsPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 className={`flex flex-col group hover:bg-black/40 transition-colors duration-500 ${
-                  index !== additionalOfferings.length - 1
-                    ? "md:border-r border-white/10 border-b md:border-b-0"
-                    : "border-b md:border-b-0"
-                }`}
+                  index % 2 === 0 ? "md:border-r border-white/10" : ""
+                } ${index < 2 ? "border-b border-white/10" : ""}`}
               >
                 {offering.image ? (
                   <div className="relative aspect-video overflow-hidden">
@@ -341,6 +339,65 @@ export default function ProgramsPage() {
                     )}
                   </div>
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Program Fliers — Detailed Course Info */}
+      <section className="py-32 bg-black border-t border-white/5">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="mb-16 text-center">
+            <span className="text-gold font-heading tracking-widest text-sm uppercase mb-4 block">
+              PROGRAM DETAILS
+            </span>
+            <h2 className="text-4xl md:text-6xl font-heading text-white leading-tight">
+              WHAT OUR COURSES <span className="text-gold">COVER.</span>
+            </h2>
+            <p className="text-lg text-cream/60 font-sans font-light mt-4 max-w-2xl mx-auto">
+              Explore the full curriculum breakdown for each of our programs.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                src: "/assets/financial-empowerment-flier.png",
+                alt: "Financial Empowerment Course — covers real estate investing, stock investing, budgeting, credit building, and career options",
+                label: "Financial Empowerment",
+              },
+              {
+                src: "/assets/box-truck-flier.png",
+                alt: "Box Truck Course — covers freight brokers, dispatchers, motor carrier numbers, and business funding",
+                label: "Box Truck Course",
+              },
+              {
+                src: "/assets/commercial-cleaning-business.png",
+                alt: "Commercial Cleaning Business — covers registration, insurance, managing clients, and marketing",
+                label: "Commercial Cleaning",
+              },
+            ].map((flier, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="group"
+              >
+                <div className="relative overflow-hidden border border-white/10 shadow-2xl group-hover:border-gold/30 transition-all duration-500">
+                  <Image
+                    src={flier.src}
+                    alt={flier.alt}
+                    width={600}
+                    height={800}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+                <p className="text-center text-gold font-heading tracking-widest text-xs uppercase mt-4">
+                  {flier.label}
+                </p>
               </motion.div>
             ))}
           </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -10,6 +11,13 @@ import { motion } from "framer-motion";
 import { Rocket, CheckCircle2 } from "lucide-react";
 
 export default function JoinPage() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />
@@ -47,7 +55,16 @@ export default function JoinPage() {
               </ul>
             </div>
 
-            <form className="space-y-6">
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center py-12 space-y-6 text-center">
+                <CheckCircle2 className="w-16 h-16 text-green-500" />
+                <h3 className="text-2xl font-bold text-secondary">Application Received</h3>
+                <p className="text-gray-600 max-w-md">
+                  Thank you for your interest. We&apos;ll be in touch soon with next steps.
+                </p>
+              </div>
+            ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="firstName">First Name</Label>
@@ -94,12 +111,14 @@ export default function JoinPage() {
               </div>
 
               <Button
+                type="submit"
                 size="lg"
                 className="w-full py-6 text-lg font-bold bg-primary hover:bg-primary/90 rounded-xl"
               >
                 Apply Now
               </Button>
             </form>
+            )}
           </div>
         </motion.div>
       </div>

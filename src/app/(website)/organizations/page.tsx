@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ import {
   Landmark,
   Heart,
   ShieldAlert,
+  CheckCircle2,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -63,6 +65,13 @@ const supportFunds = [
 ];
 
 export default function OrganizationsPage() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
   return (
     <main className="min-h-screen bg-black text-cream selection:bg-gold selection:text-black">
       <Navbar />
@@ -71,8 +80,8 @@ export default function OrganizationsPage() {
       <section className="relative pt-40 pb-32 bg-black overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 opacity-20 grayscale">
           <Image
-            src="/assets/carousel/SPEAKING-A-COMPARISON.png"
-            alt="Strategic Partnership"
+            src="/assets/Image_7.jpeg"
+            alt="Escape The Odds program participants"
             fill
             className="object-cover"
           />
@@ -252,6 +261,64 @@ export default function OrganizationsPage() {
         </div>
       </section>
 
+      {/* Impact Gallery */}
+      <section className="py-32 bg-black border-b border-white/5">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span className="text-gold font-heading tracking-widest text-sm uppercase">
+              OUR IMPACT
+            </span>
+            <h2 className="text-4xl md:text-6xl font-heading text-white">
+              THE PROGRAM <span className="text-gold">IN ACTION.</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/10">
+            {[
+              {
+                src: "/assets/Image_9.jpeg",
+                alt: "Aaron teaching classroom session",
+                caption: "Classroom Facilitation",
+              },
+              {
+                src: "/assets/Image_14.jpeg",
+                alt: "Cohort graduates holding certificates",
+                caption: "Cohort Graduation",
+              },
+              {
+                src: "/assets/Image_16.jpeg",
+                alt: "Aaron presenting certificate to graduate",
+                caption: "Certificate Presentation",
+              },
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.15 }}
+                className={`relative aspect-video group overflow-hidden ${
+                  i < 2 ? "md:border-r border-white/10" : ""
+                }`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-70" />
+                <div className="absolute bottom-6 left-6">
+                  <span className="text-[10px] font-heading tracking-[0.2em] text-gold uppercase">
+                    {img.caption}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* For-Profit Transparency */}
       <section className="py-24 bg-charcoal border-y border-white/5">
         <div className="container mx-auto px-4 md:px-6">
@@ -353,10 +420,20 @@ export default function OrganizationsPage() {
               viewport={{ once: true }}
               className="flex-1 w-full bg-charcoal p-12 border border-white/5 shadow-2xl"
             >
+              {submitted ? (
+                <div className="flex flex-col items-center justify-center py-16 space-y-6 text-center">
+                  <CheckCircle2 className="w-16 h-16 text-gold" />
+                  <h3 className="text-3xl font-heading text-white">INQUIRY RECEIVED</h3>
+                  <p className="text-cream/70 text-lg max-w-md">
+                    Thank you for your interest in partnering with us. Our team will be in touch within 48 hours.
+                  </p>
+                </div>
+              ) : (
+              <>
               <h3 className="text-3xl font-heading text-white mb-10 tracking-tight underline decoration-gold/30 underline-offset-8">
                 COLLABORATION DESK
               </h3>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-3">
                     <Label
@@ -420,11 +497,13 @@ export default function OrganizationsPage() {
                     className="bg-black/50 border-white/10 rounded-none min-h-[150px] text-cream focus:border-gold transition-colors"
                   />
                 </div>
-                <Button className="w-full py-8 bg-gold text-black font-heading text-xl rounded-none hover:bg-white transition-all shadow-xl group">
+                <Button type="submit" className="w-full py-8 bg-gold text-black font-heading text-xl rounded-none hover:bg-white transition-all shadow-xl group">
                   SUBMIT{" "}
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </form>
+              </>
+              )}
             </motion.div>
           </div>
         </div>

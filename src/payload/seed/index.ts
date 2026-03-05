@@ -5,7 +5,7 @@ import type { Payload } from 'payload'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const ADMIN_EMAIL = 'admin@esctheodds.com'
+const ADMIN_EMAIL = 'admin@escapetheodds.com'
 const ADMIN_PASSWORD = 'password'
 
 const lexicalContent = (text: string) => ({

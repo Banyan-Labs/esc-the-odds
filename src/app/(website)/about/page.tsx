@@ -25,7 +25,7 @@ export default function AboutPage() {
       <section className="relative pt-40 pb-32 bg-black overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 opacity-20 grayscale">
           <Image
-            src="/assets/carousel/COOKCOUNTY-SHERIFF-PIC.png"
+            src="/assets/Image_4.jpeg"
             alt="Impact Mission"
             fill
             className="object-cover"
@@ -54,6 +54,21 @@ export default function AboutPage() {
               transition from incarceration to independence.&rdquo;
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Impact Stats Visual */}
+      <section className="py-16 bg-charcoal border-b border-white/5">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-3xl mx-auto">
+            <Image
+              src="/assets/Image_2.jpeg"
+              alt="Formerly incarcerated entrepreneurs are 33% less likely to recidivate and 45% more likely to become entrepreneurs"
+              width={800}
+              height={400}
+              className="w-full h-auto object-contain"
+            />
+          </div>
         </div>
       </section>
 
@@ -165,8 +180,8 @@ export default function AboutPage() {
             >
               <div className="relative aspect-square w-full border border-white/10 shadow-2xl">
                 <Image
-                  src="/assets/carousel/SPEAKING-A-COMPARISON.png"
-                  alt="ETO Mission Journey"
+                  src="/assets/Image_1.jpeg"
+                  alt="Aaron teaching in correctional facility"
                   fill
                   className="object-cover opacity-80"
                 />
@@ -175,6 +190,63 @@ export default function AboutPage() {
               {/* Decorative Accent */}
               <div className="absolute -bottom-6 -right-6 w-32 h-32 border-r-2 border-b-2 border-gold/30 -z-10" />
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* In The Community */}
+      <section className="py-32 bg-charcoal border-y border-white/5">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span className="text-gold font-heading tracking-widest text-sm uppercase">
+              IN THE COMMUNITY
+            </span>
+            <h2 className="text-4xl md:text-6xl font-heading text-white">
+              BEYOND THE <span className="text-gold">CLASSROOM.</span>
+            </h2>
+            <p className="text-lg text-cream/60 font-sans font-light">
+              Speaking engagements, community events, and public conversations
+              that extend the mission beyond facility walls.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-white/10">
+            {[
+              {
+                src: "/assets/Image_10.jpeg",
+                alt: "Aaron speaking with microphone at Chicago Public Library",
+                caption: "Library Speaking Event",
+              },
+              {
+                src: "/assets/Image_11.jpeg",
+                alt: "Aaron speaking at community panel",
+                caption: "Community Panel",
+              },
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.15 }}
+                className={`relative aspect-[4/5] group overflow-hidden ${
+                  i === 0 ? "md:border-r border-white/10" : ""
+                }`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-70" />
+                <div className="absolute bottom-6 left-6">
+                  <span className="text-[10px] font-heading tracking-[0.2em] text-gold uppercase">
+                    {img.caption}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

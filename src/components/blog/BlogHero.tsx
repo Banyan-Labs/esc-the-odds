@@ -8,7 +8,7 @@ export function BlogHero() {
     <section className="relative pt-40 pb-32 bg-black overflow-hidden border-b border-white/5">
       <div className="absolute inset-0 opacity-10 grayscale">
         <Image
-          src="/assets/carousel/COOKCOUNTY-SHERIFF-PIC.png"
+          src="/assets/Image_3.jpeg"
           alt="Blog Background"
           fill
           className="object-cover"

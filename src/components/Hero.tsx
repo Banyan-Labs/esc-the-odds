@@ -8,8 +8,11 @@ import { useState, useEffect } from "react";
 
 const carouselImages = [
   "/assets/carousel/COOKCOUNTY-SHERIFF-PIC.png",
-  "/assets/carousel/PINK-SUIT-PODCAST-SHOOT.png",
-  "/assets/carousel/SPEAKING-A-COMPARISON.png",
+  "/assets/Image_4.jpeg",
+  "/assets/Image_10.jpeg",
+  "/assets/Image_8.jpeg",
+  "/assets/Image_13.jpeg",
+  "/assets/Image_7.jpeg",
 ];
 
 export function Hero() {
@@ -85,16 +88,19 @@ export function Hero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <Link
-              href="/booking"
+              href="/film#booking"
               className="w-full sm:w-auto px-10 py-5 bg-gold text-black font-heading text-xl rounded-none hover:bg-white transition-all duration-300 flex items-center justify-center group"
             >
               BOOK A SCREENING
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            <button className="w-full sm:w-auto px-10 py-5 border-2 border-white text-white font-heading text-xl rounded-none hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center group">
+            <Link
+              href="#the-film"
+              className="w-full sm:w-auto px-10 py-5 border-2 border-white text-white font-heading text-xl rounded-none hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center group"
+            >
               WATCH THE TRAILER
-            </button>
+            </Link>
           </motion.div>
 
           {/* Secondary Tagline (Fade in later) */}

@@ -59,7 +59,7 @@ export default function LiveCohortPage() {
       <section className="relative pt-40 pb-32 bg-black overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 opacity-20 grayscale">
           <Image
-            src="/assets/Curriculum-Display.png"
+            src="/assets/Image_1.jpeg"
             alt="Live Cohort Program"
             fill
             className="object-cover"
@@ -204,7 +204,7 @@ export default function LiveCohortPage() {
             >
               <div className="relative aspect-square w-full border border-white/10 shadow-2xl">
                 <Image
-                  src="/assets/carousel/SPEAKING-A-COMPARISON.png"
+                  src="/assets/Image_6.jpeg"
                   alt="Live Cohort in Action"
                   fill
                   className="object-cover opacity-80"
@@ -245,6 +245,73 @@ export default function LiveCohortPage() {
                 <span className="font-heading text-white text-sm tracking-widest uppercase group-hover:text-gold transition-colors">
                   {audience}
                 </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Graduation Gallery */}
+      <section className="py-32 bg-charcoal border-y border-white/5">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span className="text-gold font-heading tracking-widest text-sm uppercase">
+              REAL RESULTS
+            </span>
+            <h2 className="text-4xl md:text-6xl font-heading text-white">
+              GRADUATES IN <span className="text-gold">ACTION.</span>
+            </h2>
+            <p className="text-lg text-cream/60 font-sans font-light">
+              Our cohort graduates receive certificates of completion and leave
+              with the tools to build their futures.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-white/10">
+            {[
+              {
+                src: "/assets/Image_13.jpeg",
+                alt: "Full cohort holding certificates",
+                caption: "Cohort Graduation",
+              },
+              {
+                src: "/assets/Image_15.jpeg",
+                alt: "Aaron presenting certificate to graduate",
+                caption: "Certificate Presentation",
+              },
+              {
+                src: "/assets/Image_16.jpeg",
+                alt: "Aaron shaking hands with graduate",
+                caption: "Graduate Recognition",
+              },
+              {
+                src: "/assets/Image_17.jpeg",
+                alt: "Aaron presenting certificates to graduate",
+                caption: "Program Completion",
+              },
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className={`relative aspect-[3/4] group overflow-hidden ${
+                  i < 3 ? "lg:border-r border-white/10" : ""
+                } ${i < 2 ? "sm:border-r border-white/10" : ""}`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-70" />
+                <div className="absolute bottom-6 left-6">
+                  <span className="text-[10px] font-heading tracking-[0.2em] text-gold uppercase">
+                    {img.caption}
+                  </span>
+                </div>
               </motion.div>
             ))}
           </div>

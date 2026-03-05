@@ -20,9 +20,7 @@ export function Footer() {
             { name: "INSTITUTIONAL PARTNERS", href: "/organizations" },
             { name: "SUPPORT OUR WORK", href: "/support", color: "text-gold" },
             { name: "BLOG", href: "/blog" },
-            { name: "PRIVACY", href: "/privacy" },
-            { name: "TERMS", href: "/terms" },
-            { name: "SOCIALS", href: "/social" },
+            { name: "CONTACT", href: "/contact" },
           ].map((link) => (
             <Link
               key={link.name}
@@ -34,6 +32,24 @@ export function Footer() {
               {link.name}
             </Link>
           ))}
+
+          <div className="flex items-center gap-6">
+            <span className="font-heading tracking-[0.2em] text-cream/40">|</span>
+            {[
+              { name: "INSTAGRAM", href: "https://www.instagram.com/escapetheoddsmedia" },
+              { name: "LINKEDIN", href: "https://www.linkedin.com/company/escaping-the-odds-media/" },
+            ].map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-heading tracking-[0.2em] text-cream/70 transition-colors hover:text-gold"
+              >
+                {social.name}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
