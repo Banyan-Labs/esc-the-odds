@@ -57,6 +57,6 @@ next-env.d.ts
 
 # media
 /public/assets/ETO Doc Trailer_FINAL_Cta End Card.mp4
-/public/videos/*.mp4
+/public/assets/videos/*.mp4
 
 
