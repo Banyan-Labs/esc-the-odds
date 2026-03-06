@@ -56,19 +56,20 @@ export function FounderSection() {
               </h2>
             </div>
 
-            <p className="text-xl text-cream/70 font-sans font-light leading-relaxed">
-              &ldquo;I didn&apos;t build Escape The Odds to tell my story. I built it
-              because I realized that for too long, we&apos;ve been taught to survive
-              the system rather than master the transition. I&apos;ve walked the
-              corridors of incarceration, and I&apos;ve architected the roadmap out.
-              Now, I&apos;m handing you the blueprint.&rdquo;
+            <p className="text-lg text-cream/70 font-sans leading-relaxed">
+              Aaron Smith is the founder of Escape The Odds Media &amp; Education.
+              He was sentenced to 12 years in prison for running a heroin
+              operation in Chicago. Prior to incarceration, he earned a
+              bachelor&apos;s degree in business and was released in 2019.
             </p>
 
             <div className="space-y-4 border-l border-gold/50 pl-8 relative">
               <Quote className="w-8 h-8 text-gold/20 absolute -left-4 -top-4 opacity-50" />
               <p className="text-cream font-sans italic text-lg leading-relaxed">
-                &ldquo;We provide the education and opportunity that was missing
-                for so many of us. The blueprint starts here.&rdquo;
+                &ldquo;I didn&apos;t build Escape The Odds to tell my story. I
+                built it because I realized that for too long, we&apos;ve been
+                taught to survive while in the system rather than master the
+                transition once released.&rdquo;
               </p>
             </div>
           </motion.div>

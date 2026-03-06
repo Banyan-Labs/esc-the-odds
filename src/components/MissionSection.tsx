@@ -16,7 +16,7 @@ const features = [
     icon: Lightbulb,
     title: "Practical Wisdom",
     description:
-      "No fluff. Just actionable, real-world skills — financial empowerment, entrepreneurship, and workforce development — for the modern economy.",
+      "Real-world education in economic empowerment, entrepreneurship, and technical skills.",
     color: "bg-gold/10 text-gold",
   },
   {
@@ -40,7 +40,7 @@ export function MissionSection() {
           className="text-center max-w-3xl mx-auto mb-20"
         >
           <div className="inline-block px-3 py-1 mb-6 text-sm font-semibold tracking-wider text-primary uppercase bg-primary/10 rounded-full">
-            OUR MISSION
+            OUR MOVEMENT
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">
             Rewrite the <span className="text-primary">Narrative</span>

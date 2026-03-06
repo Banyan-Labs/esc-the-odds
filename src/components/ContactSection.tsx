@@ -22,14 +22,16 @@ export function ContactSection() {
             <span className="text-gold font-heading tracking-widest text-sm uppercase">
               NEXT STEPS
             </span>
-            <h2 className="text-5xl md:text-7xl font-heading text-white tracking-tight">
-              READY TO <span className="text-gold">TAKE ACTION?</span>
+            <h2 className="text-4xl md:text-6xl font-heading text-white tracking-tight leading-tight">
+              READY TO BRING ESCAPE THE ODDS{" "}
+              <span className="text-gold">TO YOUR ORGANIZATION?</span>
             </h2>
           </div>
 
           <p className="text-xl text-cream/70 font-sans font-light leading-relaxed max-w-2xl mx-auto">
-            Whether you&apos;re looking for partnership, program information, or have
-            a question, we&apos;re here to help you bounce forward.
+            Structured. Facilitated. Institutional-ready. Let&apos;s discuss how
+            the Impact Series or Bounce Forward Curriculum can align with your
+            objectives.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
@@ -38,17 +40,17 @@ export function ContactSection() {
               className="group w-full sm:w-auto flex items-center justify-center px-10 py-5 bg-gold text-black text-xl font-heading hover:bg-white transition-all duration-300"
             >
               <MessageSquare className="w-5 h-5 mr-3" />
-              GET IN TOUCH
+              REQUEST CONSULTATION
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </Link>
 
-            <a
-              href="mailto:admin@escapetheodds.com"
+            <Link
+              href="/contact"
               className="w-full sm:w-auto flex items-center justify-center px-10 py-5 border-2 border-white text-white text-xl font-heading hover:bg-white hover:text-black transition-all duration-300"
             >
               <Mail className="w-5 h-5 mr-3" />
-              EMAIL US
-            </a>
+              CONTACT OUR TEAM
+            </Link>
           </div>
         </motion.div>
       </div>

@@ -13,10 +13,9 @@ const navLinks = [
     href: "/programs",
     children: [
       { name: "LIVE COHORT", href: "/programs/live-cohort" },
-      { name: "SELF-PACED (COMING SOON)", href: "#" },
+      { name: "SELF-PACED", href: "/programs/self-paced" },
     ],
   },
-  { name: "FINANCIAL EMPOWERMENT", href: "/#financial-empowerment" },
   { name: "FOR ORGANIZATIONS", href: "/organizations" },
   { name: "ABOUT", href: "/about" },
   { name: "TESTIMONIALS", href: "/#testimonials" },
@@ -81,10 +80,10 @@ export function Navbar() {
             ),
           )}
           <Link
-            href="/film#booking"
+            href="/contact"
             className="px-6 py-3 text-xs font-heading tracking-widest text-black bg-gold hover:bg-white transition-all duration-300"
           >
-            BOOK A SCREENING
+            HOST THE FILM
           </Link>
         </div>
 
@@ -148,11 +147,11 @@ export function Navbar() {
               ),
             )}
             <Link
-              href="/film#booking"
+              href="/contact"
               onClick={() => setMobileOpen(false)}
               className="mt-4 px-6 py-4 text-sm font-heading tracking-widest text-black bg-gold hover:bg-white transition-all duration-300 text-center"
             >
-              BOOK A SCREENING
+              HOST THE FILM
             </Link>
           </div>
         </div>

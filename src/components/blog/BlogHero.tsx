@@ -33,7 +33,7 @@ export function BlogHero() {
             </h1>
           </div>
           <p className="text-xl md:text-2xl text-cream/70 font-sans font-light max-w-2xl mx-auto leading-relaxed italic">
-            &ldquo;Documentation of the transition, the scaling of the mission,
+            &ldquo;Documentation of the transition, the scaling of the movement,
             and the frameworks for the future.&rdquo;
           </p>
         </motion.div>

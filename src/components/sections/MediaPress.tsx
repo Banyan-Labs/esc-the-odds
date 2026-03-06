@@ -57,7 +57,7 @@ export function MediaPress() {
           </h2>
           <p className="text-lg text-cream opacity-70 font-sans font-light">
             National and local coverage highlighting the impact of the Escape
-            The Odds mission.
+            The Odds movement.
           </p>
         </div>
 
