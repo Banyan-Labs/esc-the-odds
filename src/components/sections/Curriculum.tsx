@@ -11,7 +11,7 @@ const coursePoints = [
   "Mastering Personal Reentry Plans",
   "Structured Facilitation Guides",
   "Vocational & Entrepreneurial Development",
-  "Financial Empowerment & Legacy Planning",
+  "Economic Empowerment & Legacy Planning",
   "Mindset Architecture & Habit Loops",
 ];
 
@@ -37,7 +37,7 @@ export function Curriculum() {
 
               <div className="relative w-full h-full shadow-2xl shadow-gold/20">
                 <Image
-                  src="/assets/Image_1.jpeg"
+                  src="/assets/Image_9.jpeg"
                   alt="Bounce Forward Plan Curriculum"
                   fill
                   className="object-cover border-4 border-black"
@@ -75,8 +75,8 @@ export function Curriculum() {
 
             <p className="text-xl text-cream font-light leading-relaxed opacity-90">
               Mastering your reentry isn&apos;t about getting back to where you
-              were&mdash;it&apos;s about building a foundation to go further than you&apos;ve
-              ever been.
+              were&mdash;it&apos;s about building a foundation to go further
+              than you&apos;ve ever been.
             </p>
 
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">

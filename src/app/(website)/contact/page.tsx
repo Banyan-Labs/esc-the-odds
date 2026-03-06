@@ -8,27 +8,39 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
-import { Mail, MessageSquare, ArrowRight, MapPin, CheckCircle2 } from "lucide-react";
+import { Mail, MapPin, ArrowRight, CheckCircle2, BookOpen } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
-const subjectOptions = [
+const inquiryOptions = [
+  "HOST THE ESCAPING THE ODDS DOCUMENTARY – IMPACT SERIES",
+  "LICENSE THE BOUNCE FORWARD PLAN CURRICULUM",
+  "EXPLORE VOCATIONAL PATHWAYS",
+  "INDIVIDUAL LEARNING (BOOKS & COURSES)",
+  "MEDIA / PRESS",
   "GENERAL INQUIRY",
-  "CURRICULUM LICENSING",
-  "FILM SCREENING REQUEST",
-  "PARTNERSHIP INQUIRY",
-  "PRESS & MEDIA",
-  "OTHER",
 ];
 
-const institutionalSubjects = ["CURRICULUM LICENSING", "FILM SCREENING REQUEST"];
+const timelineOptions = [
+  "WITHIN 30 DAYS",
+  "1–3 MONTHS",
+  "3–6 MONTHS",
+  "6+ MONTHS",
+  "EXPLORING OPTIONS",
+];
+
+const roleOptions = [
+  "FINAL DECISION MAKER",
+  "KEY INFLUENCER",
+  "RESEARCHER / EVALUATOR",
+  "OTHER",
+];
 
 const selectClasses =
   "flex h-14 w-full rounded-none border border-white/10 bg-black/50 px-4 py-2 text-sm text-cream focus:ring-1 focus:ring-gold outline-none appearance-none cursor-pointer";
 
 export default function ContactPage() {
-  const [subject, setSubject] = useState("GENERAL INQUIRY");
   const [submitted, setSubmitted] = useState(false);
-  const showInstitutionalFields = institutionalSubjects.includes(subject);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -43,7 +55,7 @@ export default function ContactPage() {
       <section className="relative pt-40 pb-32 bg-black overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 opacity-10 grayscale">
           <Image
-            src="/assets/Image_5.jpeg"
+            src="/assets/Image_16.jpeg"
             alt="Contact Background"
             fill
             className="object-cover"
@@ -60,16 +72,14 @@ export default function ContactPage() {
           >
             <div className="space-y-4">
               <span className="text-gold font-heading tracking-widest text-sm uppercase">
-                THE COLLABORATION DESK
+                CONTACT
               </span>
               <h1 className="text-5xl md:text-8xl font-heading text-white leading-[0.9] tracking-tighter">
-                START THE <br />
-                <span className="text-gold">CONVERSATION.</span>
+                CONTACT ESCAPE <span className="text-gold">THE ODDS</span>
               </h1>
             </div>
-            <p className="text-xl md:text-2xl text-cream/70 font-sans font-light max-w-2xl mx-auto leading-relaxed italic">
-              &ldquo;Every architectural masterpiece begins with a blueprint.
-              Let&apos;s draft yours today.&rdquo;
+            <p className="text-xl md:text-2xl text-cream/70 font-sans font-light max-w-2xl mx-auto leading-relaxed">
+              Structured Engagement Begins with Clear Alignment
             </p>
           </motion.div>
         </div>
@@ -85,16 +95,11 @@ export default function ContactPage() {
               className="lg:col-span-5 space-y-16"
             >
               <div className="space-y-8">
-                <span className="text-gold font-heading tracking-widest text-xs uppercase">
-                  DIRECT CHANNELS
-                </span>
-                <h2 className="text-4xl md:text-6xl font-heading text-white leading-none">
-                  WE ARE HERE <br /> TO GUIDE.
-                </h2>
                 <p className="text-xl text-cream/60 font-sans font-light leading-relaxed">
-                  Whether you&apos;re an institution seeking the curriculum, a
-                  potential partner, or a member of the press, our team is ready
-                  to respond.
+                  Escape The Odds partners with institutions, organizations, and
+                  leaders committed to structured reentry education and economic
+                  empowerment. Select the option below so we can route your
+                  inquiry appropriately.
                 </p>
               </div>
 
@@ -105,28 +110,17 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-1">
                     <h4 className="font-heading tracking-widest text-xs text-cream/60 uppercase">
-                      EMAIL INQUIRIES
+                      MEDIA / PRESS
                     </h4>
+                    <p className="text-sm text-cream/50 font-sans">
+                      For interviews, speaking, and press:
+                    </p>
                     <a
-                      href="mailto:admin@escapetheodds.com"
+                      href="mailto:info@escapetheodds.com"
                       className="text-2xl font-heading text-white hover:text-gold transition-colors block"
                     >
-                      admin@escapetheodds.com
+                      info@escapetheodds.com
                     </a>
-                  </div>
-                </div>
-
-                <div className="flex gap-8 group">
-                  <div className="w-16 h-16 bg-charcoal/50 flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-black transition-all duration-500">
-                    <MessageSquare className="w-6 h-6" />
-                  </div>
-                  <div className="space-y-1">
-                    <h4 className="font-heading tracking-widest text-xs text-cream/60 uppercase">
-                      FACILITATION SUPPORT
-                    </h4>
-                    <p className="text-xl font-heading text-white">
-                      Live portal for active partners.
-                    </p>
                   </div>
                 </div>
 
@@ -139,11 +133,37 @@ export default function ContactPage() {
                       HEADQUARTERS
                     </h4>
                     <p className="text-xl font-heading text-white">
-                      CHICAGO, IL &bull; USA
+                      CHICAGO, ILLINOIS &bull; USA
                     </p>
                   </div>
                 </div>
               </div>
+
+              {/* Individual Learners Block */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="p-8 border border-gold/20 bg-gold/5 space-y-4"
+              >
+                <div className="flex items-center gap-3">
+                  <BookOpen className="w-6 h-6 text-gold" />
+                  <h4 className="font-heading tracking-widest text-xs text-gold uppercase">
+                    INDIVIDUAL LEARNERS
+                  </h4>
+                </div>
+                <p className="text-cream/60 font-sans leading-relaxed">
+                  For books and self-paced courses, please visit our learning
+                  platform.
+                </p>
+                <Link
+                  href="/programs/self-paced"
+                  className="inline-flex items-center text-gold font-heading text-sm tracking-widest uppercase border-b border-gold pb-1 hover:text-white hover:border-white transition-all group"
+                >
+                  EXPLORE INDIVIDUAL LEARNING
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
             </motion.div>
 
             {/* Contact Form */}
@@ -155,185 +175,183 @@ export default function ContactPage() {
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-16 space-y-6 text-center">
                   <CheckCircle2 className="w-16 h-16 text-gold" />
-                  <h3 className="text-3xl font-heading text-white">MESSAGE RECEIVED</h3>
+                  <h3 className="text-3xl font-heading text-white">
+                    MESSAGE RECEIVED
+                  </h3>
                   <p className="text-cream/70 text-lg max-w-md">
-                    Thank you for reaching out. Our team will respond within 48 hours.
+                    Thank you for reaching out. Our team will respond within 48
+                    hours.
                   </p>
                 </div>
               ) : (
-              <>
-              <h3 className="text-3xl font-heading text-white mb-12 tracking-tight underline decoration-gold/30 underline-offset-8">
-                INQUIRY FORM
-              </h3>
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-3">
-                    <Label
-                      htmlFor="fullName"
-                      className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
-                    >
-                      Full Name
-                    </Label>
-                    <Input
-                      id="fullName"
-                      className="bg-black/50 border-white/10 rounded-none h-14 text-cream focus:border-gold transition-colors"
-                      placeholder="ENTER FULL NAME"
-                    />
-                  </div>
-                  <div className="space-y-3">
-                    <Label
-                      htmlFor="email"
-                      className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
-                    >
-                      Email Address
-                    </Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      className="bg-black/50 border-white/10 rounded-none h-14 text-cream focus:border-gold transition-colors"
-                      placeholder="EMAIL@INSTITUTION.ORG"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <Label
-                    htmlFor="orgName"
-                    className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
-                  >
-                    Organization Name (Optional)
-                  </Label>
-                  <Input
-                    id="orgName"
-                    className="bg-black/50 border-white/10 rounded-none h-14 text-cream focus:border-gold transition-colors"
-                    placeholder="YOUR ORGANIZATION"
-                  />
-                </div>
-
-                <div className="space-y-3">
-                  <Label
-                    htmlFor="subject"
-                    className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
-                  >
-                    Subject of Inquiry
-                  </Label>
-                  <select
-                    id="subject"
-                    value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
-                    className={selectClasses}
-                  >
-                    {subjectOptions.map((option) => (
-                      <option key={option} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Conditional Institutional Fields */}
-                {showInstitutionalFields && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="space-y-8 p-8 border border-gold/20 bg-gold/5"
-                  >
-                    <p className="text-[10px] font-heading tracking-widest text-gold uppercase">
-                      INSTITUTIONAL DETAILS
-                    </p>
-
+                <>
+                  <h3 className="text-3xl font-heading text-white mb-12 tracking-tight underline decoration-gold/30 underline-offset-8">
+                    INQUIRY FORM
+                  </h3>
+                  <form onSubmit={handleSubmit} className="space-y-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div className="space-y-3">
                         <Label
-                          htmlFor="audienceSize"
+                          htmlFor="fullName"
                           className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                         >
-                          Audience Size
+                          Full Name
                         </Label>
-                        <select id="audienceSize" className={selectClasses}>
-                          <option value="">SELECT SIZE</option>
-                          <option>Under 25</option>
-                          <option>25–50</option>
-                          <option>50–100</option>
-                          <option>100–250</option>
-                          <option>250+</option>
-                        </select>
+                        <Input
+                          id="fullName"
+                          className="bg-black/50 border-white/10 rounded-none h-14 text-cream focus:border-gold transition-colors"
+                          placeholder="ENTER FULL NAME"
+                        />
                       </div>
                       <div className="space-y-3">
                         <Label
-                          htmlFor="populationServed"
+                          htmlFor="email"
                           className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                         >
-                          Population Served
+                          Email
                         </Label>
-                        <select id="populationServed" className={selectClasses}>
-                          <option value="">SELECT POPULATION</option>
-                          <option>Incarcerated Individuals</option>
-                          <option>Reentry / Post-Release</option>
-                          <option>Workforce Development</option>
-                          <option>Youth / Juvenile</option>
-                          <option>Other</option>
-                        </select>
+                        <Input
+                          id="email"
+                          type="email"
+                          className="bg-black/50 border-white/10 rounded-none h-14 text-cream focus:border-gold transition-colors"
+                          placeholder="EMAIL@ORGANIZATION.ORG"
+                        />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div className="space-y-3">
                         <Label
-                          htmlFor="enrollmentModel"
+                          htmlFor="phone"
                           className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                         >
-                          Enrollment Model
+                          Phone
                         </Label>
-                        <select id="enrollmentModel" className={selectClasses}>
-                          <option value="">SELECT MODEL</option>
-                          <option>Live Cohort (Facilitated)</option>
-                          <option>Self-Paced (When Available)</option>
-                          <option>Not Sure</option>
+                        <Input
+                          id="phone"
+                          type="tel"
+                          className="bg-black/50 border-white/10 rounded-none h-14 text-cream focus:border-gold transition-colors"
+                          placeholder="(555) 555-5555"
+                        />
+                      </div>
+                      <div className="space-y-3">
+                        <Label
+                          htmlFor="orgName"
+                          className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
+                        >
+                          Organization Name
+                        </Label>
+                        <Input
+                          id="orgName"
+                          className="bg-black/50 border-white/10 rounded-none h-14 text-cream focus:border-gold transition-colors"
+                          placeholder="YOUR ORGANIZATION"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="space-y-3">
+                        <Label
+                          htmlFor="titleRole"
+                          className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
+                        >
+                          Title / Role
+                        </Label>
+                        <Input
+                          id="titleRole"
+                          className="bg-black/50 border-white/10 rounded-none h-14 text-cream focus:border-gold transition-colors"
+                          placeholder="YOUR TITLE"
+                        />
+                      </div>
+                      <div className="space-y-3">
+                        <Label
+                          htmlFor="cityState"
+                          className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
+                        >
+                          City / State
+                        </Label>
+                        <Input
+                          id="cityState"
+                          className="bg-black/50 border-white/10 rounded-none h-14 text-cream focus:border-gold transition-colors"
+                          placeholder="CHICAGO, IL"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <Label
+                        htmlFor="programInterest"
+                        className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
+                      >
+                        Program of Interest
+                      </Label>
+                      <select id="programInterest" className={selectClasses}>
+                        {inquiryOptions.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="space-y-3">
+                        <Label
+                          htmlFor="timeline"
+                          className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
+                        >
+                          Estimated Timeline
+                        </Label>
+                        <select id="timeline" className={selectClasses}>
+                          <option value="">SELECT TIMELINE</option>
+                          {timelineOptions.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
                         </select>
                       </div>
                       <div className="space-y-3">
                         <Label
-                          htmlFor="budget"
+                          htmlFor="decisionRole"
                           className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
                         >
-                          Budget Range
+                          Decision-Making Role
                         </Label>
-                        <select id="budget" className={selectClasses}>
-                          <option value="">SELECT RANGE</option>
-                          <option>Under $5,000</option>
-                          <option>$5,000–$10,000</option>
-                          <option>$10,000–$25,000</option>
-                          <option>$25,000+</option>
-                          <option>Discuss on Call</option>
+                        <select id="decisionRole" className={selectClasses}>
+                          <option value="">SELECT ROLE</option>
+                          {roleOptions.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
                         </select>
                       </div>
                     </div>
-                  </motion.div>
-                )}
 
-                <div className="space-y-3">
-                  <Label
-                    htmlFor="message"
-                    className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
-                  >
-                    Message
-                  </Label>
-                  <Textarea
-                    id="message"
-                    className="bg-black/50 border-white/10 rounded-none min-h-[180px] text-cream focus:border-gold transition-colors"
-                    placeholder="HOW CAN WE HELP?"
-                  />
-                </div>
+                    <div className="space-y-3">
+                      <Label
+                        htmlFor="notes"
+                        className="font-heading tracking-widest text-[10px] text-cream/70 uppercase"
+                      >
+                        Additional Notes
+                      </Label>
+                      <Textarea
+                        id="notes"
+                        className="bg-black/50 border-white/10 rounded-none min-h-[180px] text-cream focus:border-gold transition-colors"
+                        placeholder="ANYTHING ELSE WE SHOULD KNOW?"
+                      />
+                    </div>
 
-                <Button type="submit" className="w-full py-10 bg-gold text-black font-heading text-xl rounded-none hover:bg-white transition-all shadow-[0_10px_40px_rgba(223,176,90,0.1)] group">
-                  SEND MESSAGE{" "}
-                  <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-2 transition-transform" />
-                </Button>
-              </form>
-              </>
+                    <Button
+                      type="submit"
+                      className="w-full py-10 bg-gold text-black font-heading text-xl rounded-none hover:bg-white transition-all shadow-[0_10px_40px_rgba(223,176,90,0.1)] group"
+                    >
+                      SEND MESSAGE{" "}
+                      <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                    </Button>
+                  </form>
+                </>
               )}
             </motion.div>
           </div>

@@ -9,7 +9,7 @@ import { BlogGrid, type BlogPost } from "@/components/blog/BlogGrid";
 export const metadata: Metadata = {
   title: "The Dispatch | Escape The Odds",
   description:
-    "Documentation of the transition, the scaling of the mission, and the frameworks for the future.",
+    "Documentation of the transition, the scaling of the movement, and the frameworks for the future.",
 };
 
 export default async function BlogPage() {

@@ -2,10 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
-    quote: "Information on how to get started was inspirational for me to proceed into business.",
+    quote:
+      "Information on how to get started was inspirational for me to proceed into business.",
     name: "CROSSROADS CORRECTIONAL",
     role: "Participant",
   },
@@ -23,8 +25,21 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-charcoal border-y border-white/5">
-      <div className="container mx-auto px-4 md:px-6">
+    <section
+      id="testimonials"
+      className="py-24 bg-black relative overflow-hidden border-y border-white/5"
+    >
+      <div className="absolute inset-0 opacity-10 grayscale pointer-events-none">
+        <Image
+          src="/assets/Image_2.jpeg"
+          alt="Voices of Transformation"
+          fill
+          className="object-cover"
+        />
+      </div>
+      <div className="absolute inset-0 bg-linear-to-b from-black via-black/80 to-black pointer-events-none" />
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
           <span className="text-gold font-heading tracking-widest text-sm uppercase">

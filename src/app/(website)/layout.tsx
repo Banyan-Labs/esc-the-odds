@@ -18,7 +18,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "The Film & The Framework | Escape The Odds",
   description:
-    "Evidence-based reentry and recidivism reduction through the Bounce Forward Plan. Empowering transformation through lived experience, workforce development, and financial empowerment.",
+    "Evidence-based reentry and recidivism reduction through the Bounce Forward Plan. Empowering transformation through lived experience, workforce development, and economic empowerment.",
   keywords: [
     "Evidence-based reentry",
     "recidivism reduction",

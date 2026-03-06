@@ -2,65 +2,63 @@
 
 import { motion } from "framer-motion";
 import { Building2, Briefcase, Heart } from "lucide-react";
+import Image from "next/image";
 
 const audiences = [
   {
     icon: Building2,
-    title: "INSTITUTIONS",
+    title: "CORRECTIONAL SYSTEMS",
     list: [
-      "Department of Corrections",
-      "Government Reentry Departments",
-      "Correctional Facilities",
+      "Departments of Corrections",
       "County Jails",
-      "Juvenile Centers",
-      "Educational Institutions",
-      "Community Colleges",
+      "Juvenile Facilities",
+      "Community Corrections",
     ],
   },
   {
     icon: Briefcase,
-    title: "CORPORATE",
+    title: "WORKFORCE & EMPLOYERS",
     list: [
+      "Workforce Boards",
       "Second-Chance Employers",
-      "Workforce Development Boards",
-      "Workforce Development Programs",
-      "HR & Talent Acquisition",
-      "Corporate Responsibility",
-      "Diversity & Inclusion",
-      "Innovation Teams",
+      "Economic Development Offices",
     ],
   },
   {
     icon: Heart,
-    title: "COMMUNITY",
+    title: "COMMUNITY & REENTRY PARTNERS",
     list: [
       "Reentry Organizations",
-      "Non-Profit Foundations",
-      "Faith-Based Initiatives",
-      "Family Support Groups",
-      "Legislative Advocates",
-      "Lived Experience Leaders",
+      "Foundations",
+      "Educational Institutions",
+      "Libraries",
     ],
   },
 ];
 
 export function TargetAudience() {
   return (
-    <section className="py-24 bg-charcoal">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="py-24 bg-black relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10 grayscale pointer-events-none">
+        <Image
+          src="/assets/Image_7.jpeg"
+          alt="Reentry Ecosystem Background"
+          fill
+          className="object-cover"
+        />
+      </div>
+      <div className="absolute inset-0 bg-linear-to-b from-black via-black/80 to-black pointer-events-none" />
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 text-center md:text-left">
           <div className="max-w-2xl space-y-4">
             <span className="text-gold font-heading tracking-widest text-sm uppercase">
               WHO WE WORK WITH
             </span>
             <h2 className="text-4xl md:text-6xl font-heading text-white">
-              TARGET AUDIENCES
+              BUILT FOR THE REENTRY <span className="text-gold">ECOSYSTEM</span>
             </h2>
           </div>
-          <p className="text-cream/60 font-sans max-w-sm md:text-right pb-2">
-            Scaling impact through deep partnerships across the correctional and
-            corporate landscape.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

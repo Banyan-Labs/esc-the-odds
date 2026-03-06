@@ -3,8 +3,7 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-import { Play, ArrowUpRight } from "lucide-react";
+import { Play } from "lucide-react";
 
 export function TheFilm() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -31,7 +30,7 @@ export function TheFilm() {
           >
             <div className="space-y-4">
               <span className="text-gold font-heading tracking-widest text-sm uppercase">
-                THE FILM
+                WATCH THE FILM PREVIEW
               </span>
               <h2 className="text-4xl md:text-6xl font-heading text-white leading-tight">
                 ESCAPING THE ODDS <br />
@@ -39,33 +38,18 @@ export function TheFilm() {
               </h2>
             </div>
 
-            <p className="text-xl text-cream font-light leading-relaxed max-w-xl opacity-90">
-              &ldquo;The judge never said that this debt came with interest you would
-              pay for the rest of your life.&rdquo;
-            </p>
-
             <p className="text-lg text-cream/70 font-sans leading-relaxed max-w-xl">
-              Our mission spotlights vocational training, second-chance hiring,
-              entrepreneurship, and workforce development. Through the power of
-              lived experience and structured planning, we illuminate the path
-              to bounce forward.
+              &ldquo;Escaping The Odds of Recidivism&rdquo; is an 85-minute
+              documentary that poses the question, &ldquo;Is a successful
+              reentry possible?&rdquo; Guided by Aaron Smith, founder of Escape
+              The Odds Media &amp; Education, the film follows him and a team of
+              justice-impacted individuals as they conduct reentry workshops in
+              correctional institutions across the country. The documentary
+              features voices from incarcerated individuals preparing for
+              release, recently released individuals, correctional staff, and
+              reentry stakeholders. It includes eye-opening statistics and
+              testimonies on reintegration in America.
             </p>
-
-            <div className="pt-4 flex flex-wrap gap-4">
-              <Link
-                href="/about"
-                className="inline-block px-8 py-4 bg-transparent border border-gold text-gold font-heading hover:bg-gold hover:text-black transition-all duration-300"
-              >
-                LEARN ABOUT THE MISSION
-              </Link>
-              <Link
-                href="/film"
-                className="inline-flex items-center px-8 py-4 text-gold font-heading hover:text-white transition-colors group"
-              >
-                EXPLORE THE FILM
-                <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </Link>
-            </div>
           </motion.div>
 
           {/* Right Visual — Inline Video Player */}
@@ -105,7 +89,7 @@ export function TheFilm() {
                 onEnded={() => setIsPlaying(false)}
               >
                 <source
-                  src="/assets/ETO Doc Trailer_FINAL_Cta End Card.mp4"
+                  src="https://firebasestorage.googleapis.com/v0/b/escape-the-odds.firebasestorage.app/o/media%2FETO%20Doc%20Trailer_FINAL_Cta%20End%20Card.mp4?alt=media"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.

@@ -61,10 +61,8 @@ export function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="text-5xl md:text-8xl lg:text-9xl font-heading text-white leading-[0.9] mb-8 tracking-tighter">
-              REWRITE THE <br />
-              <span className="text-gold">NARRATIVE.</span> <br />
-              MASTER THE <br />
-              <span className="text-gold">TRANSITION.</span>
+              ESCAPING THE ODDS <br />
+              <span className="text-gold">OF RECIDIVISM</span>
             </h1>
           </motion.div>
 
@@ -74,9 +72,14 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
+            <p className="max-w-md mx-auto text-lg md:text-xl text-gold font-heading tracking-widest uppercase mb-4">
+              A Documentary-Based Reentry Education & Collective Impact Series
+            </p>
             <p className="max-w-3xl mx-auto text-xl md:text-2xl text-cream font-sans font-light leading-relaxed mb-12 opacity-90">
-              Bounce Forward through the power of lived experience, workforce
-              development, and financial empowerment.
+              Escape The Odds integrates documentary, facilitated dialogue, and
+              structured curriculum to strengthen accountability, economic
+              mobility, and practical reentry preparation inside correctional
+              institutions and across community systems.
             </p>
           </motion.div>
 
@@ -88,33 +91,30 @@ export function Hero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <Link
-              href="/film#booking"
-              className="w-full sm:w-auto px-10 py-5 bg-gold text-black font-heading text-xl rounded-none hover:bg-white transition-all duration-300 flex items-center justify-center group"
-            >
-              BOOK A SCREENING
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-
-            <Link
               href="#the-film"
               className="w-full sm:w-auto px-10 py-5 border-2 border-white text-white font-heading text-xl rounded-none hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center group"
             >
               WATCH THE TRAILER
             </Link>
+
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto px-10 py-5 bg-gold text-black font-heading text-xl rounded-none hover:bg-white transition-all duration-300 flex items-center justify-center group"
+            >
+              REQUEST INFO
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </motion.div>
 
-          {/* Secondary Tagline (Fade in later) */}
+          {/* Tagline (Fade in later) */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.6 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="pt-12 space-y-4"
+            className="pt-12"
           >
             <p className="text-sm md:text-base tracking-[0.3em] text-cream uppercase">
-              Empowering Men and Women to Escape the Odds.
-            </p>
-            <p className="text-xs tracking-[0.2em] text-gold uppercase opacity-80">
-              CHANGE YOUR MINDSET. CHANGE YOUR LIFE.
+              Rewrite the Narrative. Master the Transition.
             </p>
           </motion.div>
         </div>
