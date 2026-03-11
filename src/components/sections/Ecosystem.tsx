@@ -1,39 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Film, BookOpen, Briefcase, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
-
-const cards = [
-  {
-    icon: Film,
-    title: "Escaping The Odds of Recidivism Film – Impact Series",
-    body: "An up to 3.5-hour structured documentary + dialogue experience, including 50 Bounce Forward workbooks provided to local facilities where the film is hosted. Designed for: Correctional facilities, government reentry agencies, career development boards, community reentry organizations, libraries, educational institutions, employers, and CDFIs.",
-    cta: "Host the Film",
-    href: "/film",
-    image: "/assets/Image_16.jpeg",
-    imageAlt: "Documentary screening setup",
-  },
-  {
-    icon: BookOpen,
-    title: "Bounce Forward Plan: Mastering Your Reentry – Curriculum",
-    body: "A 15-session institutional-ready reentry education framework designed for structured implementation. 12-month license includes: Documentary integration, workbooks, facilitation guides, SME toolkit, evaluation framework.",
-    cta: "Inquire About the Curriculum",
-    href: "/contact",
-    image: "/assets/Image_9.jpeg",
-    imageAlt: "Participants with workbooks and certificates",
-  },
-  {
-    icon: Briefcase,
-    title: "Vocational Pathways Programs",
-    body: "Economic mobility programs aligned with reentry preparation: Non-CDL Box Truck Entrepreneurship, Commercial Cleaning Business Development, House Hacking & Real Estate Fundamentals.",
-    cta: "Explore Vocational Pathways",
-    href: "/programs",
-    image: "/assets/Image_20.jpeg",
-    imageAlt: "Vocational program classroom instruction",
-  },
-];
+import { FadeInView } from "@/components/shared";
+import { CTAButton } from "@/components/shared";
+import { ECOSYSTEM_CARDS } from "@/lib/constants/home";
 
 export function Ecosystem() {
   return (
@@ -52,13 +22,10 @@ export function Ecosystem() {
 
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 gap-0 border border-white/10 md:grid-cols-3">
-          {cards.map((card, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+          {ECOSYSTEM_CARDS.map((card, index) => (
+            <FadeInView
+              key={card.title}
+              delay={index * 0.1}
               className={`group hover:bg-charcoal/50 flex flex-col bg-black transition-colors duration-500 ${
                 index !== 2 ? "border-white/10 md:border-r" : ""
               }`}
@@ -84,15 +51,11 @@ export function Ecosystem() {
                   {card.body}
                 </p>
 
-                <Link
-                  href={card.href}
-                  className="bg-gold font-heading group/link inline-flex items-center justify-center px-6 py-3 text-base tracking-widest text-black uppercase transition-all duration-300 hover:bg-white"
-                >
+                <CTAButton href={card.href} size="md" showArrow>
                   {card.cta}
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-                </Link>
+                </CTAButton>
               </div>
-            </motion.div>
+            </FadeInView>
           ))}
         </div>
       </div>

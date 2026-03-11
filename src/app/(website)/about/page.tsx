@@ -2,31 +2,10 @@
 
 import { Founder } from "@/components/sections/Founder";
 import { MediaPress } from "@/components/sections/MediaPress";
-import { motion } from "framer-motion";
-import { Home, Heart, Briefcase, ArrowRight, MessageSquare, Film, Mail } from "lucide-react";
+import { Film } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
-
-const pillars = [
-  {
-    icon: Home,
-    title: "HOUSING",
-    description:
-      "Empowering individuals to understand housing stability, financial planning, and creative pathways to secure safe and sustainable living situations.",
-  },
-  {
-    icon: Heart,
-    title: "HEALTH",
-    description:
-      "Supporting financial wellness, personal discipline, and the mindset required to rebuild life after incarceration.",
-  },
-  {
-    icon: Briefcase,
-    title: "HUSTLE",
-    description:
-      "Creating pathways to employment, entrepreneurship, and ownership through practical workforce and business education.",
-  },
-];
+import { FadeInView, SectionHeader, CTAButton } from "@/components/shared";
+import { PILLARS } from "@/lib/constants/about";
 
 export default function AboutPage() {
   return (
@@ -44,22 +23,17 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-linear-to-b from-black via-black/40 to-black" />
 
         <div className="relative z-10 container mx-auto px-4 text-center md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mx-auto max-w-4xl space-y-8"
-          >
+          <FadeInView className="mx-auto max-w-4xl space-y-8">
             <div className="space-y-4">
               <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
                 ABOUT
               </span>
-              <h1 className="font-heading text-5xl leading-[0.9] tracking-tighter text-white md:text-8xl">
+              <h1 className="font-heading text-5xl leading-tight tracking-tighter text-white md:text-8xl">
                 CHANGE THE NARRATIVE.{" "}
                 <span className="text-gold">ECONOMIC EMPOWERMENT IS WHAT WE DO.</span>
               </h1>
             </div>
-          </motion.div>
+          </FadeInView>
         </div>
       </section>
 
@@ -70,27 +44,16 @@ export default function AboutPage() {
       <section className="border-b border-white/5 bg-black py-16 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-4xl space-y-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-4"
-            >
+            <FadeInView className="space-y-4">
               <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
                 THE MOVEMENT
               </span>
               <h2 className="font-heading text-4xl leading-tight text-white md:text-6xl">
                 EMPOWERING MEN AND WOMEN TO <span className="text-gold">ESCAPE THE ODDS.</span>
               </h2>
-            </motion.div>
+            </FadeInView>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="space-y-6"
-            >
+            <FadeInView delay={0.1} className="space-y-6">
               <p className="text-cream/90 font-sans text-xl leading-relaxed font-light">
                 Escape The Odds Media &amp; Education was built from the real experience of reentry.
               </p>
@@ -108,30 +71,16 @@ export default function AboutPage() {
                   It&apos;s about opportunity, strategy, and support.
                 </span>
               </p>
-            </motion.div>
+            </FadeInView>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="flex flex-col items-center gap-6 pt-4 sm:flex-row"
-            >
-              <Link
-                href="/contact"
-                className="group bg-gold font-heading flex w-full items-center justify-center px-10 py-5 text-2xl text-black transition-all duration-300 hover:bg-white sm:w-auto"
-              >
+            <FadeInView delay={0.2} className="flex flex-col items-center gap-6 pt-4 sm:flex-row">
+              <CTAButton href="/contact" showArrow fullWidth>
                 HOST THE FILM
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                href="/film"
-                className="font-heading flex w-full items-center justify-center border-2 border-white px-10 py-5 text-2xl text-white transition-all duration-300 hover:bg-white hover:text-black sm:w-auto"
-              >
-                <Film className="mr-3 h-5 w-5" />
+              </CTAButton>
+              <CTAButton href="/film" variant="outline" icon={Film} fullWidth>
                 WATCH THE TRAILER
-              </Link>
-            </motion.div>
+              </CTAButton>
+            </FadeInView>
           </div>
         </div>
       </section>
@@ -144,12 +93,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-4xl space-y-20">
             {/* Belief Statement */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-6 text-center"
-            >
+            <FadeInView className="space-y-6 text-center">
               <h2 className="font-heading text-4xl leading-tight text-white md:text-6xl">
                 OUR WORK IS DRIVEN BY A <span className="text-gold">SIMPLE BELIEF.</span>
               </h2>
@@ -161,15 +105,10 @@ export default function AboutPage() {
               <p className="font-sans text-xl font-medium text-white">
                 Escape The Odds exists to help make that possible.
               </p>
-            </motion.div>
+            </FadeInView>
 
             {/* Mission */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
+            <FadeInView className="space-y-6">
               <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
                 OUR MISSION
               </span>
@@ -183,15 +122,10 @@ export default function AboutPage() {
                 housing, healthy lifestyles, and sustainable income — breaking cycles of
                 incarceration and creating long-term opportunity.
               </p>
-            </motion.div>
+            </FadeInView>
 
             {/* Vision */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
+            <FadeInView className="space-y-6">
               <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
                 OUR VISION
               </span>
@@ -212,7 +146,7 @@ export default function AboutPage() {
                   It should mean building something new.
                 </span>
               </p>
-            </motion.div>
+            </FadeInView>
           </div>
         </div>
       </section>
@@ -220,28 +154,20 @@ export default function AboutPage() {
       {/* 5. How We Do The Work — Housing, Health, Hustle */}
       <section className="border-b border-white/5 bg-black py-16 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mx-auto mb-20 max-w-3xl space-y-4 text-center">
-            <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
-              OUR APPROACH
-            </span>
-            <h2 className="font-heading text-4xl text-white md:text-6xl">
-              HOW WE DO <span className="text-gold">THE WORK</span>
-            </h2>
-            <p className="text-cream/90 font-sans text-xl leading-relaxed font-light">
-              Escape The Odds focuses on three pillars that create long-term stability.
-            </p>
-          </div>
+          <SectionHeader
+            subtitle="OUR APPROACH"
+            heading="HOW WE DO"
+            accentText="THE WORK"
+            description="Escape The Odds focuses on three pillars that create long-term stability."
+          />
 
           <div className="grid grid-cols-1 gap-0 border border-white/10 md:grid-cols-3">
-            {pillars.map((pillar, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
+            {PILLARS.map((pillar, index) => (
+              <FadeInView
+                key={pillar.title}
+                delay={index * 0.1}
                 className={`group hover:bg-charcoal/50 flex flex-col space-y-6 p-10 transition-colors duration-500 ${
-                  index !== pillars.length - 1
+                  pillar.title !== PILLARS[PILLARS.length - 1].title
                     ? "border-b border-white/10 md:border-r md:border-b-0"
                     : ""
                 }`}
@@ -253,7 +179,7 @@ export default function AboutPage() {
                 <p className="text-cream/80 font-sans text-base leading-relaxed font-light">
                   {pillar.description}
                 </p>
-              </motion.div>
+              </FadeInView>
             ))}
           </div>
 
@@ -261,20 +187,11 @@ export default function AboutPage() {
             These pillars guide every Escape The Odds program, training, and educational resource.
           </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex justify-center pt-10"
-          >
-            <Link
-              href="/programs"
-              className="group bg-gold font-heading inline-flex items-center justify-center px-10 py-5 text-2xl text-black transition-all duration-300 hover:bg-white"
-            >
+          <FadeInView className="flex justify-center pt-10">
+            <CTAButton href="/programs" showArrow>
               EXPLORE OUR PROGRAMS
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </motion.div>
+            </CTAButton>
+          </FadeInView>
         </div>
       </section>
 
@@ -282,12 +199,7 @@ export default function AboutPage() {
       <section className="bg-charcoal border-b border-white/5 py-16 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-4xl space-y-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-4"
-            >
+            <FadeInView className="space-y-4">
               <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
                 OUR IMPACT
               </span>
@@ -295,15 +207,9 @@ export default function AboutPage() {
                 OVER <span className="text-gold">600+</span> JUSTICE-INVOLVED STUDENTS ACROSS{" "}
                 <span className="text-gold">10+ STATES</span> IN THE LAST 3 YEARS.
               </h2>
-            </motion.div>
+            </FadeInView>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="space-y-6"
-            >
+            <FadeInView delay={0.1} className="space-y-6">
               <p className="text-cream/90 font-sans text-xl leading-relaxed font-light">
                 Our work reaches individuals inside correctional facilities, transitional centers,
                 and community reentry programs through documentary-based learning, workforce
@@ -315,22 +221,13 @@ export default function AboutPage() {
                   They represent a future being rebuilt.
                 </span>
               </p>
-            </motion.div>
+            </FadeInView>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <Link
-                href="/contact"
-                className="group bg-gold font-heading inline-flex items-center justify-center px-10 py-5 text-2xl text-black transition-all duration-300 hover:bg-white"
-              >
+            <FadeInView delay={0.2}>
+              <CTAButton href="/contact" showArrow>
                 PARTNER WITH ESCAPE THE ODDS
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </motion.div>
+              </CTAButton>
+            </FadeInView>
           </div>
         </div>
       </section>
@@ -340,14 +237,8 @@ export default function AboutPage() {
         <div className="bg-gold/5 pointer-events-none absolute top-1/2 left-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px] md:h-[600px] md:w-[600px] lg:h-[800px] lg:w-[800px]" />
 
         <div className="relative z-10 container mx-auto px-4 text-center md:px-6">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mx-auto max-w-4xl space-y-10"
-          >
-            <h2 className="font-heading text-4xl leading-tight tracking-tight text-white md:text-6xl">
+          <FadeInView direction="scale" className="mx-auto max-w-4xl space-y-10">
+            <h2 className="font-heading text-4xl leading-tight text-white md:text-6xl">
               BUILD THE FUTURE <span className="text-gold">WITH US.</span>
             </h2>
 
@@ -389,22 +280,19 @@ export default function AboutPage() {
             </div>
 
             <div className="flex flex-col items-center justify-center gap-6 pt-6 sm:flex-row">
-              <Link
-                href="/contact"
-                className="group bg-gold font-heading flex w-full items-center justify-center px-10 py-5 text-2xl text-black transition-all duration-300 hover:bg-white sm:w-auto"
-              >
-                <Film className="mr-3 h-5 w-5" />
+              <CTAButton href="/contact" icon={Film} showArrow fullWidth>
                 HOST THE FILM
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
+              </CTAButton>
+              <CTAButton
                 href="/programs"
-                className="border-gold text-gold font-heading hover:bg-gold flex w-full items-center justify-center border-2 px-10 py-5 text-2xl transition-all duration-300 hover:text-black sm:w-auto"
+                variant="outline"
+                fullWidth
+                className="border-gold text-gold hover:bg-gold hover:border-gold hover:text-black"
               >
                 EXPLORE PROGRAMS
-              </Link>
+              </CTAButton>
             </div>
-          </motion.div>
+          </FadeInView>
         </div>
       </section>
     </>
