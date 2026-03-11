@@ -1,31 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Building2, Briefcase, Heart } from "lucide-react";
 import Image from "next/image";
-
-const audiences = [
-  {
-    icon: Building2,
-    title: "CORRECTIONAL SYSTEMS",
-    list: [
-      "Departments of Corrections",
-      "County Jails",
-      "Juvenile Facilities",
-      "Community Corrections",
-    ],
-  },
-  {
-    icon: Briefcase,
-    title: "WORKFORCE & EMPLOYERS",
-    list: ["Workforce Boards", "Second-Chance Employers", "Economic Development Offices"],
-  },
-  {
-    icon: Heart,
-    title: "COMMUNITY & REENTRY PARTNERS",
-    list: ["Reentry Organizations", "Foundations", "Educational Institutions", "Libraries"],
-  },
-];
+import { FadeInView } from "@/components/shared";
+import { AUDIENCE_GROUPS } from "@/lib/constants/home";
 
 export function TargetAudience() {
   return (
@@ -46,20 +23,17 @@ export function TargetAudience() {
             <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
               WHO WE WORK WITH
             </span>
-            <h2 className="font-heading text-4xl text-white md:text-6xl">
+            <h2 className="font-heading text-4xl leading-tight text-white md:text-6xl">
               BUILT FOR THE REENTRY <span className="text-gold">ECOSYSTEM</span>
             </h2>
           </div>
         </div>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {audiences.map((audience, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+          {AUDIENCE_GROUPS.map((audience, index) => (
+            <FadeInView
+              key={audience.title}
+              delay={index * 0.1}
               className="group hover:border-gold/30 shadow-gold/5 border border-white/5 bg-black/40 p-10 transition-all duration-500 hover:shadow-2xl"
             >
               <div className="text-gold mb-8 h-16 w-16 transition-transform group-hover:scale-110">
@@ -71,8 +45,8 @@ export function TargetAudience() {
               </h3>
 
               <ul className="space-y-4">
-                {audience.list.map((item, i) => (
-                  <li key={i} className="text-cream/90 flex items-center space-x-3">
+                {audience.items.map((item) => (
+                  <li key={item} className="text-cream/90 flex items-center space-x-3">
                     <div className="bg-gold/50 h-1.5 w-1.5 rounded-full" />
                     <span className="font-sans text-sm font-medium tracking-widest uppercase opacity-80">
                       {item}
@@ -80,7 +54,7 @@ export function TargetAudience() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </FadeInView>
           ))}
         </div>
       </div>

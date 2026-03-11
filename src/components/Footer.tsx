@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { FOOTER_LINKS, SOCIAL_LINKS } from "@/lib/constants/navigation";
 
 export function Footer() {
   return (
@@ -16,13 +17,9 @@ export function Footer() {
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-4 md:gap-x-8">
-          {[
-            { name: "INSTITUTIONAL PARTNERS", href: "/organizations" },
-            { name: "BLOG", href: "/blog" },
-            { name: "CONTACT", href: "/contact" },
-          ].map((link) => (
+          {FOOTER_LINKS.map((link) => (
             <Link
-              key={link.name}
+              key={link.href}
               href={link.href}
               className="font-heading text-cream/90 tracking-[0.2em] transition-colors hover:text-white"
             >
@@ -32,18 +29,13 @@ export function Footer() {
 
           <div className="flex items-center gap-6">
             <span className="font-heading text-cream/60 tracking-[0.2em]">|</span>
-            {[
-              { name: "INSTAGRAM", href: "https://www.instagram.com/escapetheoddsmedia" },
-              {
-                name: "LINKEDIN",
-                href: "https://www.linkedin.com/company/escaping-the-odds-media/",
-              },
-            ].map((social) => (
+            {SOCIAL_LINKS.map((social) => (
               <a
-                key={social.name}
+                key={social.href}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Follow Escape The Odds on ${social.name}`}
                 className="font-heading text-cream/90 hover:text-gold tracking-[0.2em] transition-colors"
               >
                 {social.name}

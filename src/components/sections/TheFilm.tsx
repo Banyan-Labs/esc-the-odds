@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Play } from "lucide-react";
+import { TRAILER_VIDEO_URL } from "@/lib/constants/home";
 
 export function TheFilm() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -86,10 +87,7 @@ export function TheFilm() {
                 className={`h-full w-full object-cover ${isPlaying ? "block" : "hidden"}`}
                 onEnded={() => setIsPlaying(false)}
               >
-                <source
-                  src="https://firebasestorage.googleapis.com/v0/b/escape-the-odds.firebasestorage.app/o/media%2FETO%20Doc%20Trailer_FINAL_Cta%20End%20Card.mp4?alt=media"
-                  type="video/mp4"
-                />
+                <source src={TRAILER_VIDEO_URL} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>

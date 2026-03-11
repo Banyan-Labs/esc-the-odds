@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Mail, MessageSquare, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { Mail, MessageSquare } from "lucide-react";
+import { FadeInView, CTAButton } from "@/components/shared";
 
 export function ContactCTA() {
   return (
@@ -11,18 +10,12 @@ export function ContactCTA() {
       <div className="bg-gold/5 pointer-events-none absolute top-1/2 left-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px] md:h-[600px] md:w-[600px] lg:h-[800px] lg:w-[800px]" />
 
       <div className="relative z-10 container mx-auto px-4 text-center md:px-6">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mx-auto max-w-4xl space-y-12"
-        >
+        <FadeInView direction="scale" className="mx-auto max-w-4xl space-y-12">
           <div className="space-y-4">
             <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
               NEXT STEPS
             </span>
-            <h2 className="font-heading text-4xl leading-tight tracking-tight text-white md:text-6xl">
+            <h2 className="font-heading text-4xl leading-tight text-white md:text-6xl">
               READY TO BRING ESCAPE THE ODDS{" "}
               <span className="text-gold">TO YOUR ORGANIZATION?</span>
             </h2>
@@ -34,24 +27,15 @@ export function ContactCTA() {
           </p>
 
           <div className="flex flex-col items-center justify-center gap-6 pt-4 sm:flex-row">
-            <Link
-              href="/contact"
-              className="group bg-gold font-heading flex w-full items-center justify-center px-10 py-5 text-2xl text-black transition-all duration-300 hover:bg-white sm:w-auto"
-            >
-              <MessageSquare className="mr-3 h-5 w-5" />
+            <CTAButton href="/contact" icon={MessageSquare} showArrow fullWidth>
               HOST THE FILM
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </CTAButton>
 
-            <Link
-              href="/contact"
-              className="font-heading flex w-full items-center justify-center border-2 border-white px-10 py-5 text-2xl text-white transition-all duration-300 hover:bg-white hover:text-black sm:w-auto"
-            >
-              <Mail className="mr-3 h-5 w-5" />
+            <CTAButton href="/contact" variant="outline" icon={Mail} fullWidth>
               CONTACT OUR TEAM
-            </Link>
+            </CTAButton>
           </div>
-        </motion.div>
+        </FadeInView>
       </div>
     </section>
   );

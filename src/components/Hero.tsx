@@ -5,23 +5,15 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-
-const carouselImages = [
-  "/assets/carousel/COOKCOUNTY-SHERIFF-PIC.png",
-  "/assets/Image_4.jpeg",
-  "/assets/Image_10.jpeg",
-  "/assets/Image_19.jpeg",
-  "/assets/Image_5.jpeg",
-  "/assets/Image_7.jpeg",
-];
+import { CAROUSEL_IMAGES, CAROUSEL_INTERVAL_MS } from "@/lib/constants/home";
 
 export function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % carouselImages.length);
-    }, 6000);
+      setCurrentImageIndex((prev) => (prev + 1) % CAROUSEL_IMAGES.length);
+    }, CAROUSEL_INTERVAL_MS);
     return () => clearInterval(timer);
   }, []);
 
@@ -39,7 +31,7 @@ export function Hero() {
             className="absolute inset-0"
           >
             <Image
-              src={carouselImages[currentImageIndex]}
+              src={CAROUSEL_IMAGES[currentImageIndex]}
               alt="Aaron Smith presenting at a reentry education event"
               fill
               className="object-cover"

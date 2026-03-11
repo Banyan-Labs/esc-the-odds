@@ -9,25 +9,7 @@ import { motion } from "framer-motion";
 import { Mail, MapPin, ArrowRight, CheckCircle2, BookOpen } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
-const inquiryOptions = [
-  "HOST THE ESCAPING THE ODDS DOCUMENTARY – IMPACT SERIES",
-  "LICENSE THE BOUNCE FORWARD PLAN CURRICULUM",
-  "EXPLORE VOCATIONAL PATHWAYS",
-  "INDIVIDUAL LEARNING (BOOKS & COURSES)",
-  "MEDIA / PRESS",
-  "GENERAL INQUIRY",
-];
-
-const timelineOptions = [
-  "WITHIN 30 DAYS",
-  "1–3 MONTHS",
-  "3–6 MONTHS",
-  "6+ MONTHS",
-  "EXPLORING OPTIONS",
-];
-
-const roleOptions = ["FINAL DECISION MAKER", "KEY INFLUENCER", "RESEARCHER / EVALUATOR", "OTHER"];
+import { INQUIRY_OPTIONS, TIMELINE_OPTIONS, ROLE_OPTIONS } from "@/lib/constants/contact";
 
 const selectClasses =
   "flex h-14 w-full rounded-none border border-white/10 bg-black/50 px-4 py-2 text-sm text-cream focus:ring-1 focus:ring-gold outline-none appearance-none cursor-pointer";
@@ -160,7 +142,11 @@ export default function ContactPage() {
               className="bg-charcoal border border-white/5 p-12 shadow-2xl lg:col-span-7 lg:p-16"
             >
               {submitted ? (
-                <div className="flex flex-col items-center justify-center space-y-6 py-16 text-center">
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className="flex flex-col items-center justify-center space-y-6 py-16 text-center"
+                >
                   <CheckCircle2 className="text-gold h-16 w-16" />
                   <h2 className="font-heading text-3xl text-white">MESSAGE RECEIVED</h2>
                   <p className="text-cream/90 max-w-md text-lg">
@@ -270,7 +256,7 @@ export default function ContactPage() {
                         Program of Interest
                       </Label>
                       <select id="programInterest" className={selectClasses}>
-                        {inquiryOptions.map((option) => (
+                        {INQUIRY_OPTIONS.map((option) => (
                           <option key={option} value={option}>
                             {option}
                           </option>
@@ -302,7 +288,7 @@ export default function ContactPage() {
                         </Label>
                         <select id="timeline" className={selectClasses}>
                           <option value="">SELECT TIMELINE</option>
-                          {timelineOptions.map((option) => (
+                          {TIMELINE_OPTIONS.map((option) => (
                             <option key={option} value={option}>
                               {option}
                             </option>
@@ -318,7 +304,7 @@ export default function ContactPage() {
                         </Label>
                         <select id="decisionRole" className={selectClasses}>
                           <option value="">SELECT ROLE</option>
-                          {roleOptions.map((option) => (
+                          {ROLE_OPTIONS.map((option) => (
                             <option key={option} value={option}>
                               {option}
                             </option>
