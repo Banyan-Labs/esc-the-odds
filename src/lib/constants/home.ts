@@ -149,8 +149,8 @@ export const HOME_EXPERIENCE_STEPS: HomeExperienceStep[] = [
     icon: Film,
     title: "The Mirror",
     subtitle: "The Film",
-    image: "/assets/Image_6.jpeg",
-    imageAlt: "Documentary screening audience",
+    image: "/assets/Image_26.jpeg",
+    imageAlt: "Aaron connecting with individuals at a correctional facility",
     description:
       "An immersive documentary experience revealing the architecture of reintegration and introducing a mindset shift toward economic readiness and personal responsibility.",
     bullets: null,
