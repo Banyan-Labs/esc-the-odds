@@ -4,18 +4,18 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="py-20 bg-black border-t border-white/5 text-xs">
-      <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center gap-12">
-        <div className="flex flex-col items-center md:items-start gap-4">
-          <span className="text-3xl font-heading text-white tracking-tighter">
+    <footer className="border-t border-white/5 bg-black py-20 text-sm">
+      <div className="container mx-auto flex flex-col items-center justify-between gap-12 px-4 md:flex-row md:px-6">
+        <div className="flex flex-col items-center gap-4 md:items-start">
+          <span className="font-heading text-3xl tracking-tighter text-white">
             ESCAPE THE <span className="text-gold">ODDS.</span>
           </span>
-          <p className="text-cream/50 font-sans tracking-widest uppercase">
+          <p className="text-cream/90 font-sans tracking-widest uppercase">
             © {new Date().getFullYear()} ALL RIGHTS RESERVED.
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-4 md:gap-x-8">
           {[
             { name: "INSTITUTIONAL PARTNERS", href: "/organizations" },
             { name: "BLOG", href: "/blog" },
@@ -24,24 +24,27 @@ export function Footer() {
             <Link
               key={link.name}
               href={link.href}
-              className="font-heading tracking-[0.2em] text-cream/70 transition-colors hover:text-white"
+              className="font-heading text-cream/90 tracking-[0.2em] transition-colors hover:text-white"
             >
               {link.name}
             </Link>
           ))}
 
           <div className="flex items-center gap-6">
-            <span className="font-heading tracking-[0.2em] text-cream/40">|</span>
+            <span className="font-heading text-cream/60 tracking-[0.2em]">|</span>
             {[
               { name: "INSTAGRAM", href: "https://www.instagram.com/escapetheoddsmedia" },
-              { name: "LINKEDIN", href: "https://www.linkedin.com/company/escaping-the-odds-media/" },
+              {
+                name: "LINKEDIN",
+                href: "https://www.linkedin.com/company/escaping-the-odds-media/",
+              },
             ].map((social) => (
               <a
                 key={social.name}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-heading tracking-[0.2em] text-cream/70 transition-colors hover:text-gold"
+                className="font-heading text-cream/90 hover:text-gold tracking-[0.2em] transition-colors"
               >
                 {social.name}
               </a>

@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Escape The Odds
 
-## Getting Started
+A Next.js 15 web platform for Aaron Smith's reentry transformation ecosystem — combining a cinematic public website with Payload CMS for blog management.
 
-First, run the development server:
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 15.4.11 (App Router, React 19) |
+| CMS | Payload CMS 3.77.0 (embedded) |
+| Database | PostgreSQL 15 (Docker local, Cloud SQL production) |
+| Hosting | Firebase Hosting + Cloud Functions (2nd Gen) |
+| Styling | Tailwind CSS v4 + shadcn/ui |
+| Animation | Framer Motion |
+| Fonts | Anton (headings), Inter (body) |
+
+## Site Structure
+
+| Route | Description |
+|-------|------------|
+| `/` | Homepage — Hero carousel, Film preview, Experience, Ecosystem, Testimonials, Target Audience |
+| `/film` | Documentary page — video player, experience cards, host CTA |
+| `/programs` | Consolidated programs — 5 overview cards, detailed sections, self-paced books |
+| `/organizations` | Institutional engagement — 3 models, partner audience, consultation CTA |
+| `/about` | Movement story — founder bio, media press, belief/mission/vision, impact stats |
+| `/contact` | Multi-field inquiry form — 11 fields, 6 inquiry categories |
+| `/blog` | Blog listing + detail — posts from Payload CMS |
+| `/admin` | Payload CMS admin panel |
+
+## Quick Start
 
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Start local PostgreSQL
+docker compose up -d
+
+# 3. Create .env with required variables (see docs/handoff/INFRASTRUCTURE.md)
+cp .env.example .env  # or create manually
+
+# 4. Start dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# 5. Visit http://localhost:3000 (site) or /admin (CMS)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Architecture
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/app/
+  (website)/    Public site (/, /about, /blog, /film, /programs, /organizations, /contact)
+  (payload)/    Payload CMS admin panel (/admin)
+  api/          Payload REST API (/api/*)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Payload CMS is embedded inside the Next.js app — not a separate backend. Each public route has a `layout.tsx` for SEO metadata and a `page.tsx` client component for UI/animations.
 
-## Learn More
+## Documentation
 
-To learn more about Next.js, take a look at the following resources:
+All detailed documentation lives in `docs/` (gitignored, local only):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **[Handoff Guide](docs/handoff/README.md)** — Full technical overview for new developers
+- **[Infrastructure](docs/handoff/INFRASTRUCTURE.md)** — Firebase, Cloud SQL, deployment
+- **[Managing Blog Posts](docs/handoff/managing-blog-posts.md)** — Client-facing CMS guide
+- **[Wiki](docs/wiki/)** — Page-by-page documentation and architecture details
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Design System
 
-## Deploy on Vercel
+- **Theme:** Black/gold/cream cinematic aesthetic
+- **Colors:** Gold `#DFB05A`, Cream `#F1ECE6`, Charcoal `#323131`, Black `#000`
+- **Headings:** Anton font, uppercase, tracking-tighter
+- **Body:** Inter font, font-light
+- **Images:** Color with scale-on-hover, faded backgrounds at 30% opacity
+- **Eyebrows:** Gold spans with `text-2xl md:text-3xl tracking-widest uppercase`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+firebase deploy --only hosting --force
+```
+
+See [Infrastructure docs](docs/handoff/INFRASTRUCTURE.md) for full deployment details.

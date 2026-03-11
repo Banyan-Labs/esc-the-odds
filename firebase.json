@@ -5,6 +5,14 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "redirects": [
+      { "source": "/courses", "destination": "/programs", "type": 301 },
+      { "source": "/documentary", "destination": "/film", "type": 301 },
+      { "source": "/partner", "destination": "/organizations", "type": 301 },
+      { "source": "/support", "destination": "/organizations", "type": 301 },
+      { "source": "/programs/live-cohort", "destination": "/programs#live-cohort", "type": 301 },
+      { "source": "/programs/self-paced", "destination": "/programs#self-paced", "type": 301 }
     ]
   },
   "storage": {

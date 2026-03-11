@@ -18,50 +18,41 @@ const audiences = [
   {
     icon: Briefcase,
     title: "WORKFORCE & EMPLOYERS",
-    list: [
-      "Workforce Boards",
-      "Second-Chance Employers",
-      "Economic Development Offices",
-    ],
+    list: ["Workforce Boards", "Second-Chance Employers", "Economic Development Offices"],
   },
   {
     icon: Heart,
     title: "COMMUNITY & REENTRY PARTNERS",
-    list: [
-      "Reentry Organizations",
-      "Foundations",
-      "Educational Institutions",
-      "Libraries",
-    ],
+    list: ["Reentry Organizations", "Foundations", "Educational Institutions", "Libraries"],
   },
 ];
 
 export function TargetAudience() {
   return (
-    <section className="py-24 bg-black relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10 grayscale pointer-events-none">
+    <section className="relative overflow-hidden bg-black py-12 md:py-20 lg:py-24">
+      <div className="pointer-events-none absolute inset-0 opacity-30">
         <Image
-          src="/assets/Image_7.jpeg"
-          alt="Reentry Ecosystem Background"
+          src="/assets/Image_14.jpeg"
+          alt="Program participants with certificates in classroom"
           fill
           className="object-cover"
         />
       </div>
-      <div className="absolute inset-0 bg-linear-to-b from-black via-black/80 to-black pointer-events-none" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-black via-black/80 to-black" />
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 text-center md:text-left">
+      <div className="relative z-10 container mx-auto px-4 md:px-6">
+        <div className="mb-16 flex flex-col justify-between gap-8 text-center md:flex-row md:items-end md:text-left">
           <div className="max-w-2xl space-y-4">
-            <span className="text-gold font-heading tracking-widest text-sm uppercase">
+            <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
               WHO WE WORK WITH
             </span>
-            <h2 className="text-4xl md:text-6xl font-heading text-white">
+            <h2 className="font-heading text-4xl text-white md:text-6xl">
               BUILT FOR THE REENTRY <span className="text-gold">ECOSYSTEM</span>
             </h2>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {audiences.map((audience, index) => (
             <motion.div
               key={index}
@@ -69,24 +60,21 @@ export function TargetAudience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="bg-black/40 p-10 border border-white/5 group hover:border-gold/30 transition-all duration-500 hover:shadow-2xl shadow-gold/5"
+              className="group hover:border-gold/30 shadow-gold/5 border border-white/5 bg-black/40 p-10 transition-all duration-500 hover:shadow-2xl"
             >
-              <div className="w-16 h-16 mb-8 text-gold group-hover:scale-110 transition-transform">
-                <audience.icon className="w-full h-full stroke-1" />
+              <div className="text-gold mb-8 h-16 w-16 transition-transform group-hover:scale-110">
+                <audience.icon className="h-full w-full stroke-1" />
               </div>
 
-              <h3 className="text-3xl font-heading text-white mb-8 tracking-tight">
+              <h3 className="font-heading mb-8 text-3xl tracking-tight text-white">
                 {audience.title}
               </h3>
 
               <ul className="space-y-4">
                 {audience.list.map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-center space-x-3 text-cream/70"
-                  >
-                    <div className="w-1.5 h-1.5 bg-gold/50 rounded-full" />
-                    <span className="text-sm font-sans uppercase tracking-widest font-medium opacity-80">
+                  <li key={i} className="text-cream/90 flex items-center space-x-3">
+                    <div className="bg-gold/50 h-1.5 w-1.5 rounded-full" />
+                    <span className="font-sans text-sm font-medium tracking-widest uppercase opacity-80">
                       {item}
                     </span>
                   </li>

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Clock, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { formatDate, getCategoryLabel, getAuthorName } from "@/lib/blog";
 
 export type BlogPost = {
   title: string;
@@ -15,20 +16,6 @@ export type BlogPost = {
   featuredImage: { url: string; alt: string } | string;
 };
 
-function formatDate(dateStr: string | null): string {
-  if (!dateStr) return "";
-  return new Date(dateStr).toLocaleDateString("en-US", {
-    month: "short",
-    day: "2-digit",
-    year: "numeric",
-  });
-}
-
-function getAuthorName(author: BlogPost["author"]): string {
-  if (typeof author === "string") return "Unknown";
-  return author.email.split("@")[0];
-}
-
 function getImageUrl(image: BlogPost["featuredImage"]): string {
   if (typeof image === "string") return "";
   return image.url;
@@ -39,21 +26,11 @@ function getImageAlt(image: BlogPost["featuredImage"]): string {
   return image.alt;
 }
 
-function getCategoryLabel(value: string): string {
-  const labels: Record<string, string> = {
-    mindset: "Mindset",
-    business: "Business",
-    courses: "Courses",
-    lifestyle: "Lifestyle",
-  };
-  return labels[value] || value;
-}
-
 export function BlogGrid({ posts }: { posts: BlogPost[] }) {
   if (posts.length === 0) {
     return (
-      <section className="py-32 container mx-auto px-4 md:px-6">
-        <div className="text-center text-cream/70 font-sans text-xl">
+      <section className="container mx-auto px-4 py-16 md:px-6 md:py-24 lg:py-32">
+        <div className="text-cream/90 text-center font-sans text-xl">
           No posts published yet. Check back soon.
         </div>
       </section>
@@ -61,8 +38,9 @@ export function BlogGrid({ posts }: { posts: BlogPost[] }) {
   }
 
   return (
-    <section className="py-32 container mx-auto px-4 md:px-6">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 border border-white/10">
+    <section className="container mx-auto px-4 py-16 md:px-6 md:py-24 lg:py-32">
+      <h2 className="sr-only">Blog Posts</h2>
+      <div className="grid grid-cols-1 gap-0 border border-white/10 lg:grid-cols-3">
         {posts.map((post, i) => (
           <motion.div
             key={post.slug}
@@ -70,53 +48,52 @@ export function BlogGrid({ posts }: { posts: BlogPost[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className={`flex flex-col group hover:bg-charcoal transition-colors duration-500 border-white/10 ${
+            className={`group hover:bg-charcoal flex flex-col border-white/10 transition-colors duration-500 ${
               i !== posts.length - 1
-                ? "lg:border-r border-b lg:border-b-0"
+                ? "border-b lg:border-r lg:border-b-0"
                 : "border-b lg:border-b-0"
             }`}
           >
-            <Link href={`/blog/${post.slug}`} className="flex flex-col flex-1">
+            <Link href={`/blog/${post.slug}`} className="flex flex-1 flex-col">
               <div className="relative aspect-video overflow-hidden">
                 <Image
                   src={getImageUrl(post.featuredImage)}
                   alt={getImageAlt(post.featuredImage)}
                   fill
-                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  className="object-cover transition-all duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-60" />
                 <div className="absolute bottom-6 left-6">
-                  <span className="px-3 py-1 bg-gold text-black text-[10px] font-heading tracking-widest uppercase">
+                  <span className="bg-gold font-heading px-3 py-1 text-sm tracking-widest text-black uppercase">
                     {getCategoryLabel(post.category)}
                   </span>
                 </div>
               </div>
 
-              <div className="p-10 flex flex-col flex-1 space-y-6">
-                <div className="flex items-center gap-6 text-[10px] font-heading tracking-widest text-cream/60 uppercase">
+              <div className="flex flex-1 flex-col space-y-6 p-10">
+                <div className="font-heading text-cream/80 flex items-center gap-6 text-sm tracking-widest uppercase">
                   <span className="flex items-center gap-2">
-                    <User className="w-3.5 h-3.5 text-gold" />{" "}
-                    {getAuthorName(post.author)}
+                    <User className="text-gold h-3.5 w-3.5" /> {getAuthorName(post.author)}
                   </span>
                   <span className="flex items-center gap-2">
-                    <Clock className="w-3.5 h-3.5 text-gold" />{" "}
-                    {formatDate(post.publishedAt)}
+                    <Clock className="text-gold h-3.5 w-3.5" />{" "}
+                    {formatDate(post.publishedAt, "short")}
                   </span>
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-2xl md:text-3xl font-heading text-white tracking-tight leading-none group-hover:text-gold transition-colors">
+                  <h3 className="font-heading group-hover:text-gold text-2xl leading-none tracking-tight text-white transition-colors md:text-3xl">
                     {post.title}
                   </h3>
-                  <p className="text-cream/60 font-sans font-light leading-relaxed line-clamp-3">
+                  <p className="text-cream/80 line-clamp-3 font-sans leading-relaxed font-light">
                     {post.excerpt}
                   </p>
                 </div>
 
-                <div className="pt-4 mt-auto">
-                  <span className="flex items-center gap-2 text-[10px] font-heading tracking-widest text-gold group-hover:text-white transition-all">
+                <div className="mt-auto pt-4">
+                  <span className="font-heading text-gold flex items-center gap-2 text-sm tracking-widest transition-all group-hover:text-white">
                     READ ARTICLE{" "}
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-2 transition-transform" />
+                    <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-2" />
                   </span>
                 </div>
               </div>
