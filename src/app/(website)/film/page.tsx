@@ -1,19 +1,14 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
-import {
-  Play,
-  Film,
-  MessageSquare,
-  GraduationCap,
-  ArrowRight,
-  Mail,
-} from "lucide-react";
+import { Play, Film, MessageSquare, GraduationCap, ArrowRight, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
+const TRAILER_VIDEO_URL =
+  process.env.NEXT_PUBLIC_TRAILER_VIDEO_URL ||
+  "https://firebasestorage.googleapis.com/v0/b/escape-the-odds.firebasestorage.app/o/media%2FETO%20Doc%20Trailer_FINAL_Cta%20End%20Card.mp4?alt=media";
 
 const experienceSteps = [
   {
@@ -30,6 +25,7 @@ const experienceSteps = [
     subtitle: "The Dialogue",
     cta: "Request Impact Series Consultation",
     image: "/assets/Image_11.jpeg",
+    imagePosition: "center 20%",
     description:
       "A structured conversation designed to transform insight into clarity — reflecting on opportunity, environment, work, economic access, and practical next steps forward.",
   },
@@ -59,23 +55,25 @@ export default function FilmPage() {
 
   const handlePlay = () => {
     setIsPlaying(true);
+    // Defer play() to next tick so the video element is visible before playing
     setTimeout(() => {
-      videoRef.current?.play();
+      videoRef.current?.play().catch((err) => {
+        console.error("[film] Video playback failed:", err);
+        setIsPlaying(false);
+      });
     }, 0);
   };
 
   return (
-    <main className="min-h-screen bg-black text-cream selection:bg-gold selection:text-black">
-      <Navbar />
-
+    <>
       {/* Hero */}
-      <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
+      <section className="relative flex h-screen flex-col items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0 select-none">
           <Image
-            src="/assets/Image_6.jpeg"
+            src="/assets/Image_17.jpeg"
             alt="Escape the Odds Documentary"
             fill
-            className="object-cover opacity-50 grayscale"
+            className="object-cover object-[center_40%] opacity-50"
             priority
           />
         </div>
@@ -83,30 +81,30 @@ export default function FilmPage() {
         <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/40 to-black" />
         <div className="absolute inset-0 bg-linear-to-r from-black/60 via-transparent to-black/60" />
 
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
+        <div className="relative z-10 container mx-auto px-4 text-center md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="max-w-5xl mx-auto space-y-8"
+            className="mx-auto max-w-5xl space-y-8"
           >
-            <h1 className="text-6xl md:text-9xl font-heading text-white leading-none tracking-tighter">
+            <h1 className="font-heading text-6xl leading-none tracking-tighter text-white md:text-9xl">
               ESCAPING THE ODDS <span className="text-gold">OF RECIDIVISM</span>
             </h1>
-            <p className="max-w-3xl mx-auto text-xl md:text-2xl text-cream/70 font-sans font-light leading-relaxed">
+            <p className="text-cream/90 mx-auto max-w-3xl font-sans text-xl leading-relaxed font-light md:text-2xl">
               A documentary that moves beyond awareness into transformation.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-10">
+            <div className="flex flex-col items-center justify-center gap-6 pt-10 sm:flex-row">
               <Link
-                href="#trailer"
-                className="w-full sm:w-auto px-10 py-5 bg-gold text-black font-heading text-xl hover:bg-white transition-all duration-300 flex items-center justify-center gap-3"
+                href="/contact"
+                className="bg-gold font-heading flex w-full items-center justify-center gap-3 px-10 py-5 text-2xl text-black transition-all duration-300 hover:bg-white sm:w-auto"
               >
-                <Play className="w-5 h-5 fill-current" /> HOST THE FILM
+                <Play className="h-5 w-5 fill-current" /> HOST THE FILM
               </Link>
               <Link
                 href="#experience"
-                className="w-full sm:w-auto px-10 py-5 bg-transparent border-2 border-white text-white font-heading text-xl hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center"
+                className="font-heading flex w-full items-center justify-center border-2 border-white bg-transparent px-10 py-5 text-2xl text-white transition-all duration-300 hover:bg-white hover:text-black sm:w-auto"
               >
                 LEARN HOW IT WORKS
               </Link>
@@ -121,33 +119,30 @@ export default function FilmPage() {
           transition={{ delay: 1.5 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2"
         >
-          <div className="w-px h-16 bg-cream/30 flex items-start justify-center overflow-hidden">
+          <div className="bg-cream/30 flex h-16 w-px items-start justify-center overflow-hidden">
             <motion.div
               animate={{ y: [0, 64, 0] }}
               transition={{ repeat: Infinity, duration: 2 }}
-              className="w-full h-1/2 bg-gold shadow-[0_0_10px_rgba(223,176,90,0.5)]"
+              className="bg-gold h-1/2 w-full shadow-[0_0_10px_rgba(223,176,90,0.5)]"
             />
           </div>
         </motion.div>
       </section>
 
       {/* The Film — The Mirror */}
-      <section
-        id="trailer"
-        className="py-32 bg-charcoal border-y border-white/5"
-      >
+      <section id="trailer" className="bg-charcoal border-y border-white/5 py-16 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-4xl mx-auto text-center space-y-10">
+          <div className="mx-auto max-w-4xl space-y-10 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="space-y-4"
             >
-              <span className="text-gold font-heading tracking-widest text-sm uppercase">
+              <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
                 THE FILM
               </span>
-              <h2 className="text-4xl md:text-7xl font-heading text-white leading-[0.9] tracking-tighter">
+              <h2 className="font-heading text-4xl leading-[0.9] tracking-tighter text-white md:text-7xl">
                 THE <span className="text-gold">MIRROR.</span>
               </h2>
             </motion.div>
@@ -157,12 +152,11 @@ export default function FilmPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-xl text-cream/60 font-sans font-light leading-relaxed"
+              className="text-cream/80 font-sans text-xl leading-relaxed font-light"
             >
-              Escaping the Odds of Recidivism is an immersive documentary that
-              reveals the systems, choices, and opportunities that influence
-              reentry outcomes. Used as a catalyst for reflection and
-              transformation, the film anchors structured engagement in both
+              Escaping the Odds of Recidivism is an immersive documentary that reveals the systems,
+              choices, and opportunities that influence reentry outcomes. Used as a catalyst for
+              reflection and transformation, the film anchors structured engagement in both
               correctional and community settings.
             </motion.p>
 
@@ -172,23 +166,23 @@ export default function FilmPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="relative aspect-video w-full border border-white/10 shadow-2xl overflow-hidden group"
+              className="group relative aspect-video w-full overflow-hidden border border-white/10 shadow-2xl"
             >
               {!isPlaying && (
                 <>
                   <Image
-                    src="/assets/Image_6.jpeg"
+                    src="/assets/ETO-LandscapePoster.png"
                     alt="Escape The Odds Documentary Trailer"
                     fill
-                    className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover object-[center_75%] opacity-60 transition-transform duration-700 group-hover:scale-[1.02]"
                   />
                   <button
                     onClick={handlePlay}
                     aria-label="Play trailer"
-                    className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                    className="absolute inset-0 flex cursor-pointer items-center justify-center"
                   >
-                    <div className="w-20 h-20 bg-gold rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Play className="w-8 h-8 text-black fill-current ml-1" />
+                    <div className="bg-gold flex h-20 w-20 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110">
+                      <Play className="ml-1 h-8 w-8 fill-current text-black" />
                     </div>
                   </button>
                 </>
@@ -197,14 +191,11 @@ export default function FilmPage() {
                 ref={videoRef}
                 controls={isPlaying}
                 preload="metadata"
-                poster="/assets/Image_6.jpeg"
-                className={`w-full h-full object-cover ${isPlaying ? "block" : "hidden"}`}
+                poster="/assets/ETO-LandscapePoster.png"
+                className={`h-full w-full object-cover ${isPlaying ? "block" : "hidden"}`}
                 onEnded={() => setIsPlaying(false)}
               >
-                <source
-                  src="https://firebasestorage.googleapis.com/v0/b/escape-the-odds.firebasestorage.app/o/media%2FETO%20Doc%20Trailer_FINAL_Cta%20End%20Card.mp4?alt=media"
-                  type="video/mp4"
-                />
+                <source src={TRAILER_VIDEO_URL} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </motion.div>
@@ -213,24 +204,23 @@ export default function FilmPage() {
       </section>
 
       {/* The Experience — More Than a Screening */}
-      <section id="experience" className="py-32 bg-black">
+      <section id="experience" className="bg-black py-16 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-            <span className="text-gold font-heading tracking-widest text-sm uppercase">
+          <div className="mx-auto mb-20 max-w-3xl space-y-4 text-center">
+            <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
               THE EXPERIENCE
             </span>
-            <h2 className="text-4xl md:text-6xl font-heading text-white">
+            <h2 className="font-heading text-4xl text-white md:text-6xl">
               MORE THAN A <span className="text-gold">SCREENING.</span>
             </h2>
-            <p className="text-lg text-cream opacity-70 font-sans font-light">
-              The film is not a standalone screening&mdash;it is part of a
-              structured, facilitated transformation experience designed to
-              present the narrative, facilitate guided discussion, and activate
-              reflection and accountability.
+            <p className="text-cream/90 font-sans text-lg font-light">
+              The film is not a standalone screening&mdash;it is part of a structured, facilitated
+              transformation experience designed to present the narrative, facilitate guided
+              discussion, and activate reflection and accountability.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/10">
+          <div className="grid grid-cols-1 gap-0 border border-white/10 md:grid-cols-3">
             {experienceSteps.map((step, index) => (
               <motion.div
                 key={index}
@@ -238,10 +228,8 @@ export default function FilmPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                className={`flex flex-col group hover:bg-charcoal/50 transition-colors duration-500 ${
-                  index !== 2
-                    ? "md:border-r border-white/10 border-b md:border-b-0"
-                    : ""
+                className={`group hover:bg-charcoal/50 flex flex-col transition-colors duration-500 ${
+                  index !== 2 ? "border-b border-white/10 md:border-r md:border-b-0" : ""
                 }`}
               >
                 <div className="relative aspect-video overflow-hidden">
@@ -250,27 +238,30 @@ export default function FilmPage() {
                       src={step.image}
                       alt={step.title}
                       fill
-                      className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                      className="object-cover transition-all duration-700 group-hover:scale-105"
+                      style={
+                        step.imagePosition ? { objectPosition: step.imagePosition } : undefined
+                      }
                     />
                   )}
                   <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-60" />
                 </div>
 
-                <div className="p-10 flex flex-col items-center text-center space-y-6">
-                  <div className="w-16 h-16 bg-gold/10 flex items-center justify-center rounded-none border border-gold/30 group-hover:bg-gold group-hover:border-gold transition-all duration-300">
-                    <step.icon className="w-8 h-8 text-gold group-hover:text-black transition-colors" />
+                <div className="flex flex-col items-center space-y-6 p-10 text-center">
+                  <div className="bg-gold/10 border-gold/30 group-hover:bg-gold group-hover:border-gold flex h-16 w-16 items-center justify-center rounded-none border transition-all duration-300">
+                    <step.icon className="text-gold h-8 w-8 transition-colors group-hover:text-black" />
                   </div>
 
                   <div className="space-y-2">
-                    <h3 className="text-3xl font-heading text-white tracking-tight">
+                    <h3 className="font-heading text-3xl tracking-tight text-white">
                       {step.title}
                     </h3>
-                    <p className="text-gold text-xs font-heading tracking-widest uppercase">
+                    <p className="text-gold font-heading text-sm tracking-widest uppercase md:text-base">
                       {step.subtitle}
                     </p>
                   </div>
 
-                  <p className="text-cream/60 leading-relaxed font-sans text-base">
+                  <p className="text-cream/80 font-sans text-base leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -281,22 +272,22 @@ export default function FilmPage() {
       </section>
 
       {/* The Film In Action */}
-      <section className="py-24 bg-charcoal border-y border-white/5">
+      <section className="bg-charcoal border-y border-white/5 py-12 md:py-20 lg:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-4xl mx-auto text-center space-y-10">
+          <div className="mx-auto max-w-4xl space-y-10 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="space-y-4"
             >
-              <span className="text-gold font-heading tracking-widest text-sm uppercase">
+              <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
                 IN ACTION
               </span>
-              <h2 className="text-4xl md:text-6xl font-heading text-white">
+              <h2 className="font-heading text-4xl text-white md:text-6xl">
                 THE FILM <span className="text-gold">IN ACTION.</span>
               </h2>
-              <p className="text-lg text-cream opacity-70 font-sans font-light">
+              <p className="text-cream/90 font-sans text-lg font-light">
                 Used across institutions and communities nationwide.
               </p>
             </motion.div>
@@ -311,7 +302,7 @@ export default function FilmPage() {
               {filmInActionItems.map((item, i) => (
                 <span
                   key={i}
-                  className="px-6 py-3 border border-white/10 text-xs font-heading tracking-[0.2em] text-cream/70 uppercase hover:border-gold/30 hover:text-gold transition-all duration-300"
+                  className="border-gold/30 font-heading text-gold hover:border-gold border px-6 py-3 text-sm tracking-[0.2em] uppercase transition-all duration-300 hover:text-white"
                 >
                   {item}
                 </span>
@@ -321,56 +312,53 @@ export default function FilmPage() {
         </div>
       </section>
 
-      {/* Host / Request Info CTA */}
-      <section className="py-32 bg-black relative overflow-hidden border-t border-white/5">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 blur-[150px] rounded-full pointer-events-none" />
+      {/* Host the Film CTA */}
+      <section className="relative overflow-hidden border-t border-white/5 bg-black py-16 md:py-24 lg:py-32">
+        <div className="bg-gold/5 pointer-events-none absolute top-1/2 left-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px] md:h-[600px] md:w-[600px] lg:h-[800px] lg:w-[800px]" />
 
-        <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
+        <div className="relative z-10 container mx-auto px-4 text-center md:px-6">
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto space-y-12"
+            className="mx-auto max-w-4xl space-y-12"
           >
             <div className="space-y-4">
-              <span className="text-gold font-heading tracking-widest text-sm uppercase">
+              <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
                 HOST THE FILM
               </span>
-              <h2 className="text-4xl md:text-6xl font-heading text-white tracking-tight leading-tight">
-                BRING THE EXPERIENCE{" "}
-                <span className="text-gold">TO YOUR AUDIENCE.</span>
+              <h2 className="font-heading text-4xl leading-tight tracking-tight text-white md:text-6xl">
+                BRING THE EXPERIENCE <span className="text-gold">TO YOUR AUDIENCE.</span>
               </h2>
             </div>
 
-            <p className="text-xl text-cream/70 font-sans font-light leading-relaxed max-w-2xl mx-auto">
-              Host the film experience or request details to determine the best
-              format for your audience.
+            <p className="text-cream/90 mx-auto max-w-2xl font-sans text-xl leading-relaxed font-light">
+              Host the film experience or request details to determine the best format for your
+              audience.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
+            <div className="flex flex-col items-center justify-center gap-6 pt-4 sm:flex-row">
               <Link
                 href="/contact"
-                className="group w-full sm:w-auto flex items-center justify-center px-10 py-5 bg-gold text-black text-xl font-heading hover:bg-white transition-all duration-300"
+                className="group bg-gold font-heading flex w-full items-center justify-center px-10 py-5 text-2xl text-black transition-all duration-300 hover:bg-white sm:w-auto"
               >
-                <MessageSquare className="w-5 h-5 mr-3" />
-                REQUEST INFO
-                <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                <MessageSquare className="mr-3 h-5 w-5" />
+                HOST THE FILM
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
 
               <Link
                 href="/contact"
-                className="w-full sm:w-auto flex items-center justify-center px-10 py-5 border-2 border-white text-white text-xl font-heading hover:bg-white hover:text-black transition-all duration-300"
+                className="font-heading flex w-full items-center justify-center border-2 border-white px-10 py-5 text-2xl text-white transition-all duration-300 hover:bg-white hover:text-black sm:w-auto"
               >
-                <Mail className="w-5 h-5 mr-3" />
+                <Mail className="mr-3 h-5 w-5" />
                 CONTACT OUR TEAM
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   );
 }

@@ -10,8 +10,8 @@ const carouselImages = [
   "/assets/carousel/COOKCOUNTY-SHERIFF-PIC.png",
   "/assets/Image_4.jpeg",
   "/assets/Image_10.jpeg",
-  "/assets/Image_8.jpeg",
-  "/assets/Image_13.jpeg",
+  "/assets/Image_19.jpeg",
+  "/assets/Image_5.jpeg",
   "/assets/Image_7.jpeg",
 ];
 
@@ -26,7 +26,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[95vh] flex flex-col items-center justify-center overflow-hidden bg-black pt-24 pb-12">
+    <section className="relative flex min-h-[95vh] flex-col items-center justify-center overflow-hidden bg-black pt-24 pb-12">
       {/* Cinematic Background Slider */}
       <div className="absolute inset-0 z-0 select-none">
         <AnimatePresence initial={false}>
@@ -40,7 +40,7 @@ export function Hero() {
           >
             <Image
               src={carouselImages[currentImageIndex]}
-              alt="Escape the Odds Cinematic"
+              alt="Aaron Smith presenting at a reentry education event"
               fill
               className="object-cover"
               priority
@@ -52,15 +52,15 @@ export function Hero() {
         <div className="absolute inset-0 bg-linear-to-r from-black/60 via-transparent to-black/60" />
       </div>
 
-      <div className="container mx-auto relative z-10 px-4 md:px-6 text-center">
-        <div className="max-w-5xl mx-auto space-y-8">
+      <div className="relative z-10 container mx-auto px-4 text-center md:px-6">
+        <div className="mx-auto max-w-5xl space-y-8">
           {/* Main Headline */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="text-5xl md:text-8xl lg:text-9xl font-heading text-white leading-[0.9] mb-8 tracking-tighter">
+            <h1 className="font-heading mb-8 text-5xl leading-[0.9] tracking-tighter text-white md:text-8xl lg:text-9xl">
               ESCAPING THE ODDS <br />
               <span className="text-gold">OF RECIDIVISM</span>
             </h1>
@@ -72,14 +72,13 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <p className="max-w-md mx-auto text-lg md:text-xl text-gold font-heading tracking-widest uppercase mb-4">
+            <p className="text-gold font-heading mx-auto mb-4 max-w-md text-lg tracking-widest uppercase md:text-xl">
               A Documentary-Based Reentry Education & Collective Impact Series
             </p>
-            <p className="max-w-3xl mx-auto text-xl md:text-2xl text-cream font-sans font-light leading-relaxed mb-12 opacity-90">
-              Escape The Odds integrates documentary, facilitated dialogue, and
-              structured curriculum to strengthen accountability, economic
-              mobility, and practical reentry preparation inside correctional
-              institutions and across community systems.
+            <p className="text-cream mx-auto mb-12 max-w-3xl font-sans text-xl leading-relaxed font-light opacity-90 md:text-2xl">
+              Escape The Odds integrates documentary, facilitated dialogue, and structured
+              curriculum to strengthen accountability, economic mobility, and practical reentry
+              preparation inside correctional institutions and across community systems.
             </p>
           </motion.div>
 
@@ -88,21 +87,21 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
+            className="flex flex-col items-center justify-center gap-6 sm:flex-row"
           >
             <Link
               href="#the-film"
-              className="w-full sm:w-auto px-10 py-5 border-2 border-white text-white font-heading text-xl rounded-none hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center group"
+              className="font-heading group flex w-full items-center justify-center rounded-none border-2 border-white px-10 py-5 text-xl text-white transition-all duration-300 hover:bg-white hover:text-black sm:w-auto"
             >
               WATCH THE TRAILER
             </Link>
 
             <Link
               href="/contact"
-              className="w-full sm:w-auto px-10 py-5 bg-gold text-black font-heading text-xl rounded-none hover:bg-white transition-all duration-300 flex items-center justify-center group"
+              className="bg-gold font-heading group flex w-full items-center justify-center rounded-none px-10 py-5 text-2xl text-black transition-all duration-300 hover:bg-white sm:w-auto"
             >
-              REQUEST INFO
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              HOST THE FILM
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </motion.div>
 
@@ -113,7 +112,7 @@ export function Hero() {
             transition={{ duration: 1, delay: 1.2 }}
             className="pt-12"
           >
-            <p className="text-sm md:text-base tracking-[0.3em] text-cream uppercase">
+            <p className="text-cream text-base tracking-[0.3em] uppercase md:text-lg">
               Rewrite the Narrative. Master the Transition.
             </p>
           </motion.div>
@@ -126,7 +125,7 @@ export function Hero() {
         transition={{ repeat: Infinity, duration: 2 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-30"
       >
-        <div className="w-px h-16 bg-cream" />
+        <div className="bg-cream h-16 w-px" />
       </motion.div>
     </section>
   );

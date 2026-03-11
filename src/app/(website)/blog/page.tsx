@@ -1,15 +1,33 @@
 import type { Metadata } from "next";
 import { getPayload } from "payload";
 import config from "@payload-config";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { BlogHero } from "@/components/blog/BlogHero";
 import { BlogGrid, type BlogPost } from "@/components/blog/BlogGrid";
 
 export const metadata: Metadata = {
-  title: "The Dispatch | Escape The Odds",
+  title: "The Dispatch — Journal & Blueprints",
   description:
     "Documentation of the transition, the scaling of the movement, and the frameworks for the future.",
+  openGraph: {
+    title: "The Dispatch — Journal & Blueprints | Escape The Odds",
+    description:
+      "Documentation of the transition, the scaling of the movement, and the frameworks for the future.",
+    images: [
+      {
+        url: "/assets/Image_3.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Chicago Sun-Times front page featuring Aaron Smith",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Dispatch | Escape The Odds",
+    description:
+      "Documentation of the transition, the scaling of the movement, and the frameworks for the future.",
+    images: ["/assets/Image_3.jpeg"],
+  },
 };
 
 export default async function BlogPage() {
@@ -39,11 +57,9 @@ export default async function BlogPage() {
   }
 
   return (
-    <main className="min-h-screen bg-black text-cream selection:bg-gold selection:text-black">
-      <Navbar />
+    <>
       <BlogHero />
       <BlogGrid posts={posts} />
-      <Footer />
-    </main>
+    </>
   );
 }

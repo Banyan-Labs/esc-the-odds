@@ -21,6 +21,7 @@ const steps = [
     subtitle: "Guided Dialogue",
     image: "/assets/Image_11.jpeg",
     imageAlt: "Facilitated panel dialogue",
+    imagePosition: "center 20%",
     description:
       "A structured conversation designed to transform insight into clarity. Audience engages in:",
     bullets: [
@@ -52,21 +53,19 @@ const steps = [
 
 export function TheExperience() {
   return (
-    <section className="py-24 bg-charcoal border-y border-white/5">
+    <section className="bg-charcoal border-y border-white/5 py-12 md:py-20 lg:py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <span className="text-gold font-heading tracking-widest text-sm uppercase">
-            THE EXPERIENCE
+        <div className="mx-auto mb-20 max-w-3xl space-y-4 text-center">
+          <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
+            HOW IT WORKS
           </span>
-          <h2 className="text-4xl md:text-6xl font-heading text-white">
-            THE EXPERIENCE
-          </h2>
-          <p className="text-lg text-cream opacity-70 font-sans font-light">
+          <h2 className="font-heading text-4xl text-white md:text-6xl">THE EXPERIENCE</h2>
+          <p className="text-cream font-sans text-lg font-light opacity-90">
             A facilitated engagement model built on three components:
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/10">
+        <div className="grid grid-cols-1 gap-0 border border-white/10 md:grid-cols-3">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -74,48 +73,45 @@ export function TheExperience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className={`flex flex-col group hover:bg-black/40 transition-colors duration-500 ${
-                index !== 2
-                  ? "md:border-r border-white/10 border-b md:border-b-0"
-                  : ""
+              className={`group flex flex-col transition-colors duration-500 hover:bg-black/40 ${
+                index !== 2 ? "border-b border-white/10 md:border-r md:border-b-0" : ""
               }`}
             >
               <div className="relative aspect-video overflow-hidden">
                 <Image
                   src={step.image}
-                  alt={step.imageAlt}
+                  alt={step.imageAlt ?? step.title}
                   fill
-                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  className="object-cover transition-all duration-700 group-hover:scale-105"
+                  style={step.imagePosition ? { objectPosition: step.imagePosition } : undefined}
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-charcoal via-transparent to-transparent opacity-70" />
+                <div className="from-charcoal absolute inset-0 bg-linear-to-t via-transparent to-transparent opacity-70" />
               </div>
 
-              <div className="p-10 flex flex-col items-center text-center space-y-6 flex-1">
-                <div className="w-16 h-16 bg-gold/10 flex items-center justify-center rounded-none border border-gold/30 group-hover:bg-gold group-hover:border-gold transition-all duration-300">
-                  <step.icon className="w-8 h-8 text-gold group-hover:text-black transition-colors" />
+              <div className="flex flex-1 flex-col items-center space-y-6 p-10 text-center">
+                <div className="bg-gold/10 border-gold/30 group-hover:bg-gold group-hover:border-gold flex h-16 w-16 items-center justify-center rounded-none border transition-all duration-300">
+                  <step.icon className="text-gold h-8 w-8 transition-colors group-hover:text-black" />
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-3xl font-heading text-white tracking-tight">
-                    {step.title}
-                  </h3>
-                  <p className="text-gold text-sm font-heading tracking-widest uppercase">
+                  <h3 className="font-heading text-3xl tracking-tight text-white">{step.title}</h3>
+                  <p className="text-gold font-heading text-sm tracking-widest uppercase md:text-base">
                     {step.subtitle}
                   </p>
                 </div>
 
-                <p className="text-cream/60 leading-relaxed font-sans text-base">
+                <p className="text-cream/80 font-sans text-base leading-relaxed">
                   {step.description}
                 </p>
 
                 {step.bullets && (
-                  <ul className="text-left space-y-2 w-full">
+                  <ul className="w-full space-y-2 text-left">
                     {step.bullets.map((bullet, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-2 text-cream/60 text-sm font-sans"
+                        className="text-cream/80 flex items-start gap-2 font-sans text-sm"
                       >
-                        <span className="w-1.5 h-1.5 bg-gold/50 rounded-full mt-1.5 shrink-0" />
+                        <span className="bg-gold/50 mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" />
                         {bullet}
                       </li>
                     ))}

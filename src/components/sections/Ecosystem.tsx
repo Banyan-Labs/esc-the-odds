@@ -30,28 +30,28 @@ const cards = [
     body: "Economic mobility programs aligned with reentry preparation: Non-CDL Box Truck Entrepreneurship, Commercial Cleaning Business Development, House Hacking & Real Estate Fundamentals.",
     cta: "Explore Vocational Pathways",
     href: "/programs",
-    image: "/assets/Image_8.jpeg",
-    imageAlt: "Vocational entrepreneurship program",
+    image: "/assets/Image_20.jpeg",
+    imageAlt: "Vocational program classroom instruction",
   },
 ];
 
 export function Ecosystem() {
   return (
-    <section className="py-24 bg-black relative">
+    <section className="relative bg-black py-12 md:py-20 lg:py-24">
       {/* Section Header */}
-      <div className="container mx-auto px-4 md:px-6 mb-16">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="text-gold font-heading tracking-widest text-sm uppercase">
-            ENGAGE WITH US
+      <div className="container mx-auto mb-16 px-4 md:px-6">
+        <div className="mx-auto max-w-3xl space-y-4 text-center">
+          <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
+            OUR OFFERINGS
           </span>
-          <h2 className="text-4xl md:text-6xl font-heading text-white leading-tight">
+          <h2 className="font-heading text-4xl leading-tight text-white md:text-6xl">
             ENGAGE WITH <span className="text-gold">US</span>
           </h2>
         </div>
       </div>
 
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/10">
+        <div className="grid grid-cols-1 gap-0 border border-white/10 md:grid-cols-3">
           {cards.map((card, index) => (
             <motion.div
               key={index}
@@ -59,8 +59,8 @@ export function Ecosystem() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`bg-black group hover:bg-charcoal/50 transition-colors duration-500 flex flex-col ${
-                index !== 2 ? "md:border-r border-white/10" : ""
+              className={`group hover:bg-charcoal/50 flex flex-col bg-black transition-colors duration-500 ${
+                index !== 2 ? "border-white/10 md:border-r" : ""
               }`}
             >
               <div className="relative aspect-video overflow-hidden">
@@ -68,28 +68,28 @@ export function Ecosystem() {
                   src={card.image}
                   alt={card.imageAlt}
                   fill
-                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  className="object-cover transition-all duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-70" />
               </div>
 
-              <div className="p-10 space-y-6 flex flex-col flex-1">
-                <card.icon className="w-12 h-12 text-gold" />
+              <div className="flex flex-1 flex-col space-y-6 p-10">
+                <card.icon className="text-gold h-12 w-12" />
 
-                <h3 className="text-xl font-heading text-white uppercase tracking-tight leading-snug">
+                <h3 className="font-heading text-xl leading-snug tracking-tight text-white uppercase">
                   {card.title}
                 </h3>
 
-                <p className="text-cream/60 font-sans leading-relaxed text-sm flex-1">
+                <p className="text-cream/80 flex-1 font-sans text-base leading-relaxed">
                   {card.body}
                 </p>
 
                 <Link
                   href={card.href}
-                  className="inline-flex items-center text-gold font-heading text-sm tracking-widest uppercase border-b border-gold pb-1 hover:text-white hover:border-white transition-all group/link"
+                  className="bg-gold font-heading group/link inline-flex items-center justify-center px-6 py-3 text-base tracking-widest text-black uppercase transition-all duration-300 hover:bg-white"
                 >
                   {card.cta}
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/link:translate-x-1" />
                 </Link>
               </div>
             </motion.div>
