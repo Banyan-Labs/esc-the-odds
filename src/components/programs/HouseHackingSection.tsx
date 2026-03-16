@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FadeInView } from "@/components/shared";
 import { BulletList } from "./BulletList";
 import { ContactCTAs } from "./ContactCTAs";
 
@@ -60,32 +61,26 @@ export function HouseHackingSection() {
               <BulletList
                 items={[
                   "6-week program — 90 minutes per session",
-                  "Instructor-led classroom model",
+                  "Instructor led classroom model",
                   "Worksheets and guided exercises",
-                  "Available in correctional facilities, community-based settings, in person, or virtual via Zoom",
+                  "Available in correctional facilities, community based settings, in person, or virtual via Zoom",
                   "House Hacking Your Way to Financial Freedom workbook included in cohort",
-                ]}
-              />
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-heading text-gold text-xl tracking-widest uppercase">
-                CORE MODULES
-              </h3>
-              <BulletList
-                items={[
-                  "Week 1: Introduction to House Hacking & Real Estate Basics",
-                  "Week 2: Credit & Financial Foundation",
-                  "Week 3: Property Types & Essential Contracts",
-                  "Week 4: Deal Analysis & Property Research",
-                  "Week 5: Funding Strategy",
-                  "Week 6: Practical Session & Guest Speaker",
                 ]}
               />
             </div>
           </motion.div>
 
           <ContactCTAs label="ENROLL IN HOUSE HACKING" />
+          <FadeInView className="pt-2">
+            <a
+              href="https://a.co/d/0g3BeD8W"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-heading inline-flex items-center justify-center border-2 border-white px-8 py-4 text-base tracking-widest text-white uppercase transition-all duration-300 hover:bg-white hover:text-black"
+            >
+              ORDER THE BOOK
+            </a>
+          </FadeInView>
         </div>
       </div>
     </section>

@@ -11,12 +11,12 @@ export function Testimonials() {
       id="testimonials"
       className="relative overflow-hidden border-y border-white/5 bg-black py-12 md:py-20 lg:py-24"
     >
-      <div className="pointer-events-none absolute inset-0 opacity-30">
+      <div className="pointer-events-none absolute inset-0 opacity-45">
         <Image
-          src="/assets/Image_23.jpeg"
-          alt="Voices of Transformation"
+          src="/assets/Image_12.jpeg"
+          alt="Kwante W. standing next to his box truck"
           fill
-          className="object-cover"
+          className="object-cover object-[center_20%]"
         />
       </div>
       <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-black via-black/80 to-black" />

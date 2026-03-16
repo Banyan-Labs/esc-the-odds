@@ -46,6 +46,21 @@ export function Hero() {
 
       <div className="relative z-10 container mx-auto px-4 text-center md:px-6">
         <div className="mx-auto max-w-5xl space-y-8">
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <Image
+              src="/assets/logo-notxt.png"
+              alt="Escape The Odds"
+              width={80}
+              height={80}
+              className="mx-auto mb-6 h-20 w-auto object-contain"
+            />
+          </motion.div>
+
           {/* Main Headline */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}

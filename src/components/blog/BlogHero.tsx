@@ -8,7 +8,7 @@ export function BlogHero() {
     <section className="relative overflow-hidden border-b border-white/5 bg-black pt-28 pb-16 md:pt-40 md:pb-32">
       <div className="absolute inset-0 opacity-30">
         <Image
-          src="/assets/Image_3.jpeg"
+          src="/assets/IMG_1829.JPG"
           alt="Escape The Odds community and education updates"
           fill
           className="object-cover"
@@ -28,13 +28,11 @@ export function BlogHero() {
               THE DISPATCH
             </span>
             <h1 className="font-heading text-5xl leading-[0.9] tracking-tighter text-white md:text-8xl">
-              JOURNAL & <br />
-              <span className="text-gold">BLUEPRINTS.</span>
+              THE <span className="text-gold">BLUEPRINT.</span>
             </h1>
           </div>
-          <p className="text-cream/90 mx-auto max-w-2xl font-sans text-xl leading-relaxed font-light italic md:text-2xl">
-            &ldquo;Documentation of the transition, the scaling of the movement, and the frameworks
-            for the future.&rdquo;
+          <p className="text-gold font-heading mx-auto max-w-2xl text-2xl leading-relaxed font-bold tracking-wide md:text-3xl">
+            Rebuilding a New Narrative
           </p>
         </motion.div>
       </div>

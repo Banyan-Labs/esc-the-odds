@@ -3,12 +3,34 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Play } from "lucide-react";
-import { TRAILER_VIDEO_URL } from "@/lib/constants/home";
+import { Play, Share2, Check } from "lucide-react";
+import { TRAILER_VIDEO_URL } from "@/lib/constants/film";
 
 export function TheFilm() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [copied, setCopied] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const trailerUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}/#the-film`
+      : "https://escapetheodds.com/#the-film";
+
+  const handleShare = async () => {
+    if (navigator.share) {
+      await navigator
+        .share({
+          title: "Escaping The Odds of Recidivism — Trailer",
+          text: "Watch the trailer for the Escaping The Odds of Recidivism documentary.",
+          url: trailerUrl,
+        })
+        .catch(() => {});
+    } else {
+      await navigator.clipboard.writeText(trailerUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
   const handlePlay = () => {
     setIsPlaying(true);
@@ -43,12 +65,29 @@ export function TheFilm() {
               &ldquo;Escaping The Odds of Recidivism&rdquo; is an 85-minute documentary that poses
               the question, &ldquo;Is a successful reentry possible?&rdquo; Guided by Aaron Smith,
               founder of Escape The Odds Media &amp; Education, the film follows him and a team of
-              justice-impacted individuals as they conduct reentry workshops in correctional
+              justice impacted individuals as they conduct reentry workshops in correctional
               institutions across the country. The documentary features voices from incarcerated
               individuals preparing for release, recently released individuals, correctional staff,
               and reentry stakeholders. It includes eye-opening statistics and testimonies on
               reintegration in America.
             </p>
+
+            <button
+              onClick={handleShare}
+              className="font-heading group border-gold bg-gold/10 text-gold hover:bg-gold inline-flex items-center gap-3 border-2 px-6 py-3 text-sm font-bold tracking-widest uppercase transition-all duration-300 hover:text-black"
+            >
+              {copied ? (
+                <>
+                  <Check className="text-gold h-4 w-4" />
+                  LINK COPIED
+                </>
+              ) : (
+                <>
+                  <Share2 className="h-4 w-4" />
+                  SHARE THE TRAILER
+                </>
+              )}
+            </button>
           </motion.div>
 
           {/* Right Visual — Inline Video Player */}

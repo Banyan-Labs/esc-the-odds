@@ -30,20 +30,28 @@ export function Ecosystem() {
                 index !== 2 ? "border-white/10 md:border-r" : ""
               }`}
             >
-              <div className="relative aspect-video overflow-hidden">
+              <div className={`relative aspect-video overflow-hidden eco-img-${index}`}>
                 <Image
                   src={card.image}
                   alt={card.imageAlt}
                   fill
                   className="object-cover transition-all duration-700 group-hover:scale-105"
+                  style={card.imagePosition ? { objectPosition: card.imagePosition } : undefined}
                 />
+                {card.mobileImagePosition && (
+                  <style>{`
+                    @media (max-width: 767px) {
+                      .eco-img-${index} img { object-position: ${card.mobileImagePosition} !important; }
+                    }
+                  `}</style>
+                )}
                 <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-70" />
               </div>
 
               <div className="flex flex-1 flex-col space-y-6 p-10">
                 <card.icon className="text-gold h-12 w-12" />
 
-                <h3 className="font-heading text-xl leading-snug tracking-tight text-white uppercase">
+                <h3 className="font-heading text-gold text-xl leading-snug tracking-tight uppercase">
                   {card.title}
                 </h3>
 

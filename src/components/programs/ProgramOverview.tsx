@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, MessageSquare } from "lucide-react";
+import { ArrowRight, MessageSquare, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { FadeInView } from "@/components/shared";
@@ -57,13 +57,36 @@ export function ProgramOverview() {
                     LEARN MORE
                     <ArrowRight className="ml-2 h-3.5 w-3.5 transition-transform hover:translate-x-1" />
                   </Link>
-                  <Link
-                    href="/contact"
-                    className="font-heading inline-flex items-center justify-center border-2 border-white px-6 py-3 text-sm tracking-widest text-white uppercase transition-all duration-300 hover:bg-white hover:text-black"
-                  >
-                    <MessageSquare className="mr-2 h-3.5 w-3.5" />
-                    {program.contactLabel}
-                  </Link>
+                  {program.external ? (
+                    <a
+                      href={program.contactUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-heading inline-flex items-center justify-center border-2 border-white px-6 py-3 text-sm tracking-widest text-white uppercase transition-all duration-300 hover:bg-white hover:text-black"
+                    >
+                      <ArrowRight className="mr-2 h-3.5 w-3.5" />
+                      {program.contactLabel}
+                    </a>
+                  ) : (
+                    <Link
+                      href="/contact"
+                      className="font-heading inline-flex items-center justify-center border-2 border-white px-6 py-3 text-sm tracking-widest text-white uppercase transition-all duration-300 hover:bg-white hover:text-black"
+                    >
+                      <MessageSquare className="mr-2 h-3.5 w-3.5" />
+                      {program.contactLabel}
+                    </Link>
+                  )}
+                  {program.bookUrl && (
+                    <a
+                      href={program.bookUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-heading border-gold text-gold hover:bg-gold inline-flex items-center justify-center border-2 px-6 py-3 text-sm tracking-widest uppercase transition-all duration-300 hover:text-black"
+                    >
+                      <ShoppingCart className="mr-2 h-3.5 w-3.5" />
+                      {program.bookLabel}
+                    </a>
+                  )}
                 </div>
               </div>
             </FadeInView>

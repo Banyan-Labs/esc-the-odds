@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FadeInView } from "@/components/shared";
 import { BulletList } from "./BulletList";
 import { TagList } from "./TagList";
 import { ContactCTAs } from "./ContactCTAs";
@@ -23,7 +24,7 @@ export function BounceForwardSection() {
               BOUNCE FORWARD PLAN: <span className="text-gold">MASTERING YOUR REENTRY</span>
             </h2>
             <p className="text-cream/90 font-sans text-xl leading-relaxed font-light">
-              A structured, institutional-ready reentry education framework designed for repeatable
+              A structured, institutional ready reentry education framework designed for repeatable
               implementation.
             </p>
           </motion.div>
@@ -40,8 +41,8 @@ export function BounceForwardSection() {
                 WHAT IT IS
               </h3>
               <p className="text-cream/90 font-sans text-lg leading-relaxed">
-                A 15-session curriculum license created for correctional and reentry-focused
-                organizations that want structured delivery beyond a one-time film experience.
+                A 15-session curriculum license created for correctional and reentry focused
+                organizations that want structured delivery beyond a one time film experience.
               </p>
             </div>
 
@@ -54,7 +55,7 @@ export function BounceForwardSection() {
                   "Documentary integration",
                   "Participant workbooks",
                   "Facilitation guides",
-                  "SME toolkit (Subject Matter Expert toolkit)",
+                  "Subject Matter Expert toolkit",
                   "Evaluation framework",
                   "Reporting / implementation support framework",
                 ]}
@@ -87,13 +88,23 @@ export function BounceForwardSection() {
                   "Departments of Corrections",
                   "County Jails",
                   "Community Corrections",
-                  "Reentry-Focused Organizations",
+                  "Reentry Focused Organizations",
                 ]}
               />
             </div>
           </motion.div>
 
           <ContactCTAs label="INQUIRE ABOUT THE CURRICULUM" />
+          <FadeInView className="pt-2">
+            <a
+              href="https://www.amazon.com/dp/B0GMP7Z9P9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-heading inline-flex items-center justify-center border-2 border-white px-8 py-4 text-base tracking-widest text-white uppercase transition-all duration-300 hover:bg-white hover:text-black"
+            >
+              ORDER THE WORKBOOK
+            </a>
+          </FadeInView>
         </div>
       </div>
     </section>

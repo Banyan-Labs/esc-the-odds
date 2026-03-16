@@ -2,7 +2,6 @@ export { BulletList } from "./BulletList";
 export { TagList } from "./TagList";
 export { ContactCTAs } from "./ContactCTAs";
 export { ProgramOverview } from "./ProgramOverview";
-export { BooksGrid } from "./BooksGrid";
 export { FilmImpactSection } from "./FilmImpactSection";
 export { BounceForwardSection } from "./BounceForwardSection";
 export { BoxTruckSection } from "./BoxTruckSection";

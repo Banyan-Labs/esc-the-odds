@@ -26,11 +26,10 @@ export default function AboutPage() {
           <FadeInView className="mx-auto max-w-4xl space-y-8">
             <div className="space-y-4">
               <span className="text-gold font-heading text-3xl tracking-widest uppercase md:text-3xl">
-                ABOUT ESCAPE THE ODDS
+                ABOUT
               </span>
               <h1 className="font-heading text-5xl leading-tight tracking-tighter text-white md:text-8xl">
-                CHANGE THE NARRATIVE.{" "}
-                <span className="text-gold">ECONOMIC EMPOWERMENT IS WHAT WE DO.</span>
+                CHANGE THE NARRATIVE. <span className="text-gold">ECONOMIC EMPOWERMENT.</span>
               </h1>
             </div>
           </FadeInView>
@@ -58,12 +57,12 @@ export default function AboutPage() {
                 Escape The Odds Media &amp; Education was built from the real experience of reentry.
               </p>
               <p className="text-cream/90 font-sans text-xl leading-relaxed font-light">
-                For too long, justice-impacted individuals have been defined by their past rather
+                For too long, justice impacted individuals have been defined by their past rather
                 than their potential. Escape The Odds works to change that narrative.
               </p>
               <p className="text-cream/90 font-sans text-xl leading-relaxed font-light">
-                Through storytelling, education, and structured career pathways, the organization
-                helps individuals move from incarceration to stability, income, and ownership.
+                Through storytelling, education, and structured career pathways, Escape The Odds
+                empowers individuals to move from incarceration to stability, income, and ownership.
               </p>
               <p className="text-cream/90 font-sans text-xl leading-relaxed font-light">
                 Because escaping the odds isn&apos;t about luck.{" "}
@@ -113,7 +112,7 @@ export default function AboutPage() {
                 OUR MISSION
               </span>
               <p className="text-cream/90 font-sans text-xl leading-relaxed font-light">
-                To empower justice-impacted individuals to{" "}
+                To empower justice impacted individuals to{" "}
                 <span className="font-medium text-white">rewrite their narrative</span> through
                 practical education, career pathways, storytelling, and real economic opportunities.
               </p>
@@ -204,7 +203,7 @@ export default function AboutPage() {
                 OUR IMPACT
               </span>
               <h2 className="font-heading text-4xl leading-tight text-white md:text-6xl">
-                OVER <span className="text-gold">600+</span> JUSTICE-INVOLVED STUDENTS ACROSS{" "}
+                OVER <span className="text-gold">600+</span> JUSTICE INVOLVED STUDENTS ACROSS{" "}
                 <span className="text-gold">10+ STATES</span> IN THE LAST 3 YEARS.
               </h2>
             </FadeInView>
@@ -212,7 +211,7 @@ export default function AboutPage() {
             <FadeInView delay={0.1} className="space-y-6">
               <p className="text-cream/90 font-sans text-xl leading-relaxed font-light">
                 Our work reaches individuals inside correctional facilities, transitional centers,
-                and community reentry programs through documentary-based learning, workforce
+                and community reentry programs through documentary based learning, workforce
                 education, and entrepreneurship training.
               </p>
               <p className="text-cream/90 font-sans text-xl leading-relaxed font-light">
@@ -244,7 +243,7 @@ export default function AboutPage() {
 
             <p className="text-cream/90 mx-auto max-w-3xl font-sans text-xl leading-relaxed font-light">
               Escape The Odds is a national platform that combines storytelling, education, and
-              economic pathways to empower justice-impacted individuals to rebuild their lives with
+              economic pathways to empower justice impacted individuals to rebuild their lives with
               stability and purpose.
             </p>
 
