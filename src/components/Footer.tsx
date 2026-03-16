@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { FOOTER_LINKS, SOCIAL_LINKS } from "@/lib/constants/navigation";
 
@@ -8,9 +9,18 @@ export function Footer() {
     <footer className="border-t border-white/5 bg-black py-20 text-sm">
       <div className="container mx-auto flex flex-col items-center justify-between gap-12 px-4 md:flex-row md:px-6">
         <div className="flex flex-col items-center gap-4 md:items-start">
-          <span className="font-heading text-3xl tracking-tighter text-white">
-            ESCAPE THE <span className="text-gold">ODDS.</span>
-          </span>
+          <Link href="/" className="flex items-center gap-3">
+            <Image
+              src="/assets/logo-notxt.png"
+              alt="Escape The Odds logo"
+              width={40}
+              height={40}
+              className="h-10 w-10"
+            />
+            <span className="font-heading text-3xl tracking-tighter text-white">
+              ESCAPE THE <span className="text-gold">ODDS.</span>
+            </span>
+          </Link>
           <p className="text-cream/90 font-sans tracking-widest uppercase">
             © {new Date().getFullYear()} ALL RIGHTS RESERVED.
           </p>

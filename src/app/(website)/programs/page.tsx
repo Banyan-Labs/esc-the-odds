@@ -58,8 +58,8 @@ export default function ProgramsPage() {
             viewport={{ once: true }}
             className="text-cream/90 mx-auto max-w-4xl text-center font-sans text-xl leading-relaxed font-light md:text-2xl"
           >
-            Escape The Odds delivers documentary-based engagement, institutional curriculum
-            implementation, and industry-aligned entrepreneurship education designed to expand
+            Escape The Odds delivers documentary based engagement, institutional curriculum
+            implementation, and industry aligned entrepreneurship education designed to expand
             stability and income pathways.
           </motion.p>
         </div>
@@ -86,7 +86,7 @@ export default function ProgramsPage() {
             </h2>
             <p className="text-cream/90 mx-auto max-w-3xl font-sans text-xl leading-relaxed font-light">
               Targeted career development and entrepreneurship pathways aligned with reentry
-              preparation and economic mobility.
+              preparation and economic empowerment.
             </p>
           </motion.div>
         </div>

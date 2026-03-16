@@ -10,6 +10,10 @@ interface ProgramCard {
   imagePosition?: string;
   anchor: string;
   contactLabel: string;
+  contactUrl?: string;
+  external?: boolean;
+  bookUrl?: string;
+  bookLabel?: string;
 }
 
 interface Book {
@@ -23,33 +27,13 @@ interface Book {
 export const PROGRAM_CARDS: ProgramCard[] = [
   {
     title: "FILM IMPACT SERIES",
-    subtitle: "DOCUMENTARY-BASED ENGAGEMENT",
+    subtitle: "DOCUMENTARY BASED ENGAGEMENT",
     description:
-      "A structured documentary-based engagement experience designed to activate reflection, dialogue, and forward planning.",
+      "A structured documentary based engagement experience designed to activate reflection, dialogue, and forward planning.",
     icon: Film,
     image: "/assets/Image_7.jpeg",
     anchor: "#film-impact",
-    contactLabel: "HOST THE FILM",
-  },
-  {
-    title: "BOUNCE FORWARD CURRICULUM",
-    subtitle: "15-SESSION INSTITUTIONAL FRAMEWORK",
-    description:
-      "A structured, institutional-ready reentry education framework designed for repeatable implementation.",
-    icon: BookOpen,
-    image: "/assets/Image_27.jpeg",
-    anchor: "#bounce-forward",
-    contactLabel: "INQUIRE ABOUT CURRICULUM",
-  },
-  {
-    title: "BOX TRUCK ENTREPRENEURSHIP",
-    subtitle: "VOCATIONAL PATHWAY",
-    description:
-      "A structured entrepreneurship program designed to prepare participants to launch and operate a transportation business.",
-    icon: Truck,
-    image: "/assets/Image_12.jpeg",
-    anchor: "#box-truck",
-    contactLabel: "ENROLL IN BOX TRUCK",
+    contactLabel: "ENROLL YOUR ORGANIZATION",
   },
   {
     title: "COMMERCIAL CLEANING",
@@ -62,6 +46,43 @@ export const PROGRAM_CARDS: ProgramCard[] = [
     contactLabel: "ENROLL IN CLEANING",
   },
   {
+    title: "SELF PACED LEARNING",
+    subtitle: "DIGITAL COURSE",
+    description:
+      "Our Non-CDL Box Truck self paced course is our only self paced digital course, available through our learning platform.",
+    icon: GraduationCap,
+    image: "/assets/IMG_1828.JPG",
+    anchor: "#self-paced",
+    contactLabel: "EXPLORE THE COURSE",
+    contactUrl: "https://courses.escapetheodds.com/home",
+    external: true,
+  },
+  {
+    title: "BOUNCE FORWARD CURRICULUM",
+    subtitle: "15-SESSION INSTITUTIONAL FRAMEWORK",
+    description:
+      "A structured, institutional ready reentry education framework designed for repeatable implementation.",
+    icon: BookOpen,
+    image: "/assets/Escape-The-Odds-Mockups-IG-Post45/1.png",
+    anchor: "#bounce-forward",
+    contactLabel: "INQUIRE ABOUT CURRICULUM",
+    bookUrl: "https://www.amazon.com/dp/B0GMP7Z9P9",
+    bookLabel: "ORDER THE WORKBOOK",
+  },
+  {
+    title: "BOX TRUCK ENTREPRENEURSHIP",
+    subtitle: "VOCATIONAL PATHWAY",
+    description:
+      "A structured entrepreneurship program designed to prepare participants to launch and operate a NON CDL needed box truck/cargo van.",
+    icon: Truck,
+    image: "/assets/Image_12.jpeg",
+    imagePosition: "center 20%",
+    anchor: "#box-truck",
+    contactLabel: "ENROLL IN BOX TRUCK",
+    bookUrl: "https://a.co/d/09Ajq8UA",
+    bookLabel: "ORDER THE BOOK",
+  },
+  {
     title: "HOUSE HACKING & REAL ESTATE",
     subtitle: "VOCATIONAL PATHWAY",
     description:
@@ -71,16 +92,8 @@ export const PROGRAM_CARDS: ProgramCard[] = [
     imagePosition: "center 35%",
     anchor: "#house-hacking",
     contactLabel: "ENROLL IN HOUSE HACKING",
-  },
-  {
-    title: "SELF-PACED LEARNING",
-    subtitle: "BOOKS & DIGITAL COURSES",
-    description:
-      "Workbooks and reference guides available for independent study — learn at your own pace from anywhere.",
-    icon: GraduationCap,
-    image: "/assets/Image_1.jpeg",
-    anchor: "#self-paced",
-    contactLabel: "START LEARNING",
+    bookUrl: "https://a.co/d/0g3BeD8W",
+    bookLabel: "ORDER THE BOOK",
   },
 ];
 

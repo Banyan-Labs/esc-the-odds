@@ -13,8 +13,16 @@ export function Navbar() {
 
   function isActive(href: string) {
     if (href === "/") return pathname === "/";
-    if (href.startsWith("/#")) return false;
+    if (href.startsWith("/#")) return pathname === "/";
     return pathname.startsWith(href);
+  }
+
+  function handleNavClick(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
+    if (href.startsWith("/#") && pathname === "/") {
+      e.preventDefault();
+      const id = href.replace("/#", "");
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
   }
 
   return (
@@ -37,6 +45,7 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
               className={`font-heading text-xs tracking-[0.15em] transition-colors ${
                 isActive(item.href) ? "text-gold" : "text-cream/90 hover:text-gold"
               }`}
@@ -70,7 +79,10 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() => setMobileOpen(false)}
+                onClick={(e) => {
+                  handleNavClick(e, item.href);
+                  setMobileOpen(false);
+                }}
                 className={`font-heading py-3 text-sm tracking-[0.15em] transition-colors ${
                   isActive(item.href) ? "text-gold" : "text-cream/90 hover:text-gold"
                 }`}

@@ -8,18 +8,57 @@ import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { Mail, MapPin, ArrowRight, CheckCircle2, BookOpen } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
-import { INQUIRY_OPTIONS, TIMELINE_OPTIONS, ROLE_OPTIONS } from "@/lib/constants/contact";
+import { INQUIRY_OPTIONS, ROLE_OPTIONS } from "@/lib/constants/contact";
+
+const GHL_WEBHOOK_URL =
+  "https://services.leadconnectorhq.com/hooks/pit-6e49e8eb-1120-4fa1-9119-120948400fe6";
 
 const selectClasses =
   "flex h-14 w-full rounded-none border border-white/10 bg-black/50 px-4 py-2 text-sm text-cream focus:ring-1 focus:ring-gold outline-none appearance-none cursor-pointer";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const firstName = (form.elements.namedItem("firstName") as HTMLInputElement).value.trim();
+    const lastName = (form.elements.namedItem("lastName") as HTMLInputElement).value.trim();
+
+    // PIT webhooks expect flat key-value pairs with custom field IDs as keys
+    const payload = {
+      first_name: firstName,
+      last_name: lastName,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
+      city: (form.elements.namedItem("city") as HTMLInputElement).value,
+      LkTrGoJOhfarzsppkKLc: (form.elements.namedItem("orgName") as HTMLInputElement).value,
+      B8g1Ag99YdcgSd4rU2tB: (form.elements.namedItem("titleRole") as HTMLInputElement).value,
+      DATll64T24fHNFfcpNdO: (form.elements.namedItem("programInterest") as HTMLSelectElement).value,
+      kiWUx8JvoRqLyupp3DWb: (form.elements.namedItem("audienceSize") as HTMLInputElement).value,
+      "68QArVl7RkYH8xQhBsWu": (form.elements.namedItem("decisionRole") as HTMLSelectElement).value,
+      wOmRjzP9SAVzRgcETUpX: (form.elements.namedItem("notes") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch(GHL_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("Submission failed");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again or email info@escapetheodds.com directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -69,9 +108,9 @@ export default function ContactPage() {
             >
               <div className="space-y-8">
                 <p className="text-cream/80 font-sans text-xl leading-relaxed font-light">
-                  Escape The Odds partners with institutions, organizations, and leaders committed
-                  to structured reentry education and economic empowerment. Select the option below
-                  so we can route your inquiry appropriately.
+                  Escape The Odds partners with correctional facilities, organizations, and leaders
+                  committed to structured reentry education and economic empowerment. Select the
+                  option below so we can route your inquiry appropriately.
                 </p>
               </div>
 
@@ -123,15 +162,17 @@ export default function ContactPage() {
                   </h3>
                 </div>
                 <p className="text-cream/80 font-sans leading-relaxed">
-                  For books and self-paced courses, please visit our learning platform.
+                  For books and self paced courses, please visit our learning platform.
                 </p>
-                <Link
-                  href="/programs#self-paced"
+                <a
+                  href="https://courses.escapetheodds.com/home"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-gold font-heading group inline-flex items-center justify-center px-8 py-4 text-base tracking-widest text-black uppercase transition-all duration-300 hover:bg-white"
                 >
                   EXPLORE INDIVIDUAL LEARNING
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+                </a>
               </motion.div>
             </motion.div>
 
@@ -147,6 +188,13 @@ export default function ContactPage() {
                   aria-live="polite"
                   className="flex flex-col items-center justify-center space-y-6 py-16 text-center"
                 >
+                  <Image
+                    src="/assets/logo-notxt.png"
+                    alt="Escape The Odds"
+                    width={60}
+                    height={60}
+                    className="h-14 w-auto object-contain"
+                  />
                   <CheckCircle2 className="text-gold h-16 w-16" />
                   <h2 className="font-heading text-3xl text-white">MESSAGE RECEIVED</h2>
                   <p className="text-cream/90 max-w-md text-lg">
@@ -162,17 +210,35 @@ export default function ContactPage() {
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                       <div className="space-y-3">
                         <Label
-                          htmlFor="fullName"
+                          htmlFor="firstName"
                           className="font-heading text-cream/90 text-sm tracking-widest uppercase"
                         >
-                          Full Name
+                          First Name
                         </Label>
                         <Input
-                          id="fullName"
+                          id="firstName"
+                          required
                           className="text-cream focus:border-gold h-14 rounded-none border-white/10 bg-black/50 transition-colors"
-                          placeholder="ENTER FULL NAME"
+                          placeholder="FIRST NAME"
                         />
                       </div>
+                      <div className="space-y-3">
+                        <Label
+                          htmlFor="lastName"
+                          className="font-heading text-cream/90 text-sm tracking-widest uppercase"
+                        >
+                          Last Name
+                        </Label>
+                        <Input
+                          id="lastName"
+                          required
+                          className="text-cream focus:border-gold h-14 rounded-none border-white/10 bg-black/50 transition-colors"
+                          placeholder="LAST NAME"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                       <div className="space-y-3">
                         <Label
                           htmlFor="email"
@@ -183,13 +249,11 @@ export default function ContactPage() {
                         <Input
                           id="email"
                           type="email"
+                          required
                           className="text-cream focus:border-gold h-14 rounded-none border-white/10 bg-black/50 transition-colors"
                           placeholder="EMAIL@ORGANIZATION.ORG"
                         />
                       </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                       <div className="space-y-3">
                         <Label
                           htmlFor="phone"
@@ -204,6 +268,9 @@ export default function ContactPage() {
                           placeholder="(555) 555-5555"
                         />
                       </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                       <div className="space-y-3">
                         <Label
                           htmlFor="orgName"
@@ -217,9 +284,6 @@ export default function ContactPage() {
                           placeholder="YOUR ORGANIZATION"
                         />
                       </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                       <div className="space-y-3">
                         <Label
                           htmlFor="titleRole"
@@ -233,19 +297,20 @@ export default function ContactPage() {
                           placeholder="YOUR TITLE"
                         />
                       </div>
-                      <div className="space-y-3">
-                        <Label
-                          htmlFor="cityState"
-                          className="font-heading text-cream/90 text-sm tracking-widest uppercase"
-                        >
-                          City / State
-                        </Label>
-                        <Input
-                          id="cityState"
-                          className="text-cream focus:border-gold h-14 rounded-none border-white/10 bg-black/50 transition-colors"
-                          placeholder="CHICAGO, IL"
-                        />
-                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <Label
+                        htmlFor="city"
+                        className="font-heading text-cream/90 text-sm tracking-widest uppercase"
+                      >
+                        City
+                      </Label>
+                      <Input
+                        id="city"
+                        className="text-cream focus:border-gold h-14 rounded-none border-white/10 bg-black/50 transition-colors"
+                        placeholder="CHICAGO"
+                      />
                     </div>
 
                     <div className="space-y-3">
@@ -278,39 +343,21 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                      <div className="space-y-3">
-                        <Label
-                          htmlFor="timeline"
-                          className="font-heading text-cream/90 text-sm tracking-widest uppercase"
-                        >
-                          Estimated Timeline
-                        </Label>
-                        <select id="timeline" className={selectClasses}>
-                          <option value="">SELECT TIMELINE</option>
-                          {TIMELINE_OPTIONS.map((option) => (
-                            <option key={option} value={option}>
-                              {option}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                      <div className="space-y-3">
-                        <Label
-                          htmlFor="decisionRole"
-                          className="font-heading text-cream/90 text-sm tracking-widest uppercase"
-                        >
-                          Decision-Making Role
-                        </Label>
-                        <select id="decisionRole" className={selectClasses}>
-                          <option value="">SELECT ROLE</option>
-                          {ROLE_OPTIONS.map((option) => (
-                            <option key={option} value={option}>
-                              {option}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
+                    <div className="space-y-3">
+                      <Label
+                        htmlFor="decisionRole"
+                        className="font-heading text-cream/90 text-sm tracking-widest uppercase"
+                      >
+                        Decision-Making Role
+                      </Label>
+                      <select id="decisionRole" className={selectClasses}>
+                        <option value="">SELECT ROLE</option>
+                        {ROLE_OPTIONS.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
                     </div>
 
                     <div className="space-y-3">
@@ -327,12 +374,17 @@ export default function ContactPage() {
                       />
                     </div>
 
+                    {error && <p className="text-center font-sans text-sm text-red-400">{error}</p>}
+
                     <Button
                       type="submit"
-                      className="bg-gold font-heading group w-full rounded-none py-10 text-2xl text-black shadow-[0_10px_40px_rgba(223,176,90,0.1)] transition-all hover:bg-white"
+                      disabled={submitting}
+                      className="bg-gold font-heading group w-full rounded-none py-10 text-2xl text-black shadow-[0_10px_40px_rgba(223,176,90,0.1)] transition-all hover:bg-white disabled:opacity-50"
                     >
-                      SEND MESSAGE{" "}
-                      <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-2" />
+                      {submitting ? "SENDING..." : "SEND MESSAGE"}{" "}
+                      {!submitting && (
+                        <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-2" />
+                      )}
                     </Button>
                   </form>
                 </>

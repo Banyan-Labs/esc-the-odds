@@ -1,10 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BulletList } from "./BulletList";
-import { TagList } from "./TagList";
-import { ContactCTAs } from "./ContactCTAs";
-import { BooksGrid } from "./BooksGrid";
+import { ArrowRight } from "lucide-react";
 
 export function SelfPacedSection() {
   return (
@@ -13,7 +10,7 @@ export function SelfPacedSection() {
       className="bg-charcoal border-b border-white/5 py-16 md:py-24 lg:py-32"
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto mb-20 max-w-4xl space-y-10">
+        <div className="mx-auto max-w-4xl space-y-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -21,48 +18,31 @@ export function SelfPacedSection() {
             className="space-y-4"
           >
             <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
-              SELF-PACED
+              SELF PACED
             </span>
             <h2 className="font-heading text-4xl text-white md:text-6xl">
-              FLEXIBLE DIGITAL <span className="text-gold">LEARNING</span>
+              DIGITAL <span className="text-gold">LEARNING</span>
             </h2>
             <p className="text-cream/90 font-sans text-xl leading-relaxed font-light">
-              A digital learning option for individuals accessing Escape The Odds content outside of
-              institutional programming.
+              Our{" "}
+              <span className="font-medium text-white">Non-CDL Box Truck self paced course</span> is
+              our only self paced digital course, available through our learning platform. Designed
+              for individuals accessing Escape The Odds content outside of institutional
+              programming.
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="space-y-8"
-          >
-            <div className="space-y-4">
-              <h3 className="font-heading text-gold text-xl tracking-widest uppercase">
-                WHAT&apos;S INCLUDED
-              </h3>
-              <BulletList
-                items={[
-                  "Structured curriculum access",
-                  "Self-paced modules",
-                  "Optional live virtual guidance sessions",
-                ]}
-              />
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-heading text-gold text-xl tracking-widest uppercase">BEST FOR</h3>
-              <TagList items={["Individual Learners", "Book Buyers", "Flexible Digital Access"]} />
-            </div>
-          </motion.div>
-        </div>
-
-        <BooksGrid />
-
-        <div className="flex justify-center pt-16">
-          <ContactCTAs label="CONTACT US" />
+          <div className="flex justify-center">
+            <a
+              href="https://courses.escapetheodds.com/home"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gold font-heading group inline-flex items-center justify-center px-8 py-4 text-base tracking-widest text-black uppercase transition-all duration-300 hover:bg-white"
+            >
+              EXPLORE THE SELF PACED COURSE
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

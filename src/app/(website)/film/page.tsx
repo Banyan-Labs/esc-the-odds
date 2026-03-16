@@ -2,15 +2,36 @@
 
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
+import { Play, Share2, Check } from "lucide-react";
 import Image from "next/image";
-import { EXPERIENCE_STEPS, FILM_IN_ACTION_ITEMS } from "@/lib/constants/film";
-import { TRAILER_VIDEO_URL } from "@/lib/constants/home";
+import { EXPERIENCE_STEPS, FILM_IN_ACTION_ITEMS, TRAILER_VIDEO_URL } from "@/lib/constants/film";
 import { FadeInView, SectionHeader, CTAButton } from "@/components/shared";
 
 export default function FilmPage() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [copied, setCopied] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const trailerUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}/#the-film`
+      : "https://escapetheodds.com/#the-film";
+
+  const handleShare = async () => {
+    if (navigator.share) {
+      await navigator
+        .share({
+          title: "Escaping The Odds of Recidivism — Trailer",
+          text: "Watch the trailer for the Escaping The Odds of Recidivism documentary.",
+          url: trailerUrl,
+        })
+        .catch(() => {});
+    } else {
+      await navigator.clipboard.writeText(trailerUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
   const handlePlay = () => {
     setIsPlaying(true);
@@ -29,10 +50,10 @@ export default function FilmPage() {
       <section className="relative flex h-screen flex-col items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0 select-none">
           <Image
-            src="/assets/Image_17.jpeg"
-            alt="Escape the Odds Documentary"
+            src="/assets/ScreenGrab-Trailer.png"
+            alt="Scene from Escaping the Odds documentary"
             fill
-            className="object-cover object-[center_40%] opacity-50"
+            className="object-cover opacity-50"
             priority
           />
         </div>
@@ -141,6 +162,26 @@ export default function FilmPage() {
                 Your browser does not support the video tag.
               </video>
             </FadeInView>
+
+            {/* Share Trailer */}
+            <FadeInView delay={0.4} className="flex justify-center pt-4">
+              <button
+                onClick={handleShare}
+                className="font-heading group border-gold bg-gold/10 text-gold hover:bg-gold inline-flex items-center gap-3 border-2 px-6 py-3 text-sm font-bold tracking-widest uppercase transition-all duration-300 hover:text-black"
+              >
+                {copied ? (
+                  <>
+                    <Check className="text-gold h-4 w-4" />
+                    LINK COPIED
+                  </>
+                ) : (
+                  <>
+                    <Share2 className="h-4 w-4" />
+                    SHARE THE TRAILER
+                  </>
+                )}
+              </button>
+            </FadeInView>
           </div>
         </div>
       </section>
@@ -236,6 +277,14 @@ export default function FilmPage() {
 
         <div className="relative z-10 container mx-auto px-4 text-center md:px-6">
           <FadeInView direction="scale" className="mx-auto max-w-4xl space-y-12">
+            <Image
+              src="/assets/logo-notxt.png"
+              alt="Escape The Odds"
+              width={60}
+              height={60}
+              className="mx-auto h-14 w-auto object-contain"
+            />
+
             <div className="space-y-4">
               <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
                 HOST THE FILM

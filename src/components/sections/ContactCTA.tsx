@@ -1,6 +1,7 @@
 "use client";
 
 import { Mail, MessageSquare } from "lucide-react";
+import Image from "next/image";
 import { FadeInView, CTAButton } from "@/components/shared";
 
 export function ContactCTA() {
@@ -11,19 +12,32 @@ export function ContactCTA() {
 
       <div className="relative z-10 container mx-auto px-4 text-center md:px-6">
         <FadeInView direction="scale" className="mx-auto max-w-4xl space-y-12">
+          <Image
+            src="/assets/logo-notxt.png"
+            alt="Escape The Odds"
+            width={60}
+            height={60}
+            className="mx-auto h-14 w-auto object-contain"
+          />
+
           <div className="space-y-4">
             <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
               NEXT STEPS
             </span>
             <h2 className="font-heading text-4xl leading-tight text-white md:text-6xl">
-              READY TO BRING ESCAPE THE ODDS{" "}
-              <span className="text-gold">TO YOUR ORGANIZATION?</span>
+              READY TO BRING
+              <br />
+              <span className="text-gold">ESCAPE THE ODDS</span>
+              <br />
+              TO YOUR ORGANIZATION?
             </h2>
           </div>
 
           <p className="text-cream/90 mx-auto max-w-2xl font-sans text-xl leading-relaxed font-light">
-            Structured. Facilitated. Institutional-ready. Let&apos;s discuss how the Impact Series
-            or Bounce Forward Curriculum can align with your objectives.
+            Structured. Facilitated. Institutional-ready. Let&apos;s discuss how the{" "}
+            <span className="text-gold">Impact Series</span> or our{" "}
+            <span className="text-gold">entrepreneurial vocational programming</span> can align with
+            your objectives.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-6 pt-4 sm:flex-row">

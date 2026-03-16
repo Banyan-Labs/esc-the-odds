@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Escape The Odds",
   },
   description:
-    "Escape The Odds empowers justice-impacted individuals through documentary storytelling, the Bounce Forward reentry curriculum, and vocational entrepreneurship programs. Over 600 students served across 10+ states.",
+    "Escape The Odds empowers justice impacted individuals through documentary storytelling, the Bounce Forward reentry curriculum, and vocational entrepreneurship programs. Over 600 students served across 10+ states.",
   keywords: [
     "reentry education",
     "recidivism reduction",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     siteName: "Escape The Odds",
     title: "Escape The Odds | Reentry Education, Documentary & Economic Empowerment",
     description:
-      "Empowering justice-impacted individuals through documentary storytelling, structured reentry curriculum, and vocational entrepreneurship programs.",
+      "Empowering justice impacted individuals through documentary storytelling, structured reentry curriculum, and vocational entrepreneurship programs.",
     url: "https://escapetheodds.com",
     images: [
       {
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Escape The Odds | Reentry Education & Economic Empowerment",
     description:
-      "Empowering justice-impacted individuals through documentary storytelling, reentry curriculum, and vocational programs.",
+      "Empowering justice impacted individuals through documentary storytelling, reentry curriculum, and vocational programs.",
     images: ["/assets/COOKCOUNTY-SHERIFF-PIC.png"],
   },
 };

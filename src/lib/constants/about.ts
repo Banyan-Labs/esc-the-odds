@@ -18,7 +18,7 @@ export const PILLARS: Pillar[] = [
     icon: Heart,
     title: "HEALTH",
     description:
-      "Supporting financial wellness, personal discipline, and the mindset required to rebuild life after incarceration.",
+      "Supporting wellness, personal discipline, and the faith mindset required to rebuild life after incarceration.",
   },
   {
     icon: Briefcase,

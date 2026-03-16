@@ -45,7 +45,7 @@ export function Founder() {
 
             <p className="text-cream/90 font-sans text-lg leading-relaxed">
               Aaron Smith is the founder of Escape The Odds Media &amp; Education, a platform
-              dedicated to helping justice-impacted individuals rebuild their lives through
+              dedicated to helping justice impacted individuals rebuild their lives through
               education, career pathways, and entrepreneurship.
             </p>
 
@@ -62,7 +62,7 @@ export function Founder() {
             </p>
 
             <p className="font-sans text-xl leading-relaxed font-medium text-white">
-              Most justice-impacted people are taught how to survive the system — but very few are
+              Most justice impacted people are taught how to survive the system — but very few are
               taught how to master life after it.
             </p>
 

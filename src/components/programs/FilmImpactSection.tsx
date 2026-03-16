@@ -27,7 +27,7 @@ export function FilmImpactSection() {
               <span className="text-gold">IMPACT SERIES</span>
             </h2>
             <p className="text-cream/90 font-sans text-xl leading-relaxed font-light">
-              A structured documentary-based engagement experience designed to activate reflection,
+              A structured documentary based engagement experience designed to activate reflection,
               dialogue, and forward planning.
             </p>
           </motion.div>
@@ -57,8 +57,8 @@ export function FilmImpactSection() {
                 items={[
                   "Full 85-minute documentary screening",
                   "Moderated dialogue session",
-                  "Q&A / panel-style discussion with Aaron Smith and other successful justice-impacted individuals",
-                  "50 Bounce Forward Plan: Mastering Your Reentry workbooks provided for participant activation",
+                  "Q&A / panel style discussion with Aaron Smith and other successful justice impacted individuals",
+                  "50 Bounce Forward Plan: Mastering Your Reentry workbooks provided to local correctional facilities in the host community",
                 ]}
               />
             </div>
@@ -82,7 +82,7 @@ export function FilmImpactSection() {
             </div>
           </motion.div>
 
-          <ContactCTAs label="HOST THE FILM EXPERIENCE" />
+          <ContactCTAs label="ENROLL YOUR ORGANIZATION" />
         </div>
       </div>
     </section>

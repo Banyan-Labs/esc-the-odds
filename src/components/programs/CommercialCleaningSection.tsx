@@ -26,8 +26,8 @@ export function CommercialCleaningSection() {
               COMMERCIAL CLEANING <span className="text-gold">BUSINESS DEVELOPMENT</span>
             </h2>
             <p className="text-cream/90 font-sans text-xl leading-relaxed font-light">
-              A scalable service-business training program designed to introduce participants to a
-              lower-barrier business model with recurring revenue potential.
+              A scalable service business training program designed to introduce participants to a
+              lower barrier business model with recurring revenue potential.
             </p>
           </motion.div>
 
@@ -59,9 +59,9 @@ export function CommercialCleaningSection() {
               </h3>
               <BulletList
                 items={[
-                  "6-week program — 120 minutes per session",
+                  "7-week program — 120 minutes per session",
                   "Up to 20 participants per cohort",
-                  "Available in correctional facilities, community-based settings, in-person, or virtual via Zoom",
+                  "Available in correctional facilities, community based settings, in person, or virtual via Zoom",
                   "Certification from an internationally recognized industry association",
                 ]}
               />

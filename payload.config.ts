@@ -12,6 +12,12 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_APP_URL || '',
+  cors: [
+    'https://escape-the-odds.web.app',
+    'https://escapetheodds.com',
+    'https://www.escapetheodds.com',
+    process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
+  ].filter(Boolean),
   admin: {
     user: Users.slug,
     importMap: {

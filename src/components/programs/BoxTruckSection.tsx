@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FadeInView } from "@/components/shared";
 import { BulletList } from "./BulletList";
 import { TagList } from "./TagList";
 import { ContactCTAs } from "./ContactCTAs";
@@ -23,8 +24,8 @@ export function BoxTruckSection() {
               NON-CDL BOX TRUCK <span className="text-gold">ENTREPRENEURSHIP</span>
             </h2>
             <p className="text-cream/90 font-sans text-xl leading-relaxed font-light">
-              A practical business development program focused on one of the most accessible entry
-              points into entrepreneurship and income generation after incarceration.
+              A practical business development program focused on preparing participants to operate
+              a NON CDL needed box truck/cargo van after incarceration.
             </p>
           </motion.div>
 
@@ -57,8 +58,8 @@ export function BoxTruckSection() {
               <BulletList
                 items={[
                   "5-week program — 90 minutes per session",
-                  "Cohort-based delivery (up to 20 participants)",
-                  "Available in correctional facilities, community-based settings, virtual via Zoom, or in person",
+                  "Cohort based delivery (up to 20 participants)",
+                  "Available in correctional facilities, community based settings, virtual via Zoom, or in person",
                   "Non-CDL Box Truck Reference Guide included in cohort",
                 ]}
               />
@@ -89,6 +90,16 @@ export function BoxTruckSection() {
           </motion.div>
 
           <ContactCTAs label="ENROLL IN BOX TRUCK PROGRAM" />
+          <FadeInView className="pt-2">
+            <a
+              href="https://a.co/d/09Ajq8UA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-heading inline-flex items-center justify-center border-2 border-white px-8 py-4 text-base tracking-widest text-white uppercase transition-all duration-300 hover:bg-white hover:text-black"
+            >
+              ORDER THE BOOK
+            </a>
+          </FadeInView>
         </div>
       </div>
     </section>

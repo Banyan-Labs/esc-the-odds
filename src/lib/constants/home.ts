@@ -28,6 +28,8 @@ export interface EcosystemCard {
   href: string;
   image: string;
   imageAlt: string;
+  imagePosition?: string;
+  mobileImagePosition?: string;
 }
 
 export const ECOSYSTEM_CARDS: EcosystemCard[] = [
@@ -37,13 +39,15 @@ export const ECOSYSTEM_CARDS: EcosystemCard[] = [
     body: "An up to 3.5-hour structured documentary + dialogue experience, including 50 Bounce Forward workbooks provided to local facilities where the film is hosted. Designed for: Correctional facilities, government reentry agencies, career development boards, community reentry organizations, libraries, educational institutions, employers, and CDFIs.",
     cta: "Host the Film",
     href: "/film",
-    image: "/assets/Image_16.jpeg",
-    imageAlt: "Documentary screening setup",
+    image: "/assets/IMG_1826.JPG",
+    imageAlt: "Behind the scenes documentary filming through camera lens",
+    imagePosition: "center 25%",
+    mobileImagePosition: "center 35%",
   },
   {
     icon: BookOpen,
     title: "Bounce Forward Plan: Mastering Your Reentry – Curriculum",
-    body: "A 15-session institutional-ready reentry education framework designed for structured implementation. 12-month license includes: Documentary integration, workbooks, facilitation guides, SME toolkit, evaluation framework.",
+    body: "A 15-session institutional ready reentry education framework designed for structured implementation. 12-month license includes: Documentary integration, workbooks, facilitation guides, Subject Matter Expert toolkit, evaluation framework.",
     cta: "Inquire About the Curriculum",
     href: "/contact",
     image: "/assets/Image_9.jpeg",
@@ -52,11 +56,11 @@ export const ECOSYSTEM_CARDS: EcosystemCard[] = [
   {
     icon: Briefcase,
     title: "Vocational Pathways Programs",
-    body: "Economic mobility programs aligned with reentry preparation: Non-CDL Box Truck Entrepreneurship, Commercial Cleaning Business Development, House Hacking & Real Estate Fundamentals.",
+    body: "Economic empowerment programs aligned with reentry preparation: Non-CDL Box Truck Entrepreneurship, Commercial Cleaning Business Development, House Hacking & Real Estate Fundamentals, Financial Empowerment.",
     cta: "Explore Vocational Pathways",
     href: "/programs",
-    image: "/assets/Image_20.jpeg",
-    imageAlt: "Vocational program classroom instruction",
+    image: "/assets/IMG_1825.JPG",
+    imageAlt: "Students in blue writing during vocational program session",
   },
 ];
 
@@ -98,38 +102,44 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
+      "After spending 15 years incarcerated, I returned home determined to rebuild my life. With guidance from mentors like Aaron Smith and support from Escaping the Odds, I learned how to structure and build my own trucking business. Today, I operate one truck and two trailers and am working toward purchasing a second truck. I'm grateful for the second chance God gave me to come home, rebuild, and make a positive impact in society.",
+    name: "KWANTE WILLIAMS",
+    role: "Program Graduate, California",
+  },
+  {
+    quote:
       "This course has left me highly impacted and determined to be my own boss and start my own hot-shot business.",
-    name: "CARL CHRISTENBERRY",
+    name: "CARL C.",
     role: "Box Truck Program Graduate",
   },
   {
     quote:
-      "I have found a new positive mentor and guide and teacher who knows his stuff — a brother who made it out the struggle who's helping others do the same!",
-    name: "JONDELL HAYDEN JR.",
+      "They take all the guess work and make it a checklist to start a business. Very well done.",
+    name: "An Arizona Correctional Facility Participant",
+    role: "Box Truck Program Graduate",
+  },
+  {
+    quote: "It helped me realize that anyone can do it, you don't need to be rich to buy a house.",
+    name: "CHARLES S.",
+    role: "House Hacking Program Graduate",
+  },
+  {
+    quote:
+      "It has prepared me to start my journey and also changed my perception of thinking small. Dream big and go hard. Grind strong!",
+    name: "LONDELL H.",
+    role: "Financial Empowerment Program Graduate",
+  },
+  {
+    quote:
+      "This course has made it very easy. With the information I can actually begin the process while incarcerated.",
+    name: "A Mississippi Correctional Facility Participant",
     role: "Box Truck Program Graduate",
   },
   {
     quote:
-      "Now I have the ability to financially be prepared not to make mistakes in the future that may lead to recidivism.",
-    name: "CARL CHRISTENBERRY",
-    role: "Financial Empowerment Graduate",
-  },
-  {
-    quote:
-      "It has prepared me to start my journey and also changed my perceptions of thinking small. Dream big and go hard. Grind strong!",
-    name: "JONDELL HAYDEN JR.",
+      "This has been the best experience of classes and programs in prison. This course gives the first steps needed to get started.",
+    name: "A Tennessee Correctional Facility Participant",
     role: "Box Truck Program Graduate",
-  },
-  {
-    quote:
-      "Extremely satisfied. This course has given me the mental constraint to be ready when I do re-enter society — I will be ready to launch my own hot-shot business.",
-    name: "CARL CHRISTENBERRY",
-    role: "Box Truck Program Graduate",
-  },
-  {
-    quote: "Information on how to get started was inspirational for me to proceed into business.",
-    name: "CROSSROADS CORRECTIONAL",
-    role: "Participant",
   },
 ];
 
@@ -152,21 +162,21 @@ export const HOME_EXPERIENCE_STEPS: HomeExperienceStep[] = [
     image: "/assets/Image_26.jpeg",
     imageAlt: "Aaron connecting with individuals at a correctional facility",
     description:
-      "An immersive documentary experience revealing the architecture of reintegration and introducing a mindset shift toward economic readiness and personal responsibility.",
+      "An immersive documentary experience revealing the concepts of reintegration and introducing a mindset shift toward economic readiness and personal responsibility.",
     bullets: null,
   },
   {
     icon: MessageSquare,
     title: "The Inquiry",
     subtitle: "Guided Dialogue",
-    image: "/assets/Image_11.jpeg",
-    imageAlt: "Facilitated panel dialogue",
-    imagePosition: "center 20%",
+    image: "/assets/AaronSpeaking.png",
+    imageAlt: "Aaron Smith speaking at podium",
+    imagePosition: "center 15%",
     description:
-      "A structured conversation designed to transform insight into clarity. Audience engages in:",
+      "A structured Panel/fireside chat style conversation designed to transform insight into clarity. Audience engages in:",
     bullets: [
-      "Reflection on opportunity and environment",
-      "Dialogue around work and economic access",
+      "Reflection on opportunity and access",
+      "Dialogue around work and economic empowerment",
       "Examination of reintegration realities",
       "Practical next steps forward",
     ],
@@ -175,10 +185,11 @@ export const HOME_EXPERIENCE_STEPS: HomeExperienceStep[] = [
     icon: GraduationCap,
     title: "The Map",
     subtitle: "Curriculum Activation",
-    image: "/assets/Image_1.jpeg",
-    imageAlt: "Workbook and curriculum session",
+    image: "/assets/IMG_1830.JPG",
+    imageAlt: "Aaron teaching in front of class",
+    imagePosition: "40% 20%",
     description:
-      "Activation of the Bounce Forward Plan: Mastering Your Reentry, a structured, institutional-ready reentry curriculum. Includes:",
+      "Activation of the Bounce Forward Plan: Mastering Your Reentry, a structured, institutional ready reentry curriculum. Includes:",
     bullets: [
       "Housing stability planning",
       "Career readiness development",
@@ -240,7 +251,3 @@ export const MEDIA_MENTIONS: MediaMention[] = [
     url: "https://chicagoreader.com/news-politics/interview-with-podcaster-aaron-smith-get-to-the-root-of-the-person-%EF%BF%BC/",
   },
 ];
-
-export const TRAILER_VIDEO_URL =
-  process.env.NEXT_PUBLIC_TRAILER_VIDEO_URL ||
-  "https://firebasestorage.googleapis.com/v0/b/escape-the-odds.firebasestorage.app/o/media%2FETO%20Doc%20Trailer_FINAL_Cta%20End%20Card.mp4?alt=media";

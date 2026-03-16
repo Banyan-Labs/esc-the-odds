@@ -5,11 +5,11 @@ import { TheFilm } from "@/components/sections/TheFilm";
 export const metadata: Metadata = {
   title: "Reentry Education, Documentary & Economic Empowerment",
   description:
-    "Escape The Odds empowers justice-impacted individuals through documentary storytelling, the Bounce Forward reentry curriculum, and vocational entrepreneurship programs. Over 600 students served across 10+ states.",
+    "Escape The Odds empowers justice impacted individuals through documentary storytelling, the Bounce Forward reentry curriculum, and vocational entrepreneurship programs. Over 600 students served across 10+ states.",
   openGraph: {
     title: "Escape The Odds | Reentry Education, Documentary & Economic Empowerment",
     description:
-      "Empowering justice-impacted individuals through documentary storytelling, structured reentry curriculum, and vocational entrepreneurship programs.",
+      "Empowering justice impacted individuals through documentary storytelling, structured reentry curriculum, and vocational entrepreneurship programs.",
     images: [
       {
         url: "/assets/COOKCOUNTY-SHERIFF-PIC.png",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Escape The Odds | Reentry Education & Economic Empowerment",
     description:
-      "Empowering justice-impacted individuals through documentary storytelling, reentry curriculum, and vocational programs.",
+      "Empowering justice impacted individuals through documentary storytelling, reentry curriculum, and vocational programs.",
     images: ["/assets/COOKCOUNTY-SHERIFF-PIC.png"],
   },
 };
