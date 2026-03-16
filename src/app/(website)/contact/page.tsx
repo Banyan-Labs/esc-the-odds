@@ -9,9 +9,7 @@ import { motion } from "framer-motion";
 import { Mail, MapPin, ArrowRight, CheckCircle2, BookOpen } from "lucide-react";
 import Image from "next/image";
 import { INQUIRY_OPTIONS, ROLE_OPTIONS } from "@/lib/constants/contact";
-
-const GHL_WEBHOOK_URL =
-  "https://services.leadconnectorhq.com/hooks/pit-6e49e8eb-1120-4fa1-9119-120948400fe6";
+import { submitContactForm } from "./actions";
 
 const selectClasses =
   "flex h-14 w-full rounded-none border border-white/10 bg-black/50 px-4 py-2 text-sm text-cream focus:ring-1 focus:ring-gold outline-none appearance-none cursor-pointer";
@@ -27,32 +25,25 @@ export default function ContactPage() {
     setError("");
 
     const form = e.currentTarget;
-    const firstName = (form.elements.namedItem("firstName") as HTMLInputElement).value.trim();
-    const lastName = (form.elements.namedItem("lastName") as HTMLInputElement).value.trim();
 
-    // PIT webhooks expect flat key-value pairs with custom field IDs as keys
-    const payload = {
-      first_name: firstName,
-      last_name: lastName,
+    const data = {
+      firstName: (form.elements.namedItem("firstName") as HTMLInputElement).value,
+      lastName: (form.elements.namedItem("lastName") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
       city: (form.elements.namedItem("city") as HTMLInputElement).value,
-      LkTrGoJOhfarzsppkKLc: (form.elements.namedItem("orgName") as HTMLInputElement).value,
-      B8g1Ag99YdcgSd4rU2tB: (form.elements.namedItem("titleRole") as HTMLInputElement).value,
-      DATll64T24fHNFfcpNdO: (form.elements.namedItem("programInterest") as HTMLSelectElement).value,
-      kiWUx8JvoRqLyupp3DWb: (form.elements.namedItem("audienceSize") as HTMLInputElement).value,
-      "68QArVl7RkYH8xQhBsWu": (form.elements.namedItem("decisionRole") as HTMLSelectElement).value,
-      wOmRjzP9SAVzRgcETUpX: (form.elements.namedItem("notes") as HTMLTextAreaElement).value,
+      orgName: (form.elements.namedItem("orgName") as HTMLInputElement).value,
+      titleRole: (form.elements.namedItem("titleRole") as HTMLInputElement).value,
+      programInterest: (form.elements.namedItem("programInterest") as HTMLSelectElement).value,
+      audienceSize: (form.elements.namedItem("audienceSize") as HTMLInputElement).value,
+      decisionRole: (form.elements.namedItem("decisionRole") as HTMLSelectElement).value,
+      notes: (form.elements.namedItem("notes") as HTMLTextAreaElement).value,
     };
 
     try {
-      const res = await fetch(GHL_WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const result = await submitContactForm(data);
 
-      if (!res.ok) throw new Error("Submission failed");
+      if (!result.success) throw new Error(result.error);
       setSubmitted(true);
     } catch {
       setError("Something went wrong. Please try again or email info@escapetheodds.com directly.");
