@@ -97,14 +97,18 @@ export interface Testimonial {
   quote: string;
   name: string;
   role: string;
+  featured?: boolean;
+  image?: string;
 }
 
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
       "After spending 15 years incarcerated, I returned home determined to rebuild my life. With guidance from mentors like Aaron Smith and support from Escaping the Odds, I learned how to structure and build my own trucking business. Today, I operate one truck and two trailers and am working toward purchasing a second truck. I'm grateful for the second chance God gave me to come home, rebuild, and make a positive impact in society.",
-    name: "KWANTE WILLIAMS",
+    name: "KWANTE W.",
     role: "Program Graduate, California",
+    featured: true,
+    image: "/assets/Image_12.jpeg",
   },
   {
     quote:
