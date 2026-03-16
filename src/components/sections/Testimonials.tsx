@@ -6,6 +6,9 @@ import { SectionHeader, FadeInView } from "@/components/shared";
 import { TESTIMONIALS } from "@/lib/constants/home";
 
 export function Testimonials() {
+  const featured = TESTIMONIALS.find((t) => t.featured);
+  const rest = TESTIMONIALS.filter((t) => !t.featured);
+
   return (
     <section
       id="testimonials"
@@ -29,9 +32,40 @@ export function Testimonials() {
           description="Real stories from those who chose to bounce forward."
         />
 
+        {/* Featured Testimonial */}
+        {featured && (
+          <FadeInView className="border-gold/20 mb-8 border bg-black/60 backdrop-blur-sm">
+            <div className="grid grid-cols-1 md:grid-cols-5">
+              {featured.image && (
+                <div className="relative aspect-square md:col-span-2 md:aspect-auto">
+                  <Image
+                    src={featured.image}
+                    alt={featured.name}
+                    fill
+                    className="object-cover object-[center_20%]"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent md:bg-linear-to-l md:from-black/40 md:via-transparent md:to-transparent" />
+                </div>
+              )}
+              <div className="flex flex-col justify-center space-y-6 p-10 md:col-span-3 md:p-12">
+                <Quote className="text-gold h-10 w-10" />
+                <p className="text-cream/90 font-sans text-xl leading-relaxed italic md:text-2xl">
+                  &ldquo;{featured.quote}&rdquo;
+                </p>
+                <div className="border-gold/20 border-t pt-6">
+                  <p className="font-heading text-xl tracking-tight text-white">{featured.name}</p>
+                  <p className="text-gold font-heading mt-1 text-sm tracking-widest uppercase">
+                    {featured.role}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </FadeInView>
+        )}
+
         {/* Testimonial Cards */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {TESTIMONIALS.map((testimonial, index) => (
+          {rest.map((testimonial, index) => (
             <FadeInView
               key={`${testimonial.name}-${testimonial.quote.slice(0, 30)}`}
               delay={index * 0.1}

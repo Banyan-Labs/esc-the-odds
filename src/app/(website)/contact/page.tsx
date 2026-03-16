@@ -1,57 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
-import { Mail, MapPin, ArrowRight, CheckCircle2, BookOpen } from "lucide-react";
+import { Mail, MapPin, ArrowRight, BookOpen } from "lucide-react";
 import Image from "next/image";
-import { INQUIRY_OPTIONS, ROLE_OPTIONS } from "@/lib/constants/contact";
-import { submitContactForm } from "./actions";
 
-const selectClasses =
-  "flex h-14 w-full rounded-none border border-white/10 bg-black/50 px-4 py-2 text-sm text-cream focus:ring-1 focus:ring-gold outline-none appearance-none cursor-pointer";
+const GHL_FORM_URL = "https://api.leadconnectorhq.com/widget/form/x1ZdvqzrJf7kyUROy2Es";
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState("");
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setError("");
-
-    const form = e.currentTarget;
-
-    const data = {
-      firstName: (form.elements.namedItem("firstName") as HTMLInputElement).value,
-      lastName: (form.elements.namedItem("lastName") as HTMLInputElement).value,
-      email: (form.elements.namedItem("email") as HTMLInputElement).value,
-      phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
-      city: (form.elements.namedItem("city") as HTMLInputElement).value,
-      orgName: (form.elements.namedItem("orgName") as HTMLInputElement).value,
-      titleRole: (form.elements.namedItem("titleRole") as HTMLInputElement).value,
-      programInterest: (form.elements.namedItem("programInterest") as HTMLSelectElement).value,
-      audienceSize: (form.elements.namedItem("audienceSize") as HTMLInputElement).value,
-      decisionRole: (form.elements.namedItem("decisionRole") as HTMLSelectElement).value,
-      notes: (form.elements.namedItem("notes") as HTMLTextAreaElement).value,
-    };
-
-    try {
-      const result = await submitContactForm(data);
-
-      if (!result.success) throw new Error(result.error);
-      setSubmitted(true);
-    } catch {
-      setError("Something went wrong. Please try again or email info@escapetheodds.com directly.");
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
   return (
     <>
       {/* Page Header */}
@@ -167,219 +122,23 @@ export default function ContactPage() {
               </motion.div>
             </motion.div>
 
-            {/* Contact Form */}
+            {/* GHL Embedded Form */}
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-charcoal border border-white/5 p-12 shadow-2xl lg:col-span-7 lg:p-16"
+              className="bg-charcoal border border-white/5 shadow-2xl lg:col-span-7"
             >
-              {submitted ? (
-                <div
-                  role="status"
-                  aria-live="polite"
-                  className="flex flex-col items-center justify-center space-y-6 py-16 text-center"
-                >
-                  <Image
-                    src="/assets/logo-notxt.png"
-                    alt="Escape The Odds"
-                    width={60}
-                    height={60}
-                    className="h-14 w-auto object-contain"
-                  />
-                  <CheckCircle2 className="text-gold h-16 w-16" />
-                  <h2 className="font-heading text-3xl text-white">MESSAGE RECEIVED</h2>
-                  <p className="text-cream/90 max-w-md text-lg">
-                    Thank you for reaching out. Our team will respond within 48 hours.
-                  </p>
-                </div>
-              ) : (
-                <>
-                  <h2 className="font-heading decoration-gold/30 mb-12 text-3xl tracking-tight text-white underline underline-offset-8">
-                    INQUIRY FORM
-                  </h2>
-                  <form onSubmit={handleSubmit} className="space-y-8">
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                      <div className="space-y-3">
-                        <Label
-                          htmlFor="firstName"
-                          className="font-heading text-cream/90 text-sm tracking-widest uppercase"
-                        >
-                          First Name
-                        </Label>
-                        <Input
-                          id="firstName"
-                          required
-                          className="text-cream focus:border-gold h-14 rounded-none border-white/10 bg-black/50 transition-colors"
-                          placeholder="FIRST NAME"
-                        />
-                      </div>
-                      <div className="space-y-3">
-                        <Label
-                          htmlFor="lastName"
-                          className="font-heading text-cream/90 text-sm tracking-widest uppercase"
-                        >
-                          Last Name
-                        </Label>
-                        <Input
-                          id="lastName"
-                          required
-                          className="text-cream focus:border-gold h-14 rounded-none border-white/10 bg-black/50 transition-colors"
-                          placeholder="LAST NAME"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                      <div className="space-y-3">
-                        <Label
-                          htmlFor="email"
-                          className="font-heading text-cream/90 text-sm tracking-widest uppercase"
-                        >
-                          Email
-                        </Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          required
-                          className="text-cream focus:border-gold h-14 rounded-none border-white/10 bg-black/50 transition-colors"
-                          placeholder="EMAIL@ORGANIZATION.ORG"
-                        />
-                      </div>
-                      <div className="space-y-3">
-                        <Label
-                          htmlFor="phone"
-                          className="font-heading text-cream/90 text-sm tracking-widest uppercase"
-                        >
-                          Phone
-                        </Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          className="text-cream focus:border-gold h-14 rounded-none border-white/10 bg-black/50 transition-colors"
-                          placeholder="(555) 555-5555"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                      <div className="space-y-3">
-                        <Label
-                          htmlFor="orgName"
-                          className="font-heading text-cream/90 text-sm tracking-widest uppercase"
-                        >
-                          Organization Name
-                        </Label>
-                        <Input
-                          id="orgName"
-                          className="text-cream focus:border-gold h-14 rounded-none border-white/10 bg-black/50 transition-colors"
-                          placeholder="YOUR ORGANIZATION"
-                        />
-                      </div>
-                      <div className="space-y-3">
-                        <Label
-                          htmlFor="titleRole"
-                          className="font-heading text-cream/90 text-sm tracking-widest uppercase"
-                        >
-                          Title / Role
-                        </Label>
-                        <Input
-                          id="titleRole"
-                          className="text-cream focus:border-gold h-14 rounded-none border-white/10 bg-black/50 transition-colors"
-                          placeholder="YOUR TITLE"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-3">
-                      <Label
-                        htmlFor="city"
-                        className="font-heading text-cream/90 text-sm tracking-widest uppercase"
-                      >
-                        City
-                      </Label>
-                      <Input
-                        id="city"
-                        className="text-cream focus:border-gold h-14 rounded-none border-white/10 bg-black/50 transition-colors"
-                        placeholder="CHICAGO"
-                      />
-                    </div>
-
-                    <div className="space-y-3">
-                      <Label
-                        htmlFor="programInterest"
-                        className="font-heading text-cream/90 text-sm tracking-widest uppercase"
-                      >
-                        Program of Interest
-                      </Label>
-                      <select id="programInterest" className={selectClasses}>
-                        {INQUIRY_OPTIONS.map((option) => (
-                          <option key={option} value={option}>
-                            {option}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div className="space-y-3">
-                      <Label
-                        htmlFor="audienceSize"
-                        className="font-heading text-cream/90 text-sm tracking-widest uppercase"
-                      >
-                        Estimated Audience Size
-                      </Label>
-                      <Input
-                        id="audienceSize"
-                        className="text-cream focus:border-gold h-14 rounded-none border-white/10 bg-black/50 transition-colors"
-                        placeholder="E.G. 50, 100, 200+"
-                      />
-                    </div>
-
-                    <div className="space-y-3">
-                      <Label
-                        htmlFor="decisionRole"
-                        className="font-heading text-cream/90 text-sm tracking-widest uppercase"
-                      >
-                        Decision-Making Role
-                      </Label>
-                      <select id="decisionRole" className={selectClasses}>
-                        <option value="">SELECT ROLE</option>
-                        {ROLE_OPTIONS.map((option) => (
-                          <option key={option} value={option}>
-                            {option}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div className="space-y-3">
-                      <Label
-                        htmlFor="notes"
-                        className="font-heading text-cream/90 text-sm tracking-widest uppercase"
-                      >
-                        Additional Notes
-                      </Label>
-                      <Textarea
-                        id="notes"
-                        className="text-cream focus:border-gold min-h-[180px] rounded-none border-white/10 bg-black/50 transition-colors"
-                        placeholder="ANYTHING ELSE WE SHOULD KNOW?"
-                      />
-                    </div>
-
-                    {error && <p className="text-center font-sans text-sm text-red-400">{error}</p>}
-
-                    <Button
-                      type="submit"
-                      disabled={submitting}
-                      className="bg-gold font-heading group w-full rounded-none py-10 text-2xl text-black shadow-[0_10px_40px_rgba(223,176,90,0.1)] transition-all hover:bg-white disabled:opacity-50"
-                    >
-                      {submitting ? "SENDING..." : "SEND MESSAGE"}{" "}
-                      {!submitting && (
-                        <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-2" />
-                      )}
-                    </Button>
-                  </form>
-                </>
-              )}
+              <div className="p-12 pb-0 lg:p-16 lg:pb-0">
+                <h2 className="font-heading decoration-gold/30 mb-4 text-3xl tracking-tight text-white underline underline-offset-8">
+                  INQUIRY FORM
+                </h2>
+              </div>
+              <iframe
+                src={GHL_FORM_URL}
+                className="h-[1400px] w-full border-0"
+                title="Escape The Odds Inquiry Form"
+                loading="lazy"
+              />
             </motion.div>
           </div>
         </div>
