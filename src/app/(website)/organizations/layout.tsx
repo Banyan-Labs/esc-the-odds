@@ -8,21 +8,12 @@ export const metadata: Metadata = {
     title: "For Organizations — Institutional Reentry Programs & Partnerships | Escape The Odds",
     description:
       "Partner with Escape The Odds for structured reentry education. Film hosting, curriculum licensing, and vocational programs.",
-    images: [
-      {
-        url: "/assets/Image_24.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "Escape The Odds organizational partnership",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "For Organizations | Escape The Odds",
     description:
       "Partner with Escape The Odds for structured reentry education, curriculum licensing, and vocational programs.",
-    images: ["/assets/Image_24.jpeg"],
   },
 };
 
