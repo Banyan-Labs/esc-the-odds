@@ -8,21 +8,12 @@ export const metadata: Metadata = {
     title: "Programs — Film Impact Series, Curriculum & Vocational Pathways | Escape The Odds",
     description:
       "Explore Escape The Odds programs: documentary Impact Series, Bounce Forward reentry curriculum, and vocational entrepreneurship pathways.",
-    images: [
-      {
-        url: "/assets/Image_15.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "Escape The Odds program certificate presentation",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Programs | Escape The Odds",
     description:
       "Documentary Impact Series, Bounce Forward reentry curriculum, and vocational entrepreneurship pathways.",
-    images: ["/assets/Image_15.jpeg"],
   },
 };
 
