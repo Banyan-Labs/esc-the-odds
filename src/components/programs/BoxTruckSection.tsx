@@ -89,7 +89,7 @@ export function BoxTruckSection() {
             </div>
           </motion.div>
 
-          <ContactCTAs label="ENROLL IN BOX TRUCK PROGRAM" />
+          <ContactCTAs label="ENROLL YOUR ORGANIZATION" />
           <FadeInView className="pt-2">
             <a
               href="https://a.co/d/09Ajq8UA"

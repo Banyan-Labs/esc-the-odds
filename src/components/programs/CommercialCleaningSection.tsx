@@ -92,7 +92,7 @@ export function CommercialCleaningSection() {
             </div>
           </motion.div>
 
-          <ContactCTAs label="ENROLL IN COMMERCIAL CLEANING" />
+          <ContactCTAs label="ENROLL YOUR ORGANIZATION" />
         </div>
       </div>
     </section>
