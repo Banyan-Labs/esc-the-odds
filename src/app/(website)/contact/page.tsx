@@ -135,7 +135,7 @@ export default function ContactPage() {
               </div>
               <iframe
                 src={GHL_FORM_URL}
-                className="h-[1400px] w-full border-0"
+                className="h-[900px] w-full border-0"
                 title="Escape The Odds Inquiry Form"
                 loading="lazy"
               />
