@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     "workforce development",
     "second chance employers",
   ],
-  metadataBase: new URL("https://escapetheodds.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://escape-the-odds.web.app"),
   openGraph: {
     type: "website",
     locale: "en_US",
