@@ -8,6 +8,7 @@ import { TRAILER_VIDEO_URL } from "@/lib/constants/film";
 
 export function TheFilm() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isBuffering, setIsBuffering] = useState(false);
   const [copied, setCopied] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -33,9 +34,14 @@ export function TheFilm() {
   };
 
   const handlePlay = () => {
+    setIsBuffering(true);
     setIsPlaying(true);
     setTimeout(() => {
-      videoRef.current?.play();
+      videoRef.current?.play().catch((err) => {
+        console.error("[film] Video playback failed:", err);
+        setIsPlaying(false);
+        setIsBuffering(false);
+      });
     }, 0);
   };
 
@@ -118,13 +124,24 @@ export function TheFilm() {
                   </button>
                 </>
               )}
+              {isBuffering && (
+                <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/60">
+                  <div className="border-gold h-12 w-12 animate-spin rounded-full border-4 border-t-transparent" />
+                </div>
+              )}
               <video
                 ref={videoRef}
                 controls={isPlaying}
-                preload="metadata"
+                preload="auto"
+                playsInline
                 poster="/assets/ETO-LandscapePoster.png"
                 className={`h-full w-full object-cover ${isPlaying ? "block" : "hidden"}`}
-                onEnded={() => setIsPlaying(false)}
+                onPlaying={() => setIsBuffering(false)}
+                onWaiting={() => setIsBuffering(true)}
+                onEnded={() => {
+                  setIsPlaying(false);
+                  setIsBuffering(false);
+                }}
               >
                 <source src={TRAILER_VIDEO_URL} type="video/mp4" />
                 Your browser does not support the video tag.
