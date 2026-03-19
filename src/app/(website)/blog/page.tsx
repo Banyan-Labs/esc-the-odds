@@ -5,17 +5,17 @@ import { BlogHero } from "@/components/blog/BlogHero";
 import { BlogGrid, type BlogPost } from "@/components/blog/BlogGrid";
 
 export const metadata: Metadata = {
-  title: "The Dispatch — Journal & Blueprints",
+  title: "The Blueprint — Rebuilding a New Narrative",
   description:
     "Documentation of the transition, the scaling of the movement, and the frameworks for the future.",
   openGraph: {
-    title: "The Dispatch — Journal & Blueprints | Escape The Odds",
+    title: "The Blueprint — Rebuilding a New Narrative | Escape The Odds",
     description:
       "Documentation of the transition, the scaling of the movement, and the frameworks for the future.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Dispatch | Escape The Odds",
+    title: "The Blueprint | Escape The Odds",
     description:
       "Documentation of the transition, the scaling of the movement, and the frameworks for the future.",
   },

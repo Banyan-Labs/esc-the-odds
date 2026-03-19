@@ -13,8 +13,8 @@ export function TheFilm() {
 
   const trailerUrl =
     typeof window !== "undefined"
-      ? `${window.location.origin}/#the-film`
-      : "https://escapetheodds.com/#the-film";
+      ? `${window.location.origin}/film#trailer`
+      : "https://escapetheodds.com/film#trailer";
 
   const handleShare = async () => {
     if (navigator.share) {

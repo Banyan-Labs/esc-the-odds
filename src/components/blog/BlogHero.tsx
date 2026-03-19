@@ -25,7 +25,7 @@ export function BlogHero() {
         >
           <div className="space-y-4">
             <span className="text-gold font-heading text-2xl tracking-widest uppercase md:text-3xl">
-              THE DISPATCH
+              THE BLUEPRINT
             </span>
             <h1 className="font-heading text-5xl leading-[0.9] tracking-tighter text-white md:text-8xl">
               THE <span className="text-gold">BLUEPRINT.</span>
