@@ -33,7 +33,8 @@
       { "source": "/partner", "destination": "/organizations", "type": 301 },
       { "source": "/support", "destination": "/organizations", "type": 301 },
       { "source": "/programs/live-cohort", "destination": "/programs#live-cohort", "type": 301 },
-      { "source": "/programs/self-paced", "destination": "/programs#self-paced", "type": 301 }
+      { "source": "/programs/self-paced", "destination": "/programs#self-paced", "type": 301 },
+      { "source": "/film-screening", "destination": "/contact", "type": 301 }
     ]
   },
   "storage": {

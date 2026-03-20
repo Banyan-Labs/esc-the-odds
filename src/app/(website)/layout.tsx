@@ -3,6 +3,7 @@ import { Anton, Inter } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { OrganizationSchema } from "@/components/SEO/OrganizationSchema";
+import { Analytics } from "@/components/Analytics";
 import "./globals.css";
 
 const anton = Anton({
@@ -64,6 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${anton.variable} ${inter.variable} antialiased`}>
+        <Analytics />
         <OrganizationSchema />
         <main className="text-cream selection:bg-gold min-h-screen bg-black selection:text-black">
           <Navbar />
