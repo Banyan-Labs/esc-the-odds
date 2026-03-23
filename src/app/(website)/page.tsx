@@ -10,12 +10,21 @@ export const metadata: Metadata = {
     title: "Escape The Odds | Reentry Education, Documentary & Economic Empowerment",
     description:
       "Empowering justice impacted individuals through documentary storytelling, structured reentry curriculum, and vocational entrepreneurship programs.",
+    images: [
+      {
+        url: "/assets/ETO-LandscapePoster.png",
+        width: 1200,
+        height: 630,
+        alt: "Escape The Odds Recidivism Film Poster",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Escape The Odds | Reentry Education & Economic Empowerment",
     description:
       "Empowering justice impacted individuals through documentary storytelling, reentry curriculum, and vocational programs.",
+    images: ["/assets/ETO-LandscapePoster.png"],
   },
 };
 import { AwarenessToImplementation } from "@/components/sections/AwarenessToImplementation";
