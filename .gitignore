@@ -49,10 +49,8 @@ next-env.d.ts
 .agent/
 .cursorrules
 
-# internal docs (keep README.md at root only)
-/docs/
-!/docs/wiki/
-!/docs/handoff/
+
+
 
 # payload
 /src/app/(payload)/admin/importMap.js
