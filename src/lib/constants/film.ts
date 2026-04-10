@@ -32,10 +32,10 @@ export const EXPERIENCE_STEPS: ExperienceStep[] = [
     icon: GraduationCap,
     title: "The Map",
     subtitle: "The Activation",
-    image: "/assets/IMG_1830.JPG",
-    imagePosition: "40% 20%",
+    image: "/assets/Escape-The-Odds-Mockups-IG-Post45/1.png",
+    imagePosition: "center 40%",
     description:
-      "Activation of the Bounce Forward Plan: Mastering Your Reentry — a structured, institutional ready reentry curriculum covering housing, career readiness, entrepreneurship, financial literacy, and more.",
+      "Activation of the Bounce Forward Plan: Mastering Your Reentry — a structured, institutional ready reentry curriculum covering housing, career readiness, entrepreneurship, financial literacy, and more. Each event provides 50 workbooks to local incarcerated individuals.",
   },
 ];
 

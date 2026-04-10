@@ -94,7 +94,7 @@ export function BounceForwardSection() {
             </div>
           </motion.div>
 
-          <ContactCTAs label="ENROLL YOUR ORGANIZATION" />
+          <ContactCTAs label="LET'S DISCUSS" />
           <FadeInView className="pt-2">
             <a
               href="https://www.amazon.com/dp/B0GMP7Z9P9"

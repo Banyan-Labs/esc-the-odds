@@ -36,7 +36,7 @@ export const ECOSYSTEM_CARDS: EcosystemCard[] = [
   {
     icon: Film,
     title: "Escaping The Odds of Recidivism Film – Impact Series",
-    body: "An up to 3.5-hour structured documentary + dialogue experience, including 50 Bounce Forward workbooks provided to local facilities where the film is hosted. Designed for: Correctional facilities, government reentry agencies, career development boards, community reentry organizations, libraries, educational institutions, employers, and CDFIs.",
+    body: "A 2.5-hour structured documentary + dialogue experience, including 50 Bounce Forward workbooks provided to local facilities where the film is hosted. Designed for: Correctional facilities, government reentry agencies, career development boards, community reentry organizations, libraries, educational institutions, employers, and CDFIs.",
     cta: "Host the Film",
     href: "/film",
     image: "/assets/IMG_1826.JPG",
@@ -189,11 +189,11 @@ export const HOME_EXPERIENCE_STEPS: HomeExperienceStep[] = [
     icon: GraduationCap,
     title: "The Map",
     subtitle: "Curriculum Activation",
-    image: "/assets/IMG_1830.JPG",
-    imageAlt: "Aaron teaching in front of class",
-    imagePosition: "40% 20%",
+    image: "/assets/Escape-The-Odds-Mockups-IG-Post45/1.png",
+    imageAlt: "Bounce Forward Plan workbook and digital materials",
+    imagePosition: "center 40%",
     description:
-      "Activation of the Bounce Forward Plan: Mastering Your Reentry, a structured, institutional ready reentry curriculum. Includes:",
+      "Activation of the Bounce Forward Plan: Mastering Your Reentry, a structured, institutional ready reentry curriculum. Each event provides 50 workbooks to local incarcerated individuals. Includes:",
     bullets: [
       "Housing stability planning",
       "Career readiness development",

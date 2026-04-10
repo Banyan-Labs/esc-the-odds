@@ -137,7 +137,7 @@ export default function FilmPage() {
               {!isPlaying && (
                 <>
                   <Image
-                    src="/assets/ETO-LandscapePoster.png"
+                    src="/assets/ET0-Landscape-Poster-Fixed.png"
                     alt="Escape The Odds Documentary Trailer"
                     fill
                     className="object-cover object-[center_75%] opacity-60 transition-transform duration-700 group-hover:scale-[1.02]"
@@ -163,7 +163,7 @@ export default function FilmPage() {
                 controls={isPlaying}
                 preload="auto"
                 playsInline
-                poster="/assets/ETO-LandscapePoster.png"
+                poster="/assets/ET0-Landscape-Poster-Fixed.png"
                 className={`h-full w-full object-cover ${isPlaying ? "block" : "hidden"}`}
                 onPlaying={() => setIsBuffering(false)}
                 onWaiting={() => setIsBuffering(true)}

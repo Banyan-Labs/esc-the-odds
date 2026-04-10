@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     url: "https://escapetheodds.com",
     images: [
       {
-        url: "/assets/ETO-LandscapePoster.png",
+        url: "/assets/ET0-Landscape-Poster-Fixed.png",
         width: 1200,
         height: 630,
         alt: "Escape The Odds Recidivism Film Poster",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     title: "Escape The Odds | Reentry Education & Economic Empowerment",
     description:
       "Empowering justice impacted individuals through documentary storytelling, reentry curriculum, and vocational programs.",
-    images: ["/assets/ETO-LandscapePoster.png"],
+    images: ["/assets/ET0-Landscape-Poster-Fixed.png"],
   },
 };
 

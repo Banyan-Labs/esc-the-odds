@@ -108,7 +108,7 @@ export function TheFilm() {
               {!isPlaying && (
                 <>
                   <Image
-                    src="/assets/ETO-LandscapePoster.png"
+                    src="/assets/ET0-Landscape-Poster-Fixed.png"
                     alt="The Film Preview"
                     fill
                     className="object-cover object-[center_75%] opacity-80 transition-transform duration-700 group-hover:scale-[1.02]"
@@ -134,7 +134,7 @@ export function TheFilm() {
                 controls={isPlaying}
                 preload="auto"
                 playsInline
-                poster="/assets/ETO-LandscapePoster.png"
+                poster="/assets/ET0-Landscape-Poster-Fixed.png"
                 className={`h-full w-full object-cover ${isPlaying ? "block" : "hidden"}`}
                 onPlaying={() => setIsBuffering(false)}
                 onWaiting={() => setIsBuffering(true)}
