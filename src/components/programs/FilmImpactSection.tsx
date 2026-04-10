@@ -44,7 +44,7 @@ export function FilmImpactSection() {
                 WHAT IT IS
               </h3>
               <p className="text-cream/90 font-sans text-lg leading-relaxed">
-                An up to 3.5-hour hosted experience built around the Escaping The Odds of Recidivism
+                A 2.5-hour hosted experience built around the Escaping The Odds of Recidivism
                 documentary, facilitated discussion, and workbook activation.
               </p>
             </div>
@@ -82,7 +82,7 @@ export function FilmImpactSection() {
             </div>
           </motion.div>
 
-          <ContactCTAs label="ENROLL YOUR ORGANIZATION" />
+          <ContactCTAs label="LET'S DISCUSS" />
         </div>
       </div>
     </section>

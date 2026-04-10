@@ -70,7 +70,7 @@ export function HouseHackingSection() {
             </div>
           </motion.div>
 
-          <ContactCTAs label="ENROLL YOUR ORGANIZATION" />
+          <ContactCTAs label="LET'S DISCUSS" />
           <FadeInView className="pt-2">
             <a
               href="https://a.co/d/0g3BeD8W"
